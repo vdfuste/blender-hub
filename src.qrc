@@ -1,0 +1,11 @@
+<RCC>
+  <qresource>
+    <file>images/bookmark.svg</file>
+    <file>images/download.svg</file>
+    <file>images/file.svg</file>
+    <file>images/folder.svg</file>
+    <file>images/header.jpg</file>
+    <file>images/logo.svg</file>
+    <file>images/settings.svg</file>
+  </qresource>
+</RCC>
