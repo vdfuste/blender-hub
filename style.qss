@@ -1,0 +1,72 @@
+/*
+red: #a7575f;
+green: #0cb391;
+blue: #4772b3;
+orange: #bb7f4e;
+
+gray-100: #161616; Background
+gray-200: #1d1d1d; Tab icon fill, Text input fill
+gray-300: #282828; Button icon fill, List dark
+gray-400: #303030; Base, Tab fill, List light
+gray-500: #3d3d3d; Box, Border
+gray-600: #545454; Value, Checkbox, Active icon fill
+gray-700: #696969; Active icon border
+gray-800: #a9a9a9; Icons
+gray-900: #e5e5e5; Icon active, Text
+*/
+
+QMainWindow {
+	background-color: #303030;
+}
+
+QPushButton {
+	border: none;
+	outline: none;
+}
+
+#sidebar {
+	background-color: #161616;
+}
+#sidebar #header {
+	
+}
+#sidebar #header QLabel {
+	font-size: 12pt;
+	color: #a9a9a9;
+}
+#sidebar #buttons QPushButton {
+	width: 200px;
+	margin: 8px;
+	margin-top: 0;
+	padding: 16px;
+	font-size: 10pt;
+	text-align: right;
+	background-color: #1d1d1d;
+	border-radius: 8px;
+	color: #a9a9a9;
+}
+#sidebar #buttons QPushButton:hover {
+	background-color: #303030;
+	color: #e5e5e5;
+}
+
+#pages {
+
+}
+#pages #header {
+	background-color: lightskyblue;
+}
+#pages #stack {
+
+}
+
+#pages #stack #projects_page #projects {
+	/* background-color: transparent; */
+}
+#projects_item {
+	min-height: 200px;
+	background-color: orange;
+}
+#projects_item:nth-child(odd) {
+	background-color: red;
+}

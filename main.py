@@ -1,34 +1,40 @@
-import PyQt5.QtWidgets as qtw
-#import PyQt5.QtGui as qtg
+import sys
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QWidget, QStackedWidget
+from utils.read import loadStyle
 
-# Cosas que tiene que hacer:
-# - Proyectos:
-#	- Guardar una lista de proyectos creados.
-#	- Añadir y borrar elementos de la lista.
-#	- Poder elegir con que versión abrir cada proyecto.
-#	- Opción para abrir el modo "Consola".
-#
-# - Instalaciones:
-#	- Descargar diferentes versiones.
-#	- Actualizar en vez de descargar (Minor Versions).
-#
-# - Import Config:
-#	- Copiar la configuración entre versiones.
+from components.pages import Pages
+from components.sidebar import Sidebar
 
-class MainWindow(qtw.QWidget):
+class MainWindow(QMainWindow):
 	def __init__(self):
-		super().__init__()
-		
-		self.setWindowTitle("Blender Hub v0.1.0")
-		self.resize(640, 480)
-		self.setLayout(qtw.QHBoxLayout())
+		super(MainWindow, self).__init__()
 
-		todolistLabel = qtw.QLabel("To-Do List")
-		self.layout().addWidget(todolistLabel)
-		
+		# Window config
+		self.setWindowTitle("Blender Hub v0.1.0")
+		self.setGeometry(100, 100, 1024, 800)
+
+		# Widgets
+		pages = Pages()
+		sidebar = Sidebar(pages.changePage)
+
+		# Layout
+		layout = QHBoxLayout()
+		layout.setContentsMargins(0, 0, 0, 0)
+		layout.setSpacing(0)
+		layout.addWidget(sidebar)
+		layout.addWidget(pages)
+
+		central_widget = QWidget()
+		central_widget.setLayout(layout)
+		self.setCentralWidget(central_widget)
+
+		# Style
+		loadStyle("style.qss", self)
+
 		self.show()
 
-app = qtw.QApplication([])
-mainWindow = MainWindow()
-
-app.exec_()
+if __name__ == "__main__":
+	app = QApplication(sys.argv)
+	window = MainWindow()
+	sys.exit(app.exec_())
