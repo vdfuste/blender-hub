@@ -30,7 +30,7 @@ class MainWindow(QMainWindow):
 		self.setCentralWidget(central_widget)
 
 		# Style
-		loadStyle("style.qss", self)
+		loadStyle("src/qss/style.qss", self)
 
 		self.show()
 

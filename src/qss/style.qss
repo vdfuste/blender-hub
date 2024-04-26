@@ -4,7 +4,7 @@ green: #0cb391;
 blue: #4772b3;
 orange: #bb7f4e;
 
-gray-100: #161616; Background
+gray-100: #121212; Background
 gray-200: #1d1d1d; Tab icon fill, Text input fill
 gray-300: #282828; Button icon fill, List dark
 gray-400: #303030; Base, Tab fill, List light
@@ -16,7 +16,7 @@ gray-900: #e5e5e5; Icon active, Text
 */
 
 QMainWindow {
-	background-color: #303030;
+	background-color: #121212;
 }
 
 QPushButton {
@@ -24,9 +24,12 @@ QPushButton {
 	outline: none;
 }
 
+/* SIDEBAR */
 #sidebar {
-	background-color: #161616;
+	background-color: #242424;
 }
+
+/* SIDEBAR HEADER*/
 #sidebar #header {
 	
 }
@@ -34,22 +37,29 @@ QPushButton {
 	font-size: 12pt;
 	color: #a9a9a9;
 }
+
+/* SIDEBAR BUTTONS */
 #sidebar #buttons QPushButton {
-	width: 200px;
 	margin: 8px;
 	margin-top: 0;
 	padding: 16px;
-	font-size: 10pt;
-	text-align: right;
-	background-color: #1d1d1d;
+	padding-right: 150px;
+	font-size: 16px;
+	text-align: left;
 	border-radius: 8px;
 	color: #a9a9a9;
 }
-#sidebar #buttons QPushButton:hover {
-	background-color: #303030;
+#sidebar #buttons QPushButton:checked {
+	background-color: #fff;
 	color: #e5e5e5;
 }
+#sidebar #buttons QPushButton:hover {
+	background-color: #323232;
+	color: #e5e5e5;
+}
+/* SIDEBAR END */
 
+/* PAGES */
 #pages {
 
 }
@@ -70,3 +80,4 @@ QPushButton {
 #projects_item:nth-child(odd) {
 	background-color: red;
 }
+/* PAGES END */
