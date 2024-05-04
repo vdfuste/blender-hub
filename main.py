@@ -12,7 +12,7 @@ class MainWindow(QMainWindow):
 
 		# Window config
 		self.setWindowTitle("Blender Hub v0.1.0")
-		self.setGeometry(100, 100, 1024, 800)
+		self.setGeometry(100, 100, 1024, 720)
 
 		# Widgets
 		pages = Pages()

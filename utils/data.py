@@ -1,5 +1,5 @@
 from os import makedirs, getenv, path
-from sys import platform
+from sys import platform	
 
 class ProjectsList():
 	def __init__(self):

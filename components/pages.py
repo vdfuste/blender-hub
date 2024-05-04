@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import QLabel, QHBoxLayout, QVBoxLayout, QStackedWidget, QW
 
 from pages.config import ConfigPage
 from pages.projects import ProjectsPage
+from pages.installs import InstallsPage
 
 class Pages(QWidget):
 	def __init__(self):
@@ -19,9 +20,9 @@ class Pages(QWidget):
 
 		# Header
 		header = QWidget()
-		header.setObjectName("header")
+		header.setObjectName("page_header")
 		header_layout = QHBoxLayout()
-		header_layout.setContentsMargins(16, 256, 16, 16)
+		#header_layout.setContentsMargins(16, 256, 16, 16)
 
 		self.title = QLabel("")
 		header_layout.addWidget(self.title)
@@ -35,6 +36,7 @@ class Pages(QWidget):
 		
 		self.addPage("Projects", "My Projects", ProjectsPage())
 		self.addPage("Config", "Configuration File", ConfigPage())
+		self.addPage("Installs", "Installs", InstallsPage())
 		
 		pages_layout.addWidget(self.stack)
 
@@ -45,14 +47,14 @@ class Pages(QWidget):
 		
 		self.setLayout(layout)
 	
-	def addPage(self, name, title, page):
-		self.pagesIndex[name] = {
+	def addPage(self, name_id, title, page):
+		self.pagesIndex[name_id] = {
 			"index": len(self.pagesIndex),
 			"title": title
 		}
 		self.stack.addWidget(page)
 	
-	def changePage(self, name):
-		self.stack.setCurrentIndex(self.pagesIndex[name]["index"])
-		self.title.setText(self.pagesIndex[name]["title"])
+	def changePage(self, name_id):
+		self.stack.setCurrentIndex(self.pagesIndex[name_id]["index"])
+		self.title.setText(self.pagesIndex[name_id]["title"])
 		
