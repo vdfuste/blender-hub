@@ -1,27 +1,5 @@
-/*
-red: #a7575f;
-green: #0cb391;
-blue: #4772b3;
-orange: #bb7f4e;
-
-gray-100: #121212; Background
-gray-200: #1d1d1d; Tab icon fill, Text input fill
-gray-300: #282828; Button icon fill, List dark
-gray-400: #303030; Base, Tab fill, List light
-gray-500: #3d3d3d; Box, Border
-gray-600: #545454; Value, Checkbox, Active icon fill
-gray-700: #696969; Active icon border
-gray-800: #a9a9a9; Icons
-gray-900: #e5e5e5; Icon active, Text
-*/
-
 QMainWindow {
 	background-color: #121212;
-}
-
-QPushButton {
-	/* border: none; */
-	/* outline: none; */
 }
 
 /* SIDEBAR */
@@ -37,6 +15,10 @@ QPushButton {
 	font-size: 11pt;
 	color: #a9a9a9;
 }
+#sidebar #header #icon {
+	max-width: 20px;
+	margin-left: 42px;
+}
 
 /* Buttons */
 #sidebar #buttons QPushButton {
@@ -44,10 +26,14 @@ QPushButton {
 	margin-top: 0;
 	padding: 16px;
 	padding-right: 120px;
+	font-family: "Inter-Medium";
 	font-size: 11pt;
 	text-align: left;
 	border-radius: 8px;
 	color: #a9a9a9;
+}
+#sidebar #buttons QPushButton::icon {
+	background-color: red;
 }
 #sidebar #buttons QPushButton:checked {
 	background-color: #fff;
@@ -78,19 +64,46 @@ QPushButton {
 }
 
 /* Header */
-#pages #stack #projects_page #header {
+#pages #stack #projects_page #header #title {
+	font-size: 24pt;
+	color: #646464;
+}
+#pages #stack #projects_page #header QPushButton {
+	padding: 16px 20px;
+	padding-top: 18px;
+	border: 1px solid #242424;
+	border-radius: 12px;
+	color: #686868;
+}
+#pages #stack #projects_page #header QPushButton:hover {
+	border-color: #323232;
+	color: #a9a9a9;
+}
+#pages #stack #projects_page #header #new_btn {
+	background-color: #0062c0;
+	border: none;
+	color: #e5e5e5;
+}
+#pages #stack #projects_page #header #new_btn:hover {
+	background-color: #0084e6;
+	color: white;
+}
+
+/* List Header */
+#pages #stack #projects_page #list-header {
 	border-top: 1px solid #242424;
 	border-bottom: 1px solid #242424;
 }
-#pages #stack #projects_page #header QPushButton {
+#pages #stack #projects_page #list-header QPushButton {
 	min-width: 96px;
 	padding: 24px;
+	font-size: 9pt;
 	border: none;
 	border-left: 1px solid #242424;
 	color: #323232;
 	text-align: left;
 }
-#pages #stack #projects_page #header QPushButton#last {
+#pages #stack #projects_page #list-header QPushButton#last {
 	border-right: 1px solid #242424;
 }
 
@@ -105,8 +118,8 @@ QPushButton {
 
 /* Item */
 #pages #stack #projects_page #list #item {
-	min-height: 100px;
-	max-height: 100px;
+	min-height: 96px;
+	max-height: 96px;
 	margin-top: 1px;
 	background-color: #181818;
 	border: none;
@@ -114,13 +127,20 @@ QPushButton {
 #pages #stack #projects_page #list #item:hover {
 	background-color: #1d1d1d;
 }
+#pages #stack #projects_page #list #item #item_center,
+#pages #stack #projects_page #list #item #item_right {
+	min-width: 104px;
+	max-width: 104px;
+	padding: 24px;
+	border: none;
+}
 #pages #stack #projects_page #list #item QLabel {
-	min-width: 96px;
-	padding: 0 24px;
+	/* padding: 0 24px; */
 	color: #686868;
+	border: none;
 }
 #pages #stack #projects_page #list #item #file_name {
-	font-size: 12pt;
+	font-size: 14pt;
 }
 #pages #stack #projects_page #list #item #file_path {
 	font-size: 10pt;
@@ -128,7 +148,7 @@ QPushButton {
 	color: #323232;
 }
 #pages #stack #projects_page #list #item #versions {
-	width: 100px;
+	/* width: 32px; */
 	padding: 8px 12px;
 	background-color: #121212;
 	border: none;
@@ -142,6 +162,21 @@ QPushButton {
 }
 #pages #stack #projects_page #list #item #versions::down-arrow {
 	image: url("src/images/caret-down.svg");
+}
+#pages #stack #projects_page #list #item #options {
+	min-width: 24px;
+	max-width: 24px;
+	height: 24px;
+	border-radius: 10px;
+	border: none;
+	color: #646464;
+}
+#pages #stack #projects_page #list #item #options:hover {
+	background-color: #323232;
+	color: #646464;
+}
+#pages #stack #projects_page #list #item #options:menu-indicator {
+	width: 0px;
 }
 
 /* PAGES END */

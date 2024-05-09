@@ -9,7 +9,7 @@ class Header(QWidget):
 		layout.setSpacing(0)
 		
 		header = QWidget()
-		header.setObjectName("header")
+		header.setObjectName("list-header")
 		header_layout = QHBoxLayout()
 		header_layout.setContentsMargins(24, 0, 32, 0)
 

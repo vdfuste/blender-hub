@@ -1,16 +1,26 @@
-from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QLabel, QSizePolicy, QComboBox
+from os import path
+from subprocess import Popen, CalledProcessError
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QLabel, QPushButton, QMenu, QSizePolicy, QComboBox
 
 class Item(QWidget):
 	'''
 	TO-DO list:
 	 * Versions
 	  - Check what versions are installed
+	  - Exclude the current version in "all_versions"
 	  - Highlight the current version
 	  - Mark the current version as uninstalled if is not installed
+	
+	 * Open project:
+	  - Check if the file exists before open it
 	'''
-	def __init__(self, data):
+	
+	def __init__(self, data, callback):
 		super(QWidget, self).__init__()
 
+		self.splitData(data)
+		
 		layout = QHBoxLayout()
 		layout.setContentsMargins(0, 0, 0, 0)
 		layout.setSpacing(0)
@@ -18,7 +28,7 @@ class Item(QWidget):
 		item = QWidget()
 		item.setObjectName("item")
 		item_layout = QHBoxLayout()
-		item_layout.setContentsMargins(24, 0, 48, 0)
+		item_layout.setContentsMargins(24, 0, 24, 0)
 		item_layout.setSpacing(0)
 
 		
@@ -27,17 +37,22 @@ class Item(QWidget):
 		left_section.setObjectName("item_left")
 		left_section.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
 		left_section_layout = QVBoxLayout()
-		left_section_layout.setContentsMargins(0, 0, 0, 0)
+		left_section_layout.setContentsMargins(24, 0, 24, 0)
 		left_section_layout.setSpacing(0)
 
 		# Title and path
-		file_name = QLabel(data["name"])
-		file_name.setObjectName("file_name")
-		left_section_layout.addWidget(file_name)
+		file_name_label = QLabel(
+			self.project_name
+			.replace(".blend", "")
+			.replace("_", " ")
+			.capitalize()
+		)
+		file_name_label.setObjectName("file_name")
+		left_section_layout.addWidget(file_name_label)
 
-		file_path = QLabel(data["path"])
-		file_path.setObjectName("file_path")
-		left_section_layout.addWidget(file_path)
+		file_path_label = QLabel(self.project_path)
+		file_path_label.setObjectName("file_path")
+		left_section_layout.addWidget(file_path_label)
 
 		left_section.setLayout(left_section_layout)
 		item_layout.addWidget(left_section)
@@ -47,10 +62,10 @@ class Item(QWidget):
 		center_section = QWidget()
 		center_section.setObjectName("item_center")
 		center_section_layout = QVBoxLayout()
-		center_section_layout.setContentsMargins(0, 0, 0, 0)
+		center_section_layout.setContentsMargins(24, 0, 24, 0)
 
 		# Last modification date
-		file_last = QLabel("a week ago")
+		file_last = QLabel("a week ago") #self.project_date
 		center_section_layout.addWidget(file_last)
 
 		center_section.setLayout(center_section_layout)
@@ -60,14 +75,28 @@ class Item(QWidget):
 		# Right section content
 		right_section = QWidget()
 		right_section.setObjectName("item_right")
-		right_section_layout = QVBoxLayout()
-		right_section_layout.setContentsMargins(0, 0, 0, 0)
+		right_section_layout = QHBoxLayout()
+		right_section_layout.setContentsMargins(24, 0, 0, 0)
 
 		# Version and options
+		all_versions = ["v4.1.1", "v4.0.2", "v3.6.9"]
+
 		versions = QComboBox()
 		versions.setObjectName("versions")
-		versions.addItems([data["version"], "v4.1.1", "v4.0.2"])
+		versions.addItem(f'v{self.project_version}')
+		versions.addItems(all_versions)
 		right_section_layout.addWidget(versions)
+
+		options = QPushButton("⋮")
+		options.setObjectName("options")
+		options_menu = QMenu()
+		remove_action = options_menu.addAction("Remove from Blender Hub")
+		remove_action.triggered.connect(lambda: callback(False))
+		delete_action = options_menu.addAction("Delete from disk")
+		delete_action.triggered.connect(lambda: callback(True))
+		options.setMenu(options_menu)
+		options.clicked.connect(options_menu.popup)
+		right_section_layout.addWidget(options)
 
 		right_section.setLayout(right_section_layout)
 		item_layout.addWidget(right_section)
@@ -76,6 +105,21 @@ class Item(QWidget):
 		item.setLayout(item_layout)
 		layout.addWidget(item)
 		self.setLayout(layout)
+	
+	def splitData(self, data):
+		# Gets the full path, last modified date and current version from data
+		_path_name, self.project_date, self.project_version = data.split(';')
+		
+		# Split to path and name from the full path
+		self.project_path, self.project_name = path.split(_path_name)
+	
+	def mousePressEvent(self, event):
+		_blender_path = f"/opt/blender/blender-4.1.1-linux-x64/blender"
+		_project_path = path.join(self.project_path, self.project_name)
 
-	def onClick(self, callback):
-		self.clicked.connect(callback)
+		try:
+			Popen(f"{_blender_path} {_project_path}".split(' '))
+		except CalledProcessError:
+			print(f"Error opening {self.project_name} project.")
+
+

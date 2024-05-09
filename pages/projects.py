@@ -1,6 +1,7 @@
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QWidget, QVBoxLayout, QScrollArea, QSizePolicy
-from utils.data import ProjectsList
+from PyQt5.QtWidgets import QWidget, QLabel, QHBoxLayout, QVBoxLayout, QPushButton, QScrollArea, QSizePolicy, QFileDialog
+
+from globals import projects
 
 from components.projects.header import Header
 from components.projects.item import Item
@@ -18,11 +19,35 @@ class ProjectsPage(QWidget):
 		page_layout.setContentsMargins(0, 0, 0, 0)
 		page_layout.setSpacing(0)
 
-		# Loading projects
-		projects = ProjectsList()
+
+		# Header
+		header = QWidget()
+		header.setObjectName("header")
+		header_layout = QHBoxLayout()
+		header_layout.setContentsMargins(24, 96, 12, 12)
+		
+		title = QLabel("Projects")
+		title.setObjectName("title")
+		header_layout.addWidget(title)
+		
+		header_layout.addStretch(0)
+
+		import_btn = QPushButton("Import existing project")
+		import_btn.clicked.connect(lambda: self.importProject())
+		header_layout.addWidget(import_btn)
+
+		# new_btn = QPushButton("Create new project")
+		new_btn = QPushButton("See projects")
+		new_btn.setObjectName("new_btn")
+		new_btn.clicked.connect(lambda: self.createProject())
+		header_layout.addWidget(new_btn)
+
+		header.setLayout(header_layout)
+		page_layout.addWidget(header)
+
 
 		# Projects list
-		# Header
+		# List Header
 		header = Header()
 		page_layout.addWidget(header)
 
@@ -32,25 +57,64 @@ class ProjectsPage(QWidget):
 		scroll_area.setContentsMargins(0, 0, 0, 0)
 		scroll_area.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
 
-		projects_list = QWidget()
-		projects_list.setObjectName("list")
-		projects_list_layout = QVBoxLayout()
-		projects_list_layout.setAlignment(Qt.AlignTop)
-		projects_list_layout.setContentsMargins(0, 0, 0, 0)
-		projects_list_layout.setSpacing(0)
-		#projects_list.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+		self.projects_list = QWidget()
+		self.projects_list.setObjectName("list")
+		self.projects_list_layout = QVBoxLayout()
+		self.projects_list_layout.setAlignment(Qt.AlignTop)
+		self.projects_list_layout.setContentsMargins(0, 0, 0, 0)
+		self.projects_list_layout.setSpacing(0)
 
-		# Populate list with data
-		for row, project in enumerate(projects.items):
-			print(project)
-			projects_list_layout.addWidget(Item(project))
+		self.populateList()
 
-		projects_list.setLayout(projects_list_layout)
-		scroll_area.setWidget(projects_list)
+		self.projects_list.setLayout(self.projects_list_layout)
+		scroll_area.setWidget(self.projects_list)
 		page_layout.addWidget(scroll_area)
 		
 		page.setLayout(page_layout)
 		layout.addWidget(page)
 		
 		self.setLayout(layout)
+	
+	def populateList(self):
+		# Populate list with all the items in "projects"
+		for row, project in enumerate(projects.items):
+			item = Item(project, lambda delete: self.removeProject(row, delete))
+			self.projects_list_layout.addWidget(item)
 		
+		self.projects_list.update()
+	
+	def createProject(self):
+		print(projects.items)
+
+	def importProject(self):
+		# Get the full path of the project
+		title = "Open Blender File"
+		format_options = "Blender Files (*.blend);;All Files (*)"
+
+		options = QFileDialog.Options()
+		options |= QFileDialog.DontUseNativeDialog
+		file_name, _ = QFileDialog.getOpenFileName(self, title, "", format_options, options=options)
+
+		if file_name:
+			# Check if the project is already on the list
+			for project in projects.items:
+				data = project.split(';')
+				if data[0] == file_name:
+					print("The project already exists.")
+					return
+
+			# Add project if is not on the list
+			projects.addProject(file_name)
+
+			item = Item(projects.items[-1], lambda delete: self.removeProject(len(projects.items, delete)))
+			self.projects_list_layout.addWidget(item)
+
+			print(f"Project imported: {file_name}")
+
+	def removeProject(self, index, delete=False):
+		projects.removeProject(index)
+
+		item = self.projects_list_layout.itemAt(index).widget()
+		self.projects_list_layout.removeWidget(item)
+		item.deleteLater()
+

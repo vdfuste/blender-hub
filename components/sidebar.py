@@ -1,6 +1,6 @@
 from PyQt5.QtCore import Qt, QSize
 from PyQt5.QtWidgets import QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QWidget
-from PyQt5.QtGui import QIcon
+from PyQt5.QtGui import QIcon, QPixmap
 
 class SideBarButton(QPushButton):
 	def __init__(self, label, name, icon):
@@ -35,13 +35,17 @@ class Sidebar(QWidget):
 		header = QWidget()
 		header.setObjectName("header")
 		header_layout = QHBoxLayout()
-		header_layout.setContentsMargins(0, 0, 0, 0)
+		header_layout.setContentsMargins(24, 24, 0, 24)
 
-		icon = QLabel("")
+		icon = QLabel()
+		icon.setObjectName("icon")
 		icon.setContentsMargins(0, 0, 0, 0)
-		icon.setAlignment(Qt.AlignRight)
+		# icon.setAlignment(Qt.AlignRight)
+		icon.setPixmap(QPixmap("src/images/logo.svg"))
+		
 		title = QLabel("Blender Hub")
 		title.setContentsMargins(0, 0, 0, 0)
+		
 		header_layout.addWidget(icon)
 		header_layout.addWidget(title)
 		

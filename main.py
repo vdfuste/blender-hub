@@ -1,6 +1,7 @@
 import sys
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QWidget, QStackedWidget
+from PyQt5.QtGui import QFont, QFontDatabase
 from utils.read import loadStyle
 
 from components.pages import Pages
@@ -13,7 +14,7 @@ class MainWindow(QMainWindow):
 		# Window config
 		self.setWindowTitle("Blender Hub v0.1.0")
 		self.setGeometry(100, 100, 1024, 720)
-
+		
 		# Widgets
 		pages = Pages()
 		sidebar = Sidebar(pages.changePage)

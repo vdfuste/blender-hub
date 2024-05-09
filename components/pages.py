@@ -19,7 +19,7 @@ class Pages(QWidget):
 		pages_layout.setContentsMargins(0, 0, 0, 0)
 
 		# Header
-		header = QWidget()
+		'''header = QWidget()
 		header.setObjectName("page_header")
 		header_layout = QHBoxLayout()
 		#header_layout.setContentsMargins(16, 256, 16, 16)
@@ -28,7 +28,7 @@ class Pages(QWidget):
 		header_layout.addWidget(self.title)
 		
 		header.setLayout(header_layout)
-		pages_layout.addWidget(header)
+		pages_layout.addWidget(header)'''
 		
 		# Pages stack
 		self.stack = QStackedWidget()
@@ -56,5 +56,5 @@ class Pages(QWidget):
 	
 	def changePage(self, name_id):
 		self.stack.setCurrentIndex(self.pagesIndex[name_id]["index"])
-		self.title.setText(self.pagesIndex[name_id]["title"])
+		#self.title.setText(self.pagesIndex[name_id]["title"])
 		
