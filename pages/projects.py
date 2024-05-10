@@ -2,6 +2,7 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QWidget, QLabel, QHBoxLayout, QVBoxLayout, QPushButton, QScrollArea, QSizePolicy, QFileDialog
 
 from globals import projects
+from components.fileDialog import FileDialog
 
 from components.projects.header import Header
 from components.projects.item import Item
@@ -77,8 +78,8 @@ class ProjectsPage(QWidget):
 	
 	def populateList(self):
 		# Populate list with all the items in "projects"
-		for row, project in enumerate(projects.items):
-			item = Item(project, lambda delete: self.removeProject(row, delete))
+		for index, project in enumerate(projects.items):
+			item = Item(project, index, lambda _index, delete: self.removeProject(_index, delete))
 			self.projects_list_layout.addWidget(item)
 		
 		self.projects_list.update()
@@ -87,34 +88,43 @@ class ProjectsPage(QWidget):
 		print(projects.items)
 
 	def importProject(self):
-		# Get the full path of the project
-		title = "Open Blender File"
-		format_options = "Blender Files (*.blend);;All Files (*)"
+		# Get the full path of the projects
+		file_names = FileDialog.findBlendFile(self)
 
-		options = QFileDialog.Options()
-		options |= QFileDialog.DontUseNativeDialog
-		file_name, _ = QFileDialog.getOpenFileName(self, title, "", format_options, options=options)
+		for file_name in file_names:
+			if file_name:
+				is_on_list = False 
+				
+				# Check if the project is already on the list
+				for project in projects.items:
+					data = project.split(';')
+					if data[0] == file_name:
+						print("The project already exists.")
+						is_on_list = True
+						break
 
-		if file_name:
-			# Check if the project is already on the list
-			for project in projects.items:
-				data = project.split(';')
-				if data[0] == file_name:
-					print("The project already exists.")
-					return
+				# Skip the current loop if the prject is on the list
+				if is_on_list: continue
+				
+				# Add project if is not on the list
+				data, index = projects.addProject(file_name)
 
-			# Add project if is not on the list
-			projects.addProject(file_name)
+				item = Item(data, index, lambda _index, delete: self.removeProject(_index, delete))
+				self.projects_list_layout.addWidget(item)
 
-			item = Item(projects.items[-1], lambda delete: self.removeProject(len(projects.items, delete)))
-			self.projects_list_layout.addWidget(item)
-
-			print(f"Project imported: {file_name}")
+				print(f"Project imported: {file_name}")
 
 	def removeProject(self, index, delete=False):
-		projects.removeProject(index)
+		print(index)
+		
+		# Remove data from "projects.txt" file
+		projects.removeProject(index, delete)
 
-		item = self.projects_list_layout.itemAt(index).widget()
-		self.projects_list_layout.removeWidget(item)
-		item.deleteLater()
+		# Remove all items
+		while self.projects_list_layout.count():
+			item = self.projects_list_layout.takeAt(0)
+			if item.widget():
+				item.widget().deleteLater()
 
+		# Add new items
+		self.populateList()
