@@ -1,7 +1,7 @@
 from os import path
 from subprocess import Popen, CalledProcessError
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QLabel, QPushButton, QMenu, QSizePolicy, QComboBox
+from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QLabel, QPushButton, QMenu, QComboBox, QMessageBox, QSizePolicy
 
 class Item(QWidget):
 	'''
@@ -92,8 +92,8 @@ class Item(QWidget):
 		options_menu = QMenu()
 		remove_action = options_menu.addAction("Remove from Blender Hub")
 		remove_action.triggered.connect(lambda: callback(index, False))
-		delete_action = options_menu.addAction("Delete from disk")
-		delete_action.triggered.connect(lambda: callback(index, True))
+		delete_action = options_menu.addAction("Delete file from disk")
+		delete_action.triggered.connect(lambda: self.openWarningMessage(index, callback))
 		options.setMenu(options_menu)
 		options.clicked.connect(options_menu.popup)
 		right_section_layout.addWidget(options)
@@ -121,3 +121,23 @@ class Item(QWidget):
 			Popen(f"{_blender_path} {_project_path}".split(' '))
 		except CalledProcessError:
 			print(f"Error opening {self.project_name} project.")
+
+	def openWarningMessage(self, index, callback):
+		warningMessage = QMessageBox()
+		warningMessage.setIcon(QMessageBox.Warning)
+		warningMessage.setText("Are you sure you want to delete the file from your disk?")
+		warningMessage.setWindowTitle("Blender Hub says:")
+
+		delete_btn = QPushButton("Delete it")
+		delete_btn.clicked.connect(lambda: callback(index, True))
+		warningMessage.addButton(delete_btn, QMessageBox.AcceptRole)
+		
+		remove_btn = QPushButton("Just remove it from list")
+		remove_btn.clicked.connect(lambda: callback(index, False))
+		warningMessage.addButton(remove_btn, QMessageBox.ActionRole)
+		
+		cancel_btn = QPushButton("Cancel")
+		warningMessage.addButton(cancel_btn, QMessageBox.RejectRole)
+
+		warningMessage.setDefaultButton(cancel_btn)
+		warningMessage.exec_()

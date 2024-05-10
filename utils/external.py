@@ -1,4 +1,4 @@
-from os import makedirs, path
+from os import makedirs, path, remove
 from time import ctime
 
 class ExternalList():
@@ -76,5 +76,9 @@ class ProjectsList(ExternalList):
 		return [_data, len(self.items) - 1]
 
 	def removeProject(self, index, delete):
+		# Delete file from disk
+		if delete:
+			remove(self.items[index].split(';')[0])
+		
 		del self.items[index]
 		self.write()
