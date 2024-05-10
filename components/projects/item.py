@@ -16,7 +16,7 @@ class Item(QWidget):
 	  - Check if the file exists before open it
 	'''
 	
-	def __init__(self, data, callback):
+	def __init__(self, data, index, callback):
 		super(QWidget, self).__init__()
 
 		self.splitData(data)
@@ -91,9 +91,9 @@ class Item(QWidget):
 		options.setObjectName("options")
 		options_menu = QMenu()
 		remove_action = options_menu.addAction("Remove from Blender Hub")
-		remove_action.triggered.connect(lambda: callback(False))
+		remove_action.triggered.connect(lambda: callback(index, False))
 		delete_action = options_menu.addAction("Delete from disk")
-		delete_action.triggered.connect(lambda: callback(True))
+		delete_action.triggered.connect(lambda: callback(index, True))
 		options.setMenu(options_menu)
 		options.clicked.connect(options_menu.popup)
 		right_section_layout.addWidget(options)
@@ -121,5 +121,3 @@ class Item(QWidget):
 			Popen(f"{_blender_path} {_project_path}".split(' '))
 		except CalledProcessError:
 			print(f"Error opening {self.project_name} project.")
-
-

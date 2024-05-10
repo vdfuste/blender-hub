@@ -68,10 +68,13 @@ class ProjectsList(ExternalList):
 	def addProject(self, fileName):
 		_date = ctime(path.getmtime(fileName))
 		_version = "4.1.1"
+		_data = f"{fileName};{_date};{_version}"
 
-		self.items.append(f"{fileName};{_date};{_version}")
+		self.items.append(_data)
 		self.writeProjects()
 
-	def removeProject(self, index):
+		return [_data, len(self.items) - 1]
+
+	def removeProject(self, index, delete):
 		del self.items[index]
 		self.write()
