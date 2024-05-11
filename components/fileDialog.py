@@ -12,3 +12,12 @@ class FileDialog():
 		file_name, _ = QFileDialog.getOpenFileNames(self, title, INIT_FILE_DIALOG_FOLDER, format_options, options=options)
 
 		return file_name
+
+	def newBlenderFile(self):
+		title = "New Blender File"
+
+		options = QFileDialog.Options()
+		options |= QFileDialog.DontUseNativeDialog
+		file_name, _ = QFileDialog.getExistingDirectory(self, title, INIT_FILE_DIALOG_FOLDER, format_options, options=options)
+
+		return file_name

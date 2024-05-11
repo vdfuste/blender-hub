@@ -38,7 +38,7 @@ class ProjectsPage(QWidget):
 		header_layout.addWidget(import_btn)
 
 		# new_btn = QPushButton("Create new project")
-		new_btn = QPushButton("See projects")
+		new_btn = QPushButton("Create new project")
 		new_btn.setObjectName("new_btn")
 		new_btn.clicked.connect(lambda: self.createProject())
 		header_layout.addWidget(new_btn)
@@ -85,7 +85,7 @@ class ProjectsPage(QWidget):
 		self.projects_list.update()
 	
 	def createProject(self):
-		print(projects.items)
+		pass
 
 	def importProject(self):
 		# Get the full path of the projects
