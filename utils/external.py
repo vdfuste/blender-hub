@@ -2,6 +2,16 @@ from os import makedirs, path, remove
 from time import ctime
 
 class ExternalList():
+	'''
+	Reads an external .txt file and creates a list,
+	if the file doesn't exists it will be created.
+	Any change updates both the external file and
+	the list keeping them synchonized.
+
+	Args:
+	
+	file_path: Path to the external file.
+	'''
 	def __init__(self, file_path):
 		super().__init__()
 		self.items = []
@@ -82,3 +92,7 @@ class ProjectsList(ExternalList):
 		
 		del self.items[index]
 		self.write()
+
+'''class InstallationsList(ExternalList):
+	def __init__(self, file_path):
+		super().__init__(sel, file_path)'''
