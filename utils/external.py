@@ -93,6 +93,6 @@ class ProjectsList(ExternalList):
 		del self.items[index]
 		self.write()
 
-'''class InstallationsList(ExternalList):
+class VersionsList(ExternalList):
 	def __init__(self, file_path):
-		super().__init__(sel, file_path)'''
+		super().__init__(self, file_path)
