@@ -1,15 +1,19 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QWidget, QLabel, QHBoxLayout, QVBoxLayout, QPushButton, QScrollArea, QSizePolicy, QFileDialog
 
-from globals import projects
-from components.fileDialog import FileDialog
+from pages.floating.new_project import NewProject
 
+from components.fileDialog import FileDialog
 from components.projects.header import Header
 from components.projects.item import Item
+
+from globals import projects
 
 class ProjectsPage(QWidget):
 	def __init__(self):
 		super().__init__()
+
+		self.floating_window = NewProject()
 
 		layout = QVBoxLayout()
 		layout.setContentsMargins(0, 0, 0, 0)
@@ -37,7 +41,6 @@ class ProjectsPage(QWidget):
 		import_btn.clicked.connect(lambda: self.importProject())
 		header_layout.addWidget(import_btn)
 
-		# new_btn = QPushButton("Create new project")
 		new_btn = QPushButton("Create new project")
 		new_btn.setObjectName("new_btn")
 		new_btn.clicked.connect(lambda: self.createProject())
@@ -85,7 +88,9 @@ class ProjectsPage(QWidget):
 		self.projects_list.update()
 	
 	def createProject(self):
-		pass
+		pass	
+		#self.floating_window.reset()
+		#self.floating_window.show()
 
 	def importProject(self):
 		# Get the full path of the projects

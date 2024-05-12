@@ -14,6 +14,9 @@ class MainWindow(QMainWindow):
 		# Window config
 		self.setWindowTitle("Blender Hub v0.1.0")
 		self.setGeometry(100, 100, 1024, 720)
+
+		# Style
+		loadStyle("src/qss/style.qss", self)
 		
 		# Widgets
 		pages = Pages()
@@ -29,10 +32,6 @@ class MainWindow(QMainWindow):
 		central_widget = QWidget()
 		central_widget.setLayout(layout)
 		self.setCentralWidget(central_widget)
-
-		# Style
-		loadStyle("src/qss/style.qss", self)
-
 		self.show()
 
 if __name__ == "__main__":

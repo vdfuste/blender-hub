@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import QFileDialog
 
-from globals import INIT_FILE_DIALOG_FOLDER
+from globals import DOCUMENTS_FOLDER
 
 class FileDialog():
 	def findBlendFile(self):
@@ -9,7 +9,7 @@ class FileDialog():
 
 		options = QFileDialog.Options()
 		options |= QFileDialog.DontUseNativeDialog
-		file_name, _ = QFileDialog.getOpenFileNames(self, title, INIT_FILE_DIALOG_FOLDER, format_options, options=options)
+		file_name, _ = QFileDialog.getOpenFileNames(self, title, DOCUMENTS_FOLDER, format_options, options=options)
 
 		return file_name
 
@@ -18,6 +18,6 @@ class FileDialog():
 
 		options = QFileDialog.Options()
 		options |= QFileDialog.DontUseNativeDialog
-		file_name, _ = QFileDialog.getExistingDirectory(self, title, INIT_FILE_DIALOG_FOLDER, format_options, options=options)
+		file_path = QFileDialog.getExistingDirectory(self, title, DOCUMENTS_FOLDER, options=options)
 
-		return file_name
+		return file_path

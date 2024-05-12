@@ -6,14 +6,14 @@ from utils.scrapping import getAvailableVersions
 
 from globals import BLENDER_DOWNLOADS_URL
 
+'''
+TO-DO list:
+ - Scrap the web to see all available versions.
+ - Check if the selected version is already installed.
+ - Add blender to PATH?
+'''
+
 class InstallsPage(QWidget):
-	'''
-	TO-DO list:
-	  - Scrap the web to see all available versions.
-	  - Check if the selected version is already installed.
-	  - Add blender to PATH?
-	'''
-	
 	def __init__(self):
 		super().__init__()
 

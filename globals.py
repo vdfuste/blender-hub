@@ -6,15 +6,17 @@ from utils.external import ProjectsList
 # Constant Variables
 # Getting some paths based on the OS
 if platform == "linux" or platform == "linux2":
-	INIT_FILE_DIALOG_FOLDER = path.expanduser("~")
-	TEMP_USER_FOLDER = path.join(path.expanduser("~"), ".cache")
+	USER_FOLDER = path.expanduser("~")
+	DOCUMENTS_FOLDER = path.join(USER_FOLDER, "Documents")
+	TEMP_USER_FOLDER = path.join(USER_FOLDER, ".cache")
 
 elif platform == "win32":
-	INIT_FILE_DIALOG_FOLDER = path.join(getenv("USERPROFILE"), "Documents")
+	USER_FOLDER = getenv("USERPROFILE")
+	DOCUMENTS_FOLDER = path.join(USER_FOLDER, "Documents")
 	TEMP_USER_FOLDER = getenv("LOCALAPPDATA")
 
 #elif platform == "darwin":
-#	INIT_FILE_DIALOG_FOLDER = Path.home()/"Documents"
+#	DOCUMENTS_FOLDER = Path.home()/"Documents"
 #	TEMP_USER_FOLDER = "MacOS"
 
 APP_NAME_FOLDER = "blender_hub"
