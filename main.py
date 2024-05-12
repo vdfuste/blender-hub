@@ -7,13 +7,20 @@ from utils.read import loadStyle
 from components.pages import Pages
 from components.sidebar import Sidebar
 
+from globals import app, SCREEN_GEOMETRY
+
 class MainWindow(QMainWindow):
 	def __init__(self):
 		super(MainWindow, self).__init__()
 
 		# Window config
+		width = 1024
+		height = 720
+		pos_x = int(SCREEN_GEOMETRY.width()/2 - width/2)
+		pos_y = int(SCREEN_GEOMETRY.height()/2 - height/2)
+		
 		self.setWindowTitle("Blender Hub v0.1.0")
-		self.setGeometry(100, 100, 1024, 720)
+		self.setGeometry(pos_x, pos_y, width, height)
 
 		# Style
 		loadStyle("src/qss/style.qss", self)
@@ -35,6 +42,5 @@ class MainWindow(QMainWindow):
 		self.show()
 
 if __name__ == "__main__":
-	app = QApplication(sys.argv)
 	window = MainWindow()
 	sys.exit(app.exec_())

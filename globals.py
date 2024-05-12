@@ -1,7 +1,13 @@
+import sys
 from os import getenv, path
 from sys import platform
+from PyQt5.QtWidgets import QApplication
 
 from utils.external import ProjectsList
+
+app = QApplication(sys.argv)
+	
+SCREEN_GEOMETRY = app.desktop().screenGeometry()
 
 # Constant Variables
 # Getting some paths based on the OS

@@ -6,19 +6,26 @@ from utils.read import loadStyle
 
 from components.fileDialog import FileDialog
 
-from globals import DOCUMENTS_FOLDER
+from globals import DOCUMENTS_FOLDER, SCREEN_GEOMETRY
 
 '''
 TO-DO list:
  - Handle names with spaces.
+ - Add project to Projects after create it.
  - Close application when a project is created.
+ - Use QDialog instead of QWidget
 '''
 class NewProject(QWidget):
 	def __init__(self):
 		super().__init__()
-
+		
+		width = 640
+		height = 300
+		pos_x = int(SCREEN_GEOMETRY.width()/2 - width/2)
+		pos_y = int(SCREEN_GEOMETRY.height()/2 - height/2)
+		
 		self.setObjectName("new-project-page")
-		self.setGeometry(100, 100, 640, 20)
+		self.setGeometry(pos_x, pos_y, width, height)
 		loadStyle("src/qss/pages/floating/new_project.qss", self)
 
 		layout = QVBoxLayout()

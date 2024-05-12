@@ -88,9 +88,8 @@ class ProjectsPage(QWidget):
 		self.projects_list.update()
 	
 	def createProject(self):
-		pass	
-		#self.floating_window.reset()
-		#self.floating_window.show()
+		self.floating_window.reset()
+		self.floating_window.show()
 
 	def importProject(self):
 		# Get the full path of the projects
