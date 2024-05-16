@@ -1,6 +1,12 @@
 from os import makedirs, path, remove
 from time import ctime
 
+'''
+TO-DO list:
+ * ProjectsList:
+  - Check if projects are still available
+'''
+
 class ExternalList():
 	'''
 	Reads an external .txt file and creates a list,
@@ -62,10 +68,6 @@ class ExternalList():
 			print(f"An error ocurred writing the file: {error}")
 
 class ProjectsList(ExternalList):
-	'''
-	TO-DO list:
-	 - Check if projects are still available
-	'''
 	def __init__(self, file_path):
 		super().__init__(file_path)
 	
@@ -75,10 +77,11 @@ class ProjectsList(ExternalList):
 	def writeProjects(self):
 		super().write()
 	
-	def addProject(self, fileName):
-		_date = ctime(path.getmtime(fileName))
+	def addProject(self, file_name):
+		# Generate some data
+		_date = ctime(path.getmtime(file_name))
 		_version = "4.1.1"
-		_data = f"{fileName};{_date};{_version}"
+		_data = f"{file_name};{_date};{_version}"
 
 		self.items.append(_data)
 		self.writeProjects()
@@ -90,9 +93,6 @@ class ProjectsList(ExternalList):
 		if delete:
 			remove(self.items[index].split(';')[0])
 		
+		# Remove the item
 		del self.items[index]
 		self.write()
-
-class VersionsList(ExternalList):
-	def __init__(self, file_path):
-		super().__init__(self, file_path)

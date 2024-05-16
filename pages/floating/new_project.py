@@ -5,6 +5,7 @@ from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QLabel, QPushButt
 from utils.read import loadStyle
 
 from components.fileDialog import FileDialog
+from utils.blender.run import new_project
 
 from globals import DOCUMENTS_FOLDER, SCREEN_GEOMETRY
 
@@ -15,6 +16,7 @@ TO-DO list:
  - Close application when a project is created.
  - Use QDialog instead of QWidget
 '''
+
 class NewProject(QWidget):
 	def __init__(self):
 		super().__init__()
@@ -97,13 +99,7 @@ class NewProject(QWidget):
 			self.project_path.setText(file_path)
 
 	def createNewProject(self):
+		_file_name = path.join(self.project_path.text(), f"{self.project_name.text()}.blend")
+		
+		new_project(_file_name)
 		self.hide()
-		
-		try:
-			blender_path = f"/opt/blender/blender-4.1.1-linux-x64/blender"
-			file_name = path.join(self.project_path.text(), f"{self.project_name.text()}.blend")
-
-			Popen(f"{blender_path} -P utils/new.py {file_name}".split(' '))
-		
-		except CalledProcessError:
-			print(f"Error opening {self.project_name} project.")

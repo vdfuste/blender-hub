@@ -3,19 +3,22 @@ from subprocess import Popen, CalledProcessError
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QLabel, QPushButton, QMenu, QComboBox, QMessageBox, QSizePolicy
 
+from utils.blender.run import open_project
+
+'''
+TO-DO list:
+ * Versions
+  - Check what versions are installed
+  - Exclude the current version in "all_versions"
+  - Highlight the current version
+  - Mark the current version as uninstalled if is not installed
+ 
+ * Open project:
+  - Check if the file exists before open it
+  - Close Blender Hub when a file is open
+'''
+
 class Item(QWidget):
-	'''
-	TO-DO list:
-	 * Versions
-	  - Check what versions are installed
-	  - Exclude the current version in "all_versions"
-	  - Highlight the current version
-	  - Mark the current version as uninstalled if is not installed
-	
-	 * Open project:
-	  - Check if the file exists before open it
-	'''
-	
 	def __init__(self, data, index, callback):
 		super(QWidget, self).__init__()
 
@@ -114,13 +117,8 @@ class Item(QWidget):
 		self.project_path, self.project_name = path.split(_path_name)
 	
 	def mousePressEvent(self, event):
-		_blender_path = f"/opt/blender/blender-4.1.1-linux-x64/blender"
-		_project_path = path.join(self.project_path, self.project_name)
-
-		try:
-			Popen(f"{_blender_path} {_project_path}".split(' '))
-		except CalledProcessError:
-			print(f"Error opening {self.project_name} project.")
+		_file_name = path.join(self.project_path, self.project_name)
+		open_project(_file_name)
 
 	def openWarningMessage(self, index, callback):
 		warningMessage = QMessageBox()

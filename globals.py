@@ -3,7 +3,8 @@ from os import getenv, path
 from sys import platform
 from PyQt5.QtWidgets import QApplication
 
-from utils.external import ProjectsList, VersionsList
+from utils.external import ProjectsList
+from utils.versions import InstalledVersions
 
 # Constant Variables
 app = QApplication(sys.argv)
@@ -37,4 +38,4 @@ BLENDER_DOWNLOADS_URL = "https://download.blender.org/release/Blender"
 
 # Global Objects
 projects = ProjectsList(PROJECTS_FILE_PATH)
-versions = VersionsList()
+versions = InstalledVersions(BLENDER_INSTALLS_FOLDER)
