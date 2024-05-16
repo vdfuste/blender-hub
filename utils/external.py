@@ -77,6 +77,10 @@ class ProjectsList(ExternalList):
 	def writeProjects(self):
 		super().write()
 	
+	def addProject(self, fileName):
+		_date = ctime(path.getmtime(fileName))
+		_version = "3.6"
+		_data = f"{fileName};{_date};{_version}"
 	def addProject(self, file_name):
 		# Generate some data
 		_date = ctime(path.getmtime(file_name))

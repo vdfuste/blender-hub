@@ -1,4 +1,5 @@
-from os import path
+from os import path, sep
+from re import compile
 from subprocess import Popen, CalledProcessError
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QLabel, QPushButton, QMenu, QComboBox, QMessageBox, QSizePolicy
@@ -82,13 +83,10 @@ class Item(QWidget):
 		right_section_layout.setContentsMargins(24, 0, 0, 0)
 
 		# Version and options
-		all_versions = ["v4.1.1", "v4.0.2", "v3.6.9"]
-
-		versions = QComboBox()
-		versions.setObjectName("versions")
-		versions.addItem(f'v{self.project_version}')
-		versions.addItems(all_versions)
-		right_section_layout.addWidget(versions)
+		self.versions_combo = QComboBox()
+		self.versions_combo.setObjectName("versions")
+		self.versions_combo.addItems(self.getVersions())
+		right_section_layout.addWidget(self.versions_combo)
 
 		options = QPushButton("⋮")
 		options.setObjectName("options")
@@ -116,6 +114,18 @@ class Item(QWidget):
 		# Split to path and name from the full path
 		self.project_path, self.project_name = path.split(_path_name)
 	
+	def getVersions(self):
+		_versions = []
+
+		for version in versions.installed:
+			if version != self.project_version:
+				_versions.append(version)
+
+		_versions.append(self.project_version)
+		_versions.reverse()
+
+		return _versions
+
 	def mousePressEvent(self, event):
 		_file_name = path.join(self.project_path, self.project_name)
 		open_project(_file_name)

@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QWidg
 
 from utils.scrapping import getAvailableVersions
 
-from globals import BLENDER_DOWNLOADS_URL
+from globals import BLENDER_ALL_VERSIONS_URL
 
 '''
 TO-DO list:
@@ -12,12 +12,11 @@ TO-DO list:
  - Check if the selected version is already installed.
  - Add blender to PATH?
 '''
-
 class InstallsPage(QWidget):
 	def __init__(self):
 		super().__init__()
 
-		getAvailableVersions()
+		#getAvailableVersions()
 		
 		layout = QVBoxLayout()
 		layout.setContentsMargins(0, 0, 0, 0)
@@ -37,8 +36,8 @@ class InstallsPage(QWidget):
 		self.setLayout(layout)
 
 	def install_stable(self, mayor, minor):
-		blender_url = "{BLENDER_DOWNLOADS_URL}{0}/".format(mayor)
-		file_name = "blender-{0}.{1}-".format(mayor, minor)
+		blender_url = f"{BLENDER_ALL_VERSIONS_URL}/Blender{mayor}/"
+		file_name = f"blender-{mayor}.{minor}-"
 		
 		# Getting the extension and user based on the OS
 		if platform == "linux" or platform == "linux2":
@@ -46,9 +45,9 @@ class InstallsPage(QWidget):
 			extension = ".tar.xz"
 			commands = [
 				"mkdir -p temp",
-				"wget {0} -P temp".format(blender_url + file_name + os + extension),
-				"tar -xf {0}".format("temp/" + file_name + os + extension),
-				"sudo mv {0} /opt/blender".format(file_name + os),
+				f"wget {blender_url + file_name + os + extension} -P temp",
+				f"tar -xf temp/{file_name + os + extension}",
+				f"sudo mv {file_name + os} /opt/blender",
 				#"sudo ln -s /opt/blender/blender /usr/local/bin/blender",
 				"rm -rf temp"
 			]
@@ -66,4 +65,4 @@ class InstallsPage(QWidget):
 				run(command.split(), check=True)
 		
 		except CalledProcessError:
-			print("Failed to install Blender {0}.{1}".format(mayor, minor))
+			print(f"Failed to install Blender {mayor}.{minor}")

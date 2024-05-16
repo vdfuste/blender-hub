@@ -18,7 +18,7 @@ if platform == "linux" or platform == "linux2":
 	TEMP_USER_FOLDER = path.join(USER_FOLDER, ".cache")
 
 elif platform == "win32":
-	BLENDER_INSTALLS_FOLDER = "C:\Program Files\Blender Foundation"
+	BLENDER_INSTALLS_FOLDER = r"C:\Program Files\Blender Foundation"
 	USER_FOLDER = getenv("USERPROFILE")
 	DOCUMENTS_FOLDER = path.join(USER_FOLDER, "Documents")
 	# C:\Users\Victor\AppData\Roaming\Blender Foundation\Blender (APPDATA)
@@ -34,7 +34,6 @@ TEMP_FOLDER_PATH = path.join(TEMP_USER_FOLDER, APP_NAME_FOLDER)
 PROJECTS_FILE_PATH = path.join(TEMP_FOLDER_PATH, PROJECTS_FILE_NAME)
 
 BLENDER_ALL_VERSIONS_URL = "https://download.blender.org/release"
-BLENDER_DOWNLOADS_URL = "https://download.blender.org/release/Blender"
 
 # Global Objects
 projects = ProjectsList(PROJECTS_FILE_PATH)
