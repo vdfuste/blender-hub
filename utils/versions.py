@@ -11,7 +11,9 @@ class InstalledVersionsList():
 		try:
 			if path.isdir(self.installs_path):
 				for item in listdir(self.installs_path):
+					
 					version_path = path.join(self.installs_path, item)
+					
 					if path.isdir(version_path):
 						version = listdir(version_path)[0]
 						self.installed.append(version)

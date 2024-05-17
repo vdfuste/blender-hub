@@ -1,10 +1,11 @@
 from os import path, sep
-from re import compile
 from subprocess import Popen, CalledProcessError
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QLabel, QPushButton, QMenu, QComboBox, QMessageBox, QSizePolicy
 
 from utils.blender.run import open_project
+
+from globals import versions
 
 '''
 TO-DO list:

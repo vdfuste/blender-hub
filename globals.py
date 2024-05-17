@@ -18,7 +18,7 @@ if platform == "linux" or platform == "linux2":
 	TEMP_USER_FOLDER = path.join(USER_FOLDER, ".cache")
 
 elif platform == "win32":
-	BLENDER_INSTALLS_FOLDER = r"C:\Program Files\Blender Foundation"
+	BLENDER_INSTALLS_FOLDER = "C:/Program Files/Blender Foundation"
 	USER_FOLDER = getenv("USERPROFILE")
 	DOCUMENTS_FOLDER = path.join(USER_FOLDER, "Documents")
 	# C:\Users\Victor\AppData\Roaming\Blender Foundation\Blender (APPDATA)
