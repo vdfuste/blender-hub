@@ -1,5 +1,4 @@
-from os import path, sep
-from subprocess import Popen, CalledProcessError
+from os import path
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QLabel, QPushButton, QMenu, QComboBox, QMessageBox, QSizePolicy
 
@@ -129,7 +128,11 @@ class Item(QWidget):
 
 	def mousePressEvent(self, event):
 		_file_name = path.join(self.project_path, self.project_name)
-		open_project(_file_name)
+		_version = versions.paths[self.versions_combo.currentText()]
+
+		print("BLENDER HUB: " + _version)
+
+		open_project(_file_name, _version)
 
 	def openWarningMessage(self, index, callback):
 		warningMessage = QMessageBox()
