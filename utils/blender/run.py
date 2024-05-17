@@ -1,7 +1,15 @@
 from os import path
-from subprocess import Popen, CalledProcessError
+from subprocess import Popen, run, CalledProcessError, DEVNULL
 
-from globals import BLENDER_INSTALLS_FOLDER
+def get_version(blender_version):
+	try:
+		_blender_path = path.join(blender_version, "blender")
+		_output = run([_blender_path, "--version"], capture_output=True, text=True).stdout
+		
+		return _output.split('\n')[0].replace("Blender ", "")
+	
+	except CalledProcessError:
+		print("BLENDER HUB: Error opening the project.")
 
 def new_project(file_name, blender_version):
 	try:
