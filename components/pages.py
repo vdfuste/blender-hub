@@ -1,3 +1,4 @@
+from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QLabel, QHBoxLayout, QVBoxLayout, QStackedWidget, QWidget
 
 from pages.config import ConfigPage
@@ -17,26 +18,15 @@ class Pages(QWidget):
 		pages.setObjectName("pages")
 		pages_layout = QVBoxLayout()
 		pages_layout.setContentsMargins(0, 0, 0, 0)
-
-		# Header
-		'''header = QWidget()
-		header.setObjectName("page_header")
-		header_layout = QHBoxLayout()
-		#header_layout.setContentsMargins(16, 256, 16, 16)
-
-		self.title = QLabel("")
-		header_layout.addWidget(self.title)
-		
-		header.setLayout(header_layout)
-		pages_layout.addWidget(header)'''
+		pages_layout.setAlignment(Qt.AlignTop)
 		
 		# Pages stack
 		self.stack = QStackedWidget()
 		self.stack.setObjectName("stack")
 		
-		self.addPage("Projects", "My Projects", ProjectsPage())
-		self.addPage("Config", "Configuration File", ConfigPage())
-		self.addPage("Installs", "Installs", InstallsPage())
+		self.addPage("Projects", "My Projects", ProjectsPage("My Projects"))
+		self.addPage("Config", "Configuration File", ConfigPage("Configuration File"))
+		self.addPage("Installs", "Installs", InstallsPage("Installs"))
 		
 		pages_layout.addWidget(self.stack)
 
@@ -44,6 +34,7 @@ class Pages(QWidget):
 		layout.addWidget(pages)
 
 		self.changePage("Projects")
+		# self.changePage("Installs")
 		
 		self.setLayout(layout)
 	

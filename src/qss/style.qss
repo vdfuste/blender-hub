@@ -1,6 +1,57 @@
+/* GLOBAL STYLES */
 QMainWindow {
 	background-color: #121212;
 }
+
+/* BUTTON */
+QPushButton#btn {
+	padding: 8px 10px;
+	border: none;
+	color: #686868;
+}
+QPushButton#btn:hover {
+	text-decoration: underline;
+	color: #a9a9a9;
+}
+QPushButton#primary-btn {
+	padding: 8px 10px;
+	border: none;
+	color: #0062c0;
+}
+QPushButton#primary-btn:hover {
+	text-decoration: underline;
+	color: #0084e6;
+}
+
+/* BORDER BUTTON */
+QPushButton#border-btn {
+	padding: 16px 20px;
+	padding-top: 18px;
+	text-decoration: none;
+	border: 1px solid #242424;
+	border-radius: 12px;
+	color: #686868;
+}
+QPushButton#border-btn:hover {
+	border-color: #323232;
+	color: #a9a9a9;
+}
+QPushButton#primary-border-btn {
+	padding: 16px 20px;
+	padding-top: 18px;
+	text-decoration: none;
+	background-color: #0062c0;
+	border-radius: 12px;
+	color: #e5e5e5;
+}
+QPushButton#primary-border-btn:hover {
+	background-color: #0084e6;
+	color: white;
+}
+/* GLOBAL STYLES END */
+
+
+
 
 /* SIDEBAR */
 #sidebar {
@@ -63,32 +114,6 @@ QMainWindow {
 
 }
 
-/* Header */
-#pages #stack #projects_page #header #title {
-	font-size: 24pt;
-	color: #646464;
-}
-#pages #stack #projects_page #header QPushButton {
-	padding: 16px 20px;
-	padding-top: 18px;
-	border: 1px solid #242424;
-	border-radius: 12px;
-	color: #686868;
-}
-#pages #stack #projects_page #header QPushButton:hover {
-	border-color: #323232;
-	color: #a9a9a9;
-}
-#pages #stack #projects_page #header #new_btn {
-	background-color: #0062c0;
-	border: none;
-	color: #e5e5e5;
-}
-#pages #stack #projects_page #header #new_btn:hover {
-	background-color: #0084e6;
-	color: white;
-}
-
 /* List Header */
 #pages #stack #projects_page #list-header {
 	border-top: 1px solid #242424;
@@ -110,8 +135,9 @@ QMainWindow {
 /* List */
 #pages #stack #projects_page #list {
 	background-color: transparent;
+	border: none;
 }
-#pages #stack #projects_page QScrollArea {
+#pages #stack #projects_page #list #list-items {
 	background-color: transparent;
 	border: none;
 }

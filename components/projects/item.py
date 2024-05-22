@@ -2,6 +2,8 @@ from os import path
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QLabel, QPushButton, QMenu, QComboBox, QMessageBox, QSizePolicy
 
+from components.custom.widget import Widget
+
 from utils.blender.run import open_project
 
 from globals import versions
@@ -19,26 +21,17 @@ TO-DO list:
   - Close Blender Hub when a file is open
 '''
 
-class Item(QWidget):
-	def __init__(self, data, index, callback):
-		super(QWidget, self).__init__()
+class Item(Widget):
+	def __init__(self, data, index, callback, name="item"):
+		super().__init__(QWidget, QHBoxLayout, name)
 
-		self.splitData(data)
+		self.layout.setContentsMargins(24, 0, 56, 0)
 		
-		layout = QHBoxLayout()
-		layout.setContentsMargins(0, 0, 0, 0)
-		layout.setSpacing(0)
-
-		item = QWidget()
-		item.setObjectName("item")
-		item_layout = QHBoxLayout()
-		item_layout.setContentsMargins(24, 0, 24, 0)
-		item_layout.setSpacing(0)
-
+		self.splitData(data)
 		
 		# Left section content
 		left_section = QWidget()
-		left_section.setObjectName("item_left")
+		left_section.setObjectName(f"{name}-left")
 		left_section.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
 		left_section_layout = QVBoxLayout()
 		left_section_layout.setContentsMargins(24, 0, 24, 0)
@@ -59,12 +52,12 @@ class Item(QWidget):
 		left_section_layout.addWidget(file_path_label)
 
 		left_section.setLayout(left_section_layout)
-		item_layout.addWidget(left_section)
+		self.layout.addWidget(left_section)
 
 
 		# Center section content
 		center_section = QWidget()
-		center_section.setObjectName("item_center")
+		center_section.setObjectName(f"{name}-center")
 		center_section_layout = QVBoxLayout()
 		center_section_layout.setContentsMargins(24, 0, 24, 0)
 
@@ -73,12 +66,12 @@ class Item(QWidget):
 		center_section_layout.addWidget(file_last)
 
 		center_section.setLayout(center_section_layout)
-		item_layout.addWidget(center_section)
+		self.layout.addWidget(center_section)
 
 
 		# Right section content
 		right_section = QWidget()
-		right_section.setObjectName("item_right")
+		right_section.setObjectName(f"{name}-right")
 		right_section_layout = QHBoxLayout()
 		right_section_layout.setContentsMargins(24, 0, 0, 0)
 
@@ -100,12 +93,7 @@ class Item(QWidget):
 		right_section_layout.addWidget(options)
 
 		right_section.setLayout(right_section_layout)
-		item_layout.addWidget(right_section)
-
-		
-		item.setLayout(item_layout)
-		layout.addWidget(item)
-		self.setLayout(layout)
+		self.layout.addWidget(right_section)
 	
 	def splitData(self, data):
 		# Gets the full path, last modified date and current version from data

@@ -25,19 +25,21 @@ class MainWindow(QMainWindow):
 		# Style
 		loadStyle("src/qss/style.qss", self)
 		
-		# Widgets
-		pages = Pages()
-		sidebar = Sidebar(pages.changePage)
-
 		# Layout
 		layout = QHBoxLayout()
 		layout.setContentsMargins(0, 0, 0, 0)
 		layout.setSpacing(0)
+		
+		# Widgets
+		pages = Pages()
+		sidebar = Sidebar(pages.changePage)
+		
 		layout.addWidget(sidebar)
 		layout.addWidget(pages)
 
 		central_widget = QWidget()
 		central_widget.setLayout(layout)
+
 		self.setCentralWidget(central_widget)
 		self.show()
 

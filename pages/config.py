@@ -1,7 +1,9 @@
 from PyQt5.QtWidgets import QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QWidget
 
+from components.header_page import HeaderPage
+
 class ConfigPage(QWidget):
-	def __init__(self):
+	def __init__(self, title):
 		super().__init__()
 
 		layout = QVBoxLayout()
@@ -12,8 +14,9 @@ class ConfigPage(QWidget):
 		page.setObjectName("config_page")
 		page_layout = QVBoxLayout()
 
-		label = QLabel("Config!")
-		page_layout.addWidget(label)
+		# Header Page
+		header_page = HeaderPage(title)
+		header_page.parent(page_layout)
 
 		page.setLayout(page_layout)
 		layout.addWidget(page)

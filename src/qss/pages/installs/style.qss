@@ -1,0 +1,8 @@
+#scroll-list {
+	background-color: transparent;
+}
+
+#scroll-list-items {
+	background-color: transparent;
+	/* border: 1px solid red; */
+}

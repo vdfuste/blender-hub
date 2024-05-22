@@ -7,8 +7,7 @@ class InstalledVersionsList():
 	Get all the Blender versions installed on the system.
 	
 	Args:
-	
-	installs_path: Path where all Blender versions are installed.
+	 installs_path: Path where all Blender versions are installed.
 	'''
 	def __init__(self, installs_path):
 		self.installed = []
@@ -29,8 +28,14 @@ class InstalledVersionsList():
 						_version = get_version(_blender_path)
 
 						self.installed.append(_version)
-						self.paths[version] = _blender_path
+						self.paths[_version] = _blender_path
 
 		
 		except Exception as e:
 			print(f"Error checking installed versions: {e}")
+
+class AvailableInstallsList():
+	'''
+	'''
+	def __init__(self):
+		pass

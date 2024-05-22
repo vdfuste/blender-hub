@@ -1,0 +1,38 @@
+#version-item {
+	max-width: 749px;
+	/* min-height: 200px;
+	max-height: 200px; */
+	/* border: 1px solid #323232; */
+	/* border-radius: 8px; */
+}
+
+#version-image {
+	/* border-radius: 24px 0px 0px 24px; */
+}
+
+#version-title {
+	padding: 6px;
+	padding-top: 24px;
+	font-size: 18pt;
+	color: #646464;
+}
+
+#sub-version-item {
+	margin-top: 1px;
+	background-color: #181818;
+}
+#sub-version-item:hover {
+	background-color: #1d1d1d;
+}
+
+#sub-version-item-version {
+	font-size: 11pt;
+	color: #646464;
+}
+
+#sub-version-item-installed {
+	margin-top: -2px;
+	font-size: 10pt;
+	font-style: italic;
+	color: #323232;
+}

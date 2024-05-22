@@ -4,7 +4,7 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QLabel, QPushButton, QLineEdit
 from utils.read import loadStyle
 
-from components.fileDialog import FileDialog
+from components.file_dialog import FileDialog
 from utils.blender.run import new_project
 
 from globals import DOCUMENTS_FOLDER, SCREEN_GEOMETRY

@@ -33,6 +33,7 @@ PROJECTS_FILE_NAME = "projects.txt"
 TEMP_FOLDER_PATH = path.join(TEMP_USER_FOLDER, APP_NAME_FOLDER)
 PROJECTS_FILE_PATH = path.join(TEMP_FOLDER_PATH, PROJECTS_FILE_NAME)
 
+BLENDER_RELEASES_URL = "https://www.blender.org/download/releases"
 BLENDER_ALL_VERSIONS_URL = "https://download.blender.org/release"
 
 # Global Objects
