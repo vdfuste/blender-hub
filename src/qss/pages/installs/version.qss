@@ -1,5 +1,5 @@
 #version-item {
-	max-width: 749px;
+	/* max-width: 749px; */
 	/* min-height: 200px;
 	max-height: 200px; */
 	/* border: 1px solid #323232; */

@@ -4,6 +4,7 @@ from PyQt5.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButt
 
 from components.custom.widget import Widget
 from components.header_page import HeaderPage
+from components.installs.header import VersionButtonsHeader
 from components.scroll_list import ScrollList
 from components.installs.version import VersionItem
 
@@ -33,17 +34,19 @@ class InstallsPage(QWidget):
 
 		# Header Page
 		header_page = HeaderPage(title)
+		header_page.addWidget(VersionButtonsHeader())
 		header_page.parent(page_layout)
-		
-		# Versions List
+		# page_layout.addWidget(header_page)
+
+		#Scroll List
 		self.versions_list = ScrollList()
 		self.versions_list.layout.setContentsMargins(12, 8, 24, 8)
 		self.versions_list.layout.setSpacing(12)
-		self.versions_list.parent(page_layout)
 		self.versions_list.populate(
-			["Meh_01", "Meh_02", "Meh_02", "Meh_02", "Meh_02", "Meh_02", "Meh_02"],
-			lambda data, index: VersionItem(data, index)
+			["Meh_01", "Meh_02", "Meh_03", "Meh_04", "Meh_05", "Meh_06", "Meh_07"],
+			lambda data, index: VersionItem(self.width())
 		)
+		self.versions_list.parent(page_layout)
 		
 		# install_stable_button = QPushButton("Install last stable version (4.1.1)")
 		# install_stable_button.clicked.connect(lambda: self.install_stable("4.1", "1"))
@@ -82,3 +85,10 @@ class InstallsPage(QWidget):
 		
 		except CalledProcessError:
 			print(f"Failed to install Blender {mayor}.{minor}")
+
+	def resizeEvent(self, event):
+		super().resizeEvent(event)
+		self.versions_list.populate(
+			["Meh_01", "Meh_02", "Meh_03", "Meh_04", "Meh_05", "Meh_06", "Meh_07"],
+			lambda data, index: VersionItem(self.width())
+		)

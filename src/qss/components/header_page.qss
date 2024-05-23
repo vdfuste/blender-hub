@@ -1,13 +1,9 @@
 #header-page {
-	min-height: 150px;
-	max-height: 150px;
-	/* border-bottom: 1px solid #242424; */
+	border-bottom: 1px solid #242424;
 	/* background-color: lightskyblue; */
 }
 
 #header-page-title {
-	min-height: 56px;
-	max-height: 56px;
 	font-size: 24pt;
 	color: #646464;
 }

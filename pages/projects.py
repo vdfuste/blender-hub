@@ -4,9 +4,10 @@ from PyQt5.QtWidgets import QWidget, QLabel, QHBoxLayout, QVBoxLayout, QPushButt
 from pages.floating.new_project import NewProject
 
 from components.file_dialog import FileDialog
-from components.scroll_list import ScrollList
 from components.header_page import HeaderPage
+from components.projects.buttons import OptionsButtonsHeader
 from components.projects.header import Header
+from components.scroll_list import ScrollList
 from components.projects.item import Item
 
 from globals import projects
@@ -29,17 +30,10 @@ class ProjectsPage(QWidget):
 
 		# Header Page
 		header_page = HeaderPage(title)
+		header_page.addWidget(OptionsButtonsHeader(self.createProject, self.importProject))
 		header_page.parent(page_layout)
+		# page_layout.addWidget(header_page)
 		
-		import_btn = QPushButton("Import existing project")
-		import_btn.setObjectName("border-btn")
-		import_btn.clicked.connect(lambda: self.importProject())
-		header_page.addWidget(import_btn)
-
-		new_btn = QPushButton("Create new project")
-		new_btn.setObjectName("primary-border-btn")
-		new_btn.clicked.connect(lambda: self.createProject())
-		header_page.addWidget(new_btn)
 
 		# Projects List
 		header_list = Header()
@@ -58,7 +52,7 @@ class ProjectsPage(QWidget):
 		self.setLayout(layout)
 	
 	def newItem(self, data, index):
-		return Item(data, index, lambda _index, delete: self.removeProject(_index, delete))
+		return Item(data, index, lambda _index, delete: self.removeProject(_index, delete)).widget
 	
 	def createProject(self):
 		self.floating_window.reset()

@@ -1,9 +1,10 @@
 from PyQt5 import QtCore
 from PyQt5.Qt import Qt
 from PyQt5.QtGui import QPixmap
-from PyQt5.QtWidgets import QWidget, QHBoxLayout, QLabel, QPushButton, QSizePolicy
+from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QLabel, QPushButton, QSizePolicy
 
 from components.custom.widget import Widget
+from utils.read import loadStyle
 
 class SubVersionItem(Widget):
 	def __init__(self, version, subversion, installed=False, name="sub-version-item"):
@@ -25,24 +26,31 @@ class SubVersionItem(Widget):
 		action_btn = QPushButton("Install" if not installed else "Uninstall")
 		action_btn.setObjectName("primary-btn" if not installed else "btn")
 		self.addWidget(action_btn)
-		
 
-class VersionItem(Widget):
-	def __init__(self, data, index):
-		super().__init__(QWidget, QVBoxLayout, "version-item")
-
-		self.loadStyle("src/qss/pages/installs/version.qss")
+class VersionItem(QWidget):
+	def __init__(self, width, data="", index="", name="version-item"):
+		super().__init__()
 		
+		loadStyle("src/qss/pages/installs/version.qss",self)
+
+		width -= 32
+		
+		layout = QVBoxLayout()
+		layout.setContentsMargins(0, 0, 0, 0)
+		layout.setSpacing(0)
+
 		title = QLabel("Blender 4.1", objectName="version-title")
-		self.addWidget(title)
+		layout.addWidget(title)
 
 		image = QPixmap("src/images/blender_4_1_splash.jpg")
 		self.header_image = QLabel(objectName="version-image")
-		self.header_image.setPixmap(image.scaledToWidth(750, mode=QtCore.Qt.SmoothTransformation))
-		self.header_image.setFixedSize(750, 200)
+		self.header_image.setPixmap(image.scaledToWidth(width, mode=QtCore.Qt.SmoothTransformation))
+		self.header_image.setFixedSize(width, int(width/3))
 		self.header_image.setAlignment(Qt.AlignTop)
-		self.addWidget(self.header_image)
+		layout.addWidget(self.header_image)
 
 		# Sub-versions
-		self.addWidget(SubVersionItem("4.1", "1", installed=True).widget)
-		self.addWidget(SubVersionItem("4.1", "0").widget)
+		layout.addWidget(SubVersionItem("4.1", "1", installed=True).widget)
+		layout.addWidget(SubVersionItem("4.1", "0").widget)
+
+		self.setLayout(layout)

@@ -35,7 +35,7 @@ class Pages(QWidget):
 
 		self.changePage("Projects")
 		# self.changePage("Installs")
-		
+
 		self.setLayout(layout)
 	
 	def addPage(self, name_id, title, page):
