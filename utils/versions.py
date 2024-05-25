@@ -10,16 +10,23 @@ class InstalledVersionsList():
 	 installs_path: Path where all Blender versions are installed.
 	'''
 	def __init__(self, installs_path):
+		self.installs_path = installs_path
 		self.installed = []
 		self.paths = {}
-		self.check(installs_path)
+		self.check()
 
-	def check(self, installs_path):
+	def check(self):
 		try:
-			if path.isdir(installs_path):
+			# New data will be stored in local variables
+			# so current data won't be overwritten if any
+			# error ocurrs 
+			_installed = []
+			_paths = {}
+			
+			if path.isdir(self.installs_path):
 				# Getting all installed Blender versions
-				for item in listdir(installs_path):
-					_blender_path = path.join(installs_path, item)
+				for item in listdir(self.installs_path):
+					_blender_path = path.join(self.installs_path, item)
 					
 					# Checking if it's a Blender folder
 					# This is an optional step due to here only
@@ -27,9 +34,12 @@ class InstalledVersionsList():
 					if path.isdir(_blender_path):
 						_version = get_version(_blender_path)
 
-						self.installed.append(_version)
-						self.paths[_version] = _blender_path
+						_installed.append(_version)
+						_paths[_version] = _blender_path
 
+			# Update varibale with new data
+			self.installed = _installed
+			self.paths = _paths
 		
 		except Exception as e:
 			print(f"Error checking installed versions: {e}")

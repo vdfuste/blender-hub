@@ -9,9 +9,8 @@ from components.scroll_list import ScrollList
 from components.installs.version import VersionItem
 
 from utils.read import loadStyle
-from utils.scrapping import getAvailableVersions
 
-from globals import BLENDER_ALL_VERSIONS_URL
+from globals import downloads
 
 '''
 TO-DO list:
@@ -23,8 +22,6 @@ TO-DO list:
 class InstallsPage(QWidget):
 	def __init__(self, title, name="installs-page"):
 		super().__init__()
-
-		# versions = getAvailableVersions()
 		
 		loadStyle("src/qss/pages/installs/style.qss", self)
 
@@ -42,10 +39,7 @@ class InstallsPage(QWidget):
 		self.versions_list = ScrollList()
 		self.versions_list.layout.setContentsMargins(12, 8, 24, 8)
 		self.versions_list.layout.setSpacing(12)
-		self.versions_list.populate(
-			["Meh_01", "Meh_02", "Meh_03", "Meh_04", "Meh_05", "Meh_06", "Meh_07"],
-			lambda data, index: VersionItem(self.width())
-		)
+		self.versions_list.populate(downloads.versions[0]["cards"], lambda data, index: VersionItem(self.width(), data))
 		self.versions_list.parent(page_layout)
 		
 		# install_stable_button = QPushButton("Install last stable version (4.1.1)")
@@ -88,7 +82,4 @@ class InstallsPage(QWidget):
 
 	def resizeEvent(self, event):
 		super().resizeEvent(event)
-		self.versions_list.populate(
-			["Meh_01", "Meh_02", "Meh_03", "Meh_04", "Meh_05", "Meh_06", "Meh_07"],
-			lambda data, index: VersionItem(self.width())
-		)
+		self.versions_list.populate(downloads.versions[0]["cards"], lambda data, index: VersionItem(self.width(), data))

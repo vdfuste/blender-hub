@@ -3,8 +3,14 @@ from os import getenv, path
 from sys import platform
 from PyQt5.QtWidgets import QApplication
 
-from utils.external import ProjectsList
+from utils.external import DownloadList, ProjectsList
 from utils.versions import InstalledVersionsList
+
+'''
+TO-DO List:
+ - Find the proper path to save "url_downloads.txt".
+ - 
+'''
 
 # Constant Variables
 app = QApplication(sys.argv)
@@ -30,8 +36,10 @@ elif platform == "win32":
 
 APP_NAME_FOLDER = "blender_hub"
 PROJECTS_FILE_NAME = "projects.txt"
+DOWNLOADS_FILE_NAME = "url_downloads.txt"
 TEMP_FOLDER_PATH = path.join(TEMP_USER_FOLDER, APP_NAME_FOLDER)
 PROJECTS_FILE_PATH = path.join(TEMP_FOLDER_PATH, PROJECTS_FILE_NAME)
+DOWNLOADS_FILE_PATH = path.join(TEMP_FOLDER_PATH, DOWNLOADS_FILE_NAME)
 
 BLENDER_RELEASES_URL = "https://www.blender.org/download/releases"
 BLENDER_ALL_VERSIONS_URL = "https://download.blender.org/release"
@@ -39,3 +47,4 @@ BLENDER_ALL_VERSIONS_URL = "https://download.blender.org/release"
 # Global Objects
 projects = ProjectsList(PROJECTS_FILE_PATH)
 versions = InstalledVersionsList(BLENDER_INSTALLS_FOLDER)
+downloads = DownloadList(DOWNLOADS_FILE_PATH)
