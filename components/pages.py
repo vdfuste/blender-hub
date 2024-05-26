@@ -6,7 +6,7 @@ from pages.projects import ProjectsPage
 from pages.installs import InstallsPage
 
 class Pages(QWidget):
-	def __init__(self):
+	def __init__(self, parent=None):
 		super().__init__()
 
 		layout = QVBoxLayout()
@@ -24,7 +24,7 @@ class Pages(QWidget):
 		self.stack = QStackedWidget()
 		self.stack.setObjectName("stack")
 		
-		self.addPage("Projects", "My Projects", ProjectsPage("My Projects"))
+		self.addPage("Projects", "My Projects", ProjectsPage("My Projects", parent))
 		self.addPage("Config", "Configuration File", ConfigPage("Configuration File"))
 		self.addPage("Installs", "Installs", InstallsPage("Installs"))
 		

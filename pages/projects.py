@@ -1,7 +1,9 @@
-from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QWidget, QLabel, QHBoxLayout, QVBoxLayout, QPushButton, QScrollArea, QSizePolicy, QFileDialog
+from time import ctime
 
-from pages.floating.new_project import NewProject
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QWidget, QVBoxLayout, QDialog
+
+from pages.dialogs.new_project import NewProject
 
 from components.file_dialog import FileDialog
 from components.header_page import HeaderPage
@@ -10,14 +12,15 @@ from components.projects.header import Header
 from components.scroll_list import ScrollList
 from components.projects.item import Item
 
-from globals import projects
+from utils.blender.run import new_project
+
+from globals import projects, versions
 
 class ProjectsPage(QWidget):
-	def __init__(self, title, name="projects_page"):
+	def __init__(self, title, parent=None, name="projects_page"):
 		super().__init__()
 
-		self.floating_window = NewProject()
-
+		# Init UI
 		layout = QVBoxLayout()
 		layout.setContentsMargins(0, 0, 0, 0)
 
@@ -52,11 +55,21 @@ class ProjectsPage(QWidget):
 		self.setLayout(layout)
 	
 	def newItem(self, data, index):
-		return Item(data, index, lambda _index, delete: self.removeProject(_index, delete)).widget
+		return Item(data, index, lambda _index, delete: self.removeProject(_index, delete))
 	
 	def createProject(self):
-		self.floating_window.reset()
-		self.floating_window.show()
+		new_project_dialog = NewProject(self)
+		if new_project_dialog.open() == QDialog.Accepted:
+			# Getting data from the dialog
+			file_name, blender_version = new_project_dialog.getProjectData()
+			
+			# Creating a new project
+			new_project(file_name, versions.paths[blender_version])
+
+			# Adding the project to "Projects List"
+			data, index = projects.addProject(file_name, ctime(), blender_version)
+			item = Item(data, index, lambda _index, delete: self.removeProject(_index, delete))
+			self.list.addItem(item)
 
 	def importProject(self):
 		# Get the full path of the projects
@@ -74,14 +87,13 @@ class ProjectsPage(QWidget):
 						is_on_list = True
 						break
 
-				# Skip the current loop if the prject is on the list
+				# Skip the current loop if the project is on the list
 				if is_on_list: continue
 				
 				# Add project if is not on the list
 				data, index = projects.addProject(file_name)
 
 				item = Item(data, index, lambda _index, delete: self.removeProject(_index, delete))
-				# self.projects_list_layout.addWidget(item)
 				self.list.addItem(item)
 
 				print(f"Project imported: {file_name}")

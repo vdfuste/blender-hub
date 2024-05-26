@@ -1,6 +1,6 @@
 import sys
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QWidget, QStackedWidget
+from PyQt5.QtWidgets import QMainWindow, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QWidget, QStackedWidget, QDialog
 from PyQt5.QtGui import QFont, QFontDatabase
 from utils.read import loadStyle
 
@@ -11,7 +11,7 @@ from globals import app, SCREEN_GEOMETRY
 
 class MainWindow(QMainWindow):
 	def __init__(self):
-		super(MainWindow, self).__init__()
+		super().__init__()
 
 		# Window config
 		width = 1024
@@ -21,7 +21,7 @@ class MainWindow(QMainWindow):
 		
 		self.setWindowTitle("Blender Hub v0.1.0")
 		self.setGeometry(pos_x, pos_y, width, height)
-
+		
 		# Style
 		loadStyle("src/qss/style.qss", self)
 		
@@ -31,7 +31,7 @@ class MainWindow(QMainWindow):
 		layout.setSpacing(0)
 		
 		# Widgets
-		pages = Pages()
+		pages = Pages(self)
 		sidebar = Sidebar(pages.changePage)
 		
 		layout.addWidget(sidebar)

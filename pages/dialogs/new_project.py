@@ -1,24 +1,21 @@
 from os import path
 from subprocess import Popen, CalledProcessError
+
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QLabel, QPushButton, QLineEdit
+from PyQt5.QtWidgets import QDialog, QWidget, QHBoxLayout, QVBoxLayout, QLabel, QPushButton, QLineEdit, QComboBox
 from utils.read import loadStyle
 
 from components.file_dialog import FileDialog
-from utils.blender.run import new_project
 
-from globals import DOCUMENTS_FOLDER, SCREEN_GEOMETRY
+from globals import versions, DOCUMENTS_FOLDER, SCREEN_GEOMETRY
 
 '''
 TO-DO list:
- - Handle names with spaces.
- - Add project to Projects after create it.
  - Close application when a project is created.
- - Use QDialog instead of QWidget
 '''
 
-class NewProject(QWidget):
-	def __init__(self):
+class NewProject(QDialog):
+	def __init__(self, parent=None):
 		super().__init__()
 		
 		width = 640
@@ -26,14 +23,16 @@ class NewProject(QWidget):
 		pos_x = int(SCREEN_GEOMETRY.width()/2 - width/2)
 		pos_y = int(SCREEN_GEOMETRY.height()/2 - height/2)
 		
+		loadStyle("src/qss/pages/dialogs/new_project.qss", self)
+
+		# Init UI
+		self.setParent(parent)
 		self.setObjectName("new-project-page")
 		self.setGeometry(pos_x, pos_y, width, height)
-		loadStyle("src/qss/pages/floating/new_project.qss", self)
+		self.setWindowFlags(self.windowFlags() | Qt.WindowStaysOnTopHint | Qt.Tool)
 
 		layout = QVBoxLayout()
 		layout.setAlignment(Qt.AlignTop)
-		# layout.setContentsMargins(0, 0, 0, 0)
-		# layout.setSpacing(0)
 		
 		# Page Content
 		title_label = QLabel("Create new project", objectName="title")
@@ -58,26 +57,35 @@ class NewProject(QWidget):
 		self.project_path = QLineEdit(DOCUMENTS_FOLDER, objectName="input-text")
 		path_layout.addWidget(self.project_path)
 		
-		project_path_btn = QPushButton("...", objectName="btn")
+		project_path_btn = QPushButton("...", objectName="border-btn")
 		project_path_btn.clicked.connect(self.changePath)
 		path_layout.addWidget(project_path_btn)
 		
 		wrap_path.setLayout(path_layout)
 		layout.addWidget(wrap_path)
 
+		# Blender version
+		version_label = QLabel("Project version:", objectName="label")
+		layout.addWidget(version_label)
+
+		self.versions_combo = QComboBox()
+		self.versions_combo.addItems(versions.installed)
+		layout.addWidget(self.versions_combo)
+
 		# Buttons
 		wrap_buttons = QWidget()
 		buttons_layout = QHBoxLayout()
-		
+		buttons_layout.setContentsMargins(0, 10, 0, 0)
 		buttons_layout.addSpacing(0)
 		
-		close_btn = QPushButton("Cancel", objectName="btn")
+		close_btn = QPushButton("Cancel", objectName="border-btn")
 		close_btn.clicked.connect(lambda: self.hide())
 		buttons_layout.addWidget(close_btn)
 		
-		self.create_btn = QPushButton("Create new project", objectName="primary-btn")
+		self.create_btn = QPushButton("Create new project", objectName="primary-border-btn")
 		self.create_btn.setDisabled(True)
-		self.create_btn.clicked.connect(self.createNewProject)
+		# self.create_btn.clicked.connect(self.createNewProject)
+		self.create_btn.clicked.connect(self.accept)
 		buttons_layout.addWidget(self.create_btn)
 		
 		wrap_buttons.setLayout(buttons_layout)
@@ -85,6 +93,10 @@ class NewProject(QWidget):
 
 		self.setLayout(layout)
 
+	def open(self):
+		self.reset()
+		return self.exec_()
+	
 	def reset(self):
 		self.project_name.setText("My Project")
 		self.project_name.setFocus(Qt.FocusReason.ActiveWindowFocusReason)
@@ -98,8 +110,16 @@ class NewProject(QWidget):
 		if file_path:
 			self.project_path.setText(file_path)
 
-	def createNewProject(self):
+	def getProjectData(self):
 		_file_name = path.join(self.project_path.text(), f"{self.project_name.text()}.blend")
+		_blender_version = self.versions_combo.currentText()
+
+		return [_file_name, _blender_version]
+	
+	'''def createNewProject(self):
+		_file_name = path.join(self.project_path.text(), f"{self.project_name.text()}.blend")
+		_blender_version = versions.paths[self.versions_combo.currentText()]
+
+		new_project(_file_name, _blender_version)
 		
-		new_project(_file_name)
-		self.hide()
+		self.hide()'''

@@ -48,6 +48,23 @@ QPushButton#primary-border-btn:hover {
 	background-color: #0084e6;
 	color: white;
 }
+
+/* COMBO BOX (DROPDOWNS) */
+QComboBox {
+	padding: 8px 12px;
+	background-color: #121212;
+	border: none;
+	border-radius: 8px;
+	color: #686868;
+}
+QComboBox:drop-down {
+	border: none;
+	border-radius: 8px;
+	background-color: #121212;
+}
+QComboBox::down-arrow {
+	image: url("src/images/caret-down.svg");
+}
 /* GLOBAL STYLES END */
 
 
@@ -124,9 +141,10 @@ QPushButton#primary-border-btn:hover {
 }
 
 /* Item */
+
 #pages #stack #projects_page #list #item {
-	min-height: 96px;
-	max-height: 96px;
+	/* min-height: 96px;
+	max-height: 96px; */
 	margin-top: 1px;
 	background-color: #181818;
 	border: none;
@@ -134,17 +152,23 @@ QPushButton#primary-border-btn:hover {
 #pages #stack #projects_page #list #item:hover {
 	background-color: #1d1d1d;
 }
+
+#pages #stack #projects_page #list #item QScrollArea,
+#pages #stack #projects_page #list #item QScrollArea QWidget {
+	background-color: transparent;
+}
+
 #pages #stack #projects_page #list #item #item_center,
 #pages #stack #projects_page #list #item #item_right {
-	min-width: 104px;
-	max-width: 104px;
+	/* min-width: 104px;
+	max-width: 104px; */
 	padding: 24px;
 	border: none;
 }
 #pages #stack #projects_page #list #item QLabel {
 	/* padding: 0 24px; */
-	color: #686868;
 	border: none;
+	color: #686868;
 }
 #pages #stack #projects_page #list #item #file_name {
 	font-size: 14pt;
@@ -154,22 +178,7 @@ QPushButton#primary-border-btn:hover {
 	font-style: italic;
 	color: #323232;
 }
-#pages #stack #projects_page #list #item #versions {
-	/* width: 32px; */
-	padding: 8px 12px;
-	background-color: #121212;
-	border: none;
-	border-radius: 8px;
-	color: #686868;
-}
-#pages #stack #projects_page #list #item #versions:drop-down {
-	border: none;
-	border-radius: 8px;
-	background-color: #121212;
-}
-#pages #stack #projects_page #list #item #versions::down-arrow {
-	image: url("src/images/caret-down.svg");
-}
+
 #pages #stack #projects_page #list #item #options {
 	min-width: 24px;
 	max-width: 24px;
@@ -178,6 +187,7 @@ QPushButton#primary-border-btn:hover {
 	border: none;
 	color: #646464;
 }
+
 #pages #stack #projects_page #list #item #options:hover {
 	background-color: #323232;
 	color: #646464;

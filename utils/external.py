@@ -1,7 +1,7 @@
 from os import makedirs, path, remove
 from time import ctime
 
-# from utils.scrapping import getAvailableVersions
+from utils.blender.run import get_version
 
 '''
 TO-DO list:
@@ -80,15 +80,10 @@ class ProjectsList(ExternalList):
 	def writeProjects(self):
 		super().write()
 	
-	def addProject(self, fileName):
-		_date = ctime(path.getmtime(fileName))
-		_version = "3.6"
-		_data = f"{fileName};{_date};{_version}"
-	
-	def addProject(self, file_name):
+	def addProject(self, file_name, date="", version=""):
 		# Generate some data
-		_date = ctime(path.getmtime(file_name))
-		_version = "4.1.1"
+		_date = date if date != "" else ctime(path.getmtime(file_name))
+		_version = version if version != "" else get_version(file_name)
 		_data = f"{file_name};{_date};{_version}"
 
 		self.items.append(_data)

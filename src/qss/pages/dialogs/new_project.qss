@@ -14,34 +14,6 @@
 	color: #323232;
 }
 
-#btn {
-	padding: 16px 20px;
-	padding-top: 18px;
-	border: 1px solid #242424;
-	border-radius: 12px;
-	color: #686868;
-}
-#btn:hover {
-	border-color: #323232;
-	color: #a9a9a9;
-}
-#primary-btn {
-	padding: 16px 20px;
-	padding-top: 18px;
-	border-radius: 12px;
-	background-color: #0062c0;
-	border: none;
-	color: #e5e5e5;
-}
-#primary-btn:hover {
-	background-color: #0084e6;
-	color: white;
-}
-#primary-btn:disabled {
-	background-color: #181f24;
-	color: #4d6577;
-}
-
 #input-text {
 	/* padding: 16px 24px 12px 24px; */
 	padding: 16px 16px 12px 16px;
@@ -59,4 +31,8 @@
 	background-color: #181f24;
 	border: 1px solid #0062c0;
 	color: #a9a9a9;
+}
+
+QComboBox {
+	border: 1px solid #242424;
 }

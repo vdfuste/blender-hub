@@ -26,8 +26,6 @@ class SubVersionItem(Widget):
 		if installed:
 			self.addWidget(QLabel("Already installed", objectName=f"{name}-installed"))
 
-		else: print(url)
-		
 		self.layout.addStretch(0)
 
 		# Action Button
