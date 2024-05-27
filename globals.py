@@ -4,7 +4,7 @@ from sys import platform
 from PyQt5.QtWidgets import QApplication
 
 from utils.external import DownloadList, ProjectsList
-from utils.versions import InstalledVersionsList
+from utils.versions import ConfigList, InstalledVersionsList
 
 '''
 TO-DO List:
@@ -22,6 +22,7 @@ if platform == "linux" or platform == "linux2":
 	USER_FOLDER = path.expanduser("~")
 	DOCUMENTS_FOLDER = path.join(USER_FOLDER, "Documents")
 	TEMP_USER_FOLDER = path.join(USER_FOLDER, ".cache")
+	CONFIG_USER_FOLDER = path.join(USER_FOLDER, ".config", "blender")
 
 elif platform == "win32":
 	BLENDER_INSTALLS_FOLDER = "C:/Program Files/Blender Foundation"
@@ -48,3 +49,4 @@ BLENDER_ALL_VERSIONS_URL = "https://download.blender.org/release"
 projects = ProjectsList(PROJECTS_FILE_PATH)
 versions = InstalledVersionsList(BLENDER_INSTALLS_FOLDER)
 downloads = DownloadList(DOWNLOADS_FILE_PATH)
+config = ConfigList(CONFIG_USER_FOLDER)

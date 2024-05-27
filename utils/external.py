@@ -105,6 +105,7 @@ class DownloadList():
 		super().__init__()
 
 		# self.urls = ExternalList(file_path)
+		self.series = [4, 3]
 		self.versions = [
 			{
 				"serie": "4",

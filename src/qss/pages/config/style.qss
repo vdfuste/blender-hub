@@ -1,0 +1,34 @@
+#copy-label {
+	margin: 4px;
+	font-size: 14pt;
+	color: #323232;
+}
+
+QComboBox {
+	margin-bottom: 8px;
+	border: 1px solid #242424;
+}
+
+QCheckBox {
+	margin-left: 8px;
+	font-size: 11pt;
+	color: #424242;
+}
+QCheckBox:checked {
+	font-size: 11pt;
+	color: #646464;
+}
+QCheckBox::indicator {
+	width: 24px;
+	height: 24px;
+	/* background-color: #242424; */
+	border: 1px solid #242424;
+	border-radius: 6px;
+}
+QCheckBox::indicator:checked {
+	border: 1px solid #0064f0;
+	background-color: #0064f0;
+	background-image: url("src/images/check.svg");
+	background-repeat: no-repeat;
+	background-position: center center;
+}

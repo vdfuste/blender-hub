@@ -5,11 +5,9 @@ from PyQt5.QtWidgets import QWidget, QHBoxLayout, QPushButton
 from utils.read import loadStyle
 
 class VersionButtonsHeader(QWidget):
-	def __init__(self):
+	def __init__(self, series, selectVersion):
 		super().__init__()
 
-		versions = [4, 3, 2]
-		
 		loadStyle("components/installs/header/style.qss", self)
 		
 		layout = QHBoxLayout()
@@ -17,11 +15,11 @@ class VersionButtonsHeader(QWidget):
 		layout.setSpacing(0)
 		layout.setAlignment(Qt.AlignBottom)
 		
-		# layout.addStretch(0)
+		for index, version in enumerate(series):
+			button = QPushButton(f"Version {version}")
+			button.setObjectName("version-btn")
+			button.clicked.connect(lambda: selectVersion(index))
 
-		for index, version in enumerate(versions):
-			_button = QPushButton(f"Version {version}")
-			_button.setObjectName("version-btn")
-			layout.addWidget(_button)
+			layout.addWidget(button)
 
 		self.setLayout(layout)

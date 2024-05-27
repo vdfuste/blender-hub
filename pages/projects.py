@@ -30,14 +30,11 @@ class ProjectsPage(QWidget):
 		page_layout.setContentsMargins(0, 0, 0, 0)
 		page_layout.setSpacing(0)
 
-
 		# Header Page
 		header_page = HeaderPage(title)
 		header_page.addWidget(OptionsButtonsHeader(self.createProject, self.importProject))
 		header_page.parent(page_layout)
-		# page_layout.addWidget(header_page)
 		
-
 		# Projects List
 		header_list = Header()
 		page_layout.addWidget(header_list)

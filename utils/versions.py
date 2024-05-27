@@ -44,8 +44,16 @@ class InstalledVersionsList():
 		except Exception as e:
 			print(f"Error checking installed versions: {e}")
 
-class AvailableInstallsList():
+class ConfigList():
 	'''
 	'''
-	def __init__(self):
-		pass
+	def __init__(self, config_path):
+		self.config_path = config_path
+		self.versions =[]
+		self.check()
+
+	def check(self):
+		for version in listdir(self.config_path):
+			self.versions.append(version)
+
+		self.versions.sort()
