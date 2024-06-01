@@ -1,4 +1,5 @@
 from os import path
+from time import ctime
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QLabel, QPushButton, QScrollArea, QMenu, QComboBox, QMessageBox, QSizePolicy
 
@@ -21,10 +22,21 @@ TO-DO list:
 '''
 
 class Item(QWidget):
-	def __init__(self, data, index, callback, name="item"):
+	def __init__(self, data, index, remove_callback, open_callback, name="item"):
 		super().__init__()
 
-		self.splitData(data)
+		print(data)
+		
+		# Gets the full path, last modified date and current version from data
+		path_name = data["file_name"]
+		self.project_date = data["date"]
+		self.project_version = data["version"]
+
+		# Split to path and name from the full path
+		self.project_path, self.project_name = path.split(path_name)
+
+		self.index = index
+		self.open_callback = open_callback
 
 		#Init UI
 		self.setFixedHeight(96)
@@ -106,9 +118,9 @@ class Item(QWidget):
 		options.setObjectName("options")
 		options_menu = QMenu()
 		remove_action = options_menu.addAction("Remove from Blender Hub")
-		remove_action.triggered.connect(lambda: callback(index, False))
+		remove_action.triggered.connect(lambda: remove_callback(index, False))
 		delete_action = options_menu.addAction("Delete file from disk")
-		delete_action.triggered.connect(lambda: self.openWarningMessage(index, callback))
+		delete_action.triggered.connect(lambda: self.openWarningMessage(index, remove_callback))
 		options.setMenu(options_menu)
 		options.clicked.connect(options_menu.popup)
 		right_section_layout.addWidget(options)
@@ -121,49 +133,40 @@ class Item(QWidget):
 
 		self.setLayout(wrap_layout)
 	
-	def splitData(self, data):
-		# Gets the full path, last modified date and current version from data
-		_path_name, self.project_date, self.project_version = data.split(';')
-		
-		# Split to path and name from the full path
-		self.project_path, self.project_name = path.split(_path_name)
-	
 	def getVersions(self):
 		_versions = []
+		_versions.append(self.project_version)
 
 		for version in versions.installed:
 			if version != self.project_version:
 				_versions.append(version)
 
-		_versions.append(self.project_version)
-		_versions.reverse()
-
 		return _versions
 
 	def mousePressEvent(self, event):
-		_file_name = path.join(self.project_path, self.project_name)
-		_version = versions.paths[self.versions_combo.currentText()]
+		file_name = path.join(self.project_path, self.project_name)
+		version = versions.paths[self.versions_combo.currentText()]
+		
+		self.open_callback(file_name, self.index, self.versions_combo.currentText())
 
-		print("BLENDER HUB: " + _version)
+		open_project(file_name, version)
 
-		open_project(_file_name, _version)
-
-	def openWarningMessage(self, index, callback):
-		warningMessage = QMessageBox()
-		warningMessage.setIcon(QMessageBox.Warning)
-		warningMessage.setText("Are you sure you want to delete the file from your disk?")
-		warningMessage.setWindowTitle("Blender Hub says:")
+	def openWarningMessage(self, index, remove_callback):
+		warning_message = QMessageBox()
+		warning_message.setIcon(QMessageBox.Warning)
+		warning_message.setText("Are you sure you want to delete the file from your disk?")
+		warning_message.setWindowTitle("Blender Hub says:")
 
 		delete_btn = QPushButton("Delete it")
-		delete_btn.clicked.connect(lambda: callback(index, True))
-		warningMessage.addButton(delete_btn, QMessageBox.AcceptRole)
+		delete_btn.clicked.connect(lambda: remove_callback(index, True))
+		warning_message.addButton(delete_btn, QMessageBox.AcceptRole)
 		
 		remove_btn = QPushButton("Just remove it from list")
-		remove_btn.clicked.connect(lambda: callback(index, False))
-		warningMessage.addButton(remove_btn, QMessageBox.ActionRole)
+		remove_btn.clicked.connect(lambda: remove_callback(index, False))
+		warning_message.addButton(remove_btn, QMessageBox.ActionRole)
 		
 		cancel_btn = QPushButton("Cancel")
-		warningMessage.addButton(cancel_btn, QMessageBox.RejectRole)
+		warning_message.addButton(cancel_btn, QMessageBox.RejectRole)
 
-		warningMessage.setDefaultButton(cancel_btn)
-		warningMessage.exec_()
+		warning_message.setDefaultButton(cancel_btn)
+		warning_message.exec_()

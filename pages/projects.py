@@ -12,13 +12,16 @@ from components.projects.header import Header
 from components.scroll_list import ScrollList
 from components.projects.item import Item
 
+from utils.projects import ProjectsList
 from utils.blender.run import new_project
 
-from globals import projects, versions
+from globals import versions, PROJECTS_FILE_PATH
 
 class ProjectsPage(QWidget):
 	def __init__(self, title, parent=None, name="projects_page"):
 		super().__init__()
+
+		self.projects_data = ProjectsList(PROJECTS_FILE_PATH)
 
 		# Init UI
 		layout = QVBoxLayout()
@@ -41,10 +44,7 @@ class ProjectsPage(QWidget):
 
 		self.list = ScrollList("list")
 		self.list.parent(page_layout)
-		self.list.populate(
-			projects.items,
-			lambda data, index : self.newItem(data, index)
-		)
+		self.populate()
 
 		page.setLayout(page_layout)
 		layout.addWidget(page)
@@ -52,7 +52,16 @@ class ProjectsPage(QWidget):
 		self.setLayout(layout)
 	
 	def newItem(self, data, index):
-		return Item(data, index, lambda _index, delete: self.removeProject(_index, delete))
+		remove_project = lambda _index, delete: self.removeProject(_index, delete)
+		_open_project = lambda _file_name, _index, _version: self.openProject(_file_name, _index, _version)
+		
+		return Item(data, index, remove_project, _open_project)
+	
+	def populate(self):
+		self.list.populate(
+			self.projects_data.items,
+			lambda data, index : self.newItem(data, index)
+		)
 	
 	def createProject(self):
 		new_project_dialog = NewProject(self)
@@ -64,22 +73,23 @@ class ProjectsPage(QWidget):
 			new_project(file_name, versions.paths[blender_version])
 
 			# Adding the project to "Projects List"
-			data, index = projects.addProject(file_name, ctime(), blender_version)
-			item = Item(data, index, lambda _index, delete: self.removeProject(_index, delete))
-			self.list.addItem(item)
+			data, index = self.projects_data.addProject(file_name, ctime(), blender_version)
+			self.list.addItem(self.newItem(data, index))
 
 	def importProject(self):
-		# Get the full path of the projects
+		# Getting the full path of the projects
 		file_names = FileDialog.findBlendFile(self)
+
+		# Getting any Blender version to check the project version
+		check_path = versions.paths[versions.installed[0]]
 
 		for file_name in file_names:
 			if file_name:
 				is_on_list = False 
 				
-				# Check if the project is already on the list
-				for project in projects.items:
-					data = project.split(';')
-					if data[0] == file_name:
+				# Check if the project is already on the list                                      
+				for project in self.projects_data.items:
+					if project["file_name"] == file_name:
 						print("The project already exists.")
 						is_on_list = True
 						break
@@ -88,19 +98,27 @@ class ProjectsPage(QWidget):
 				if is_on_list: continue
 				
 				# Add project if is not on the list
-				data, index = projects.addProject(file_name)
+				data, index = self.projects_data.addProject(file_name, check_path=check_path)
 
-				item = Item(data, index, lambda _index, delete: self.removeProject(_index, delete))
-				self.list.addItem(item)
+				# item = Item(data, index, lambda _index, delete: self.removeProject(_index, delete))
+				self.list.addItem(self.newItem(data, index))
 
 				print(f"Project imported: {file_name}")
 
+	def openProject(self, file_name, index, selected_version):
+		# When a project is opened it's also moved to first place.
+		# To achive this behaviour instead of move the clicked item
+		# it will be removed and inserted at the beginning of the list
+		# and then the widget list is populated with the new items
+		# causing a re-rendering.
+		self.projects_data.removeProject(index)
+		self.projects_data.addProject(file_name, ctime(), selected_version, index=0)
+		self.populate()
+	
 	def removeProject(self, index, delete=False):
-		# print(index)
-		
 		# Remove data from "projects.txt" file
-		projects.removeProject(index, delete)
+		self.projects_data.removeProject(index, delete)
 
 		# Add new items
-		self.list.populate(projects.items, lambda data, index : Item(data, index, lambda _index, delete: self.removeProject(_index, delete)))
+		self.populate()
 

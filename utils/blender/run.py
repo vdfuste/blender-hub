@@ -1,12 +1,24 @@
 from os import path
 from subprocess import Popen, run, CalledProcessError, DEVNULL
 
-def get_version(file_name):
+def get_version(blender_path):
 	try:
-		_blender_path = path.join(file_name, "blender")
-		_output = run([_blender_path, "--version"], capture_output=True, text=True).stdout
+		blender_path = path.join(blender_path, "blender")
+		output = run([blender_path, "--version"], capture_output=True, text=True).stdout
 		
-		return _output.split('\n')[0].replace("Blender ", "")
+		return output.split('\n')[0].replace("Blender ", "")
+	
+	except CalledProcessError:
+		print("BLENDER HUB: Error checking Blender version.")
+
+def get_project_version(file_name, blender_path):
+	try:
+		blender_path = path.join(blender_path, "blender")
+		output = run([blender_path, "-b", file_name, "-P", "utils/blender/scripts/version.py"], capture_output=True, text=True).stdout
+		
+		mayor, minor, _ = output.split('\n')[0].replace("(", "").replace(")", "").split(", ")
+		
+		return f"{mayor}.{minor}.?"
 	
 	except CalledProcessError:
 		print("BLENDER HUB: Error opening the project.")

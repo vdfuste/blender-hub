@@ -19,8 +19,8 @@ class ScrollList(Widget):
 		self.widget.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
 		self.widget.setWidget(self.items)
 
-	def addItem(self, item):
-		self.layout.addWidget(item)
+	def addItem(self, item, on_top=False):
+		self.layout.insertWidget(0 if on_top else len(self.layout), item)
 
 	def clear(self):
 		while self.layout.count():
