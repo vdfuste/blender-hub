@@ -101,9 +101,12 @@ class ProjectsList():
 		return f'{data["file_name"]};{data["date"]};{data["version"]}'
 	
 	def removeProject(self, index, delete=False):
-		# Delete file from disk
+		# Delete both .blend and .blend1 files from disk
 		if delete:
-			remove(self.items[index].split(';')[0])
+			file_name = self.items[index]["file_name"]
+			
+			if path.isfile(file_name): remove(file_name)
+			if path.isfile(file_name + "1"): remove(file_name + "1")
 		
 		# Remove the item
 		del self.items[index]

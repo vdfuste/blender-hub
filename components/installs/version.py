@@ -1,14 +1,12 @@
-from os import mkdir, path
-from sys import platform
-from subprocess import run, CalledProcessError
-
 from PyQt5 import QtCore
 from PyQt5.Qt import Qt
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QLabel, QPushButton, QSizePolicy
 
 from components.custom.widget import Widget
+
 from utils.read import loadStyle
+from utils.install import installBlender, uninstallBlender
 
 from globals import versions
 
@@ -31,51 +29,18 @@ class SubVersionItem(Widget):
 		# Action Button
 		action_btn = QPushButton("Install" if not installed else "Uninstall")
 		action_btn.setObjectName("primary-btn" if not installed else "btn")
-		action_btn.clicked.connect(lambda: self.install_stable(url, installed))
+		action_btn.clicked.connect(lambda: self.handleClick(version, url, installed, parent=self.widget))
 		self.addWidget(action_btn)
 
-	def install_stable(self, url, installed):
-		if installed:
-			return
-
-		
-		if platform == "linux" or platform == "linux2":
-			extension = ".tar.xz"
-			blender_file = path.split(url)[-1].replace(extension, "")
-			
-			commands = [
-				"mkdir -p temp",
-				f"wget {url} -P temp",
-				f"tar -xf temp/{blender_file + extension}",
-				f"sudo mv {blender_file} /opt/blender",
-				#"sudo ln -s /opt/blender/blender /usr/local/bin/blender",
-				"rm -rf temp"
-			]
-		
-		elif platform == "win32":
-			# extension = ".msi"
-			# blender_file = path.split(url)[-1].replace(extension)
-
-			commands = []
-		
-		elif platform == "darwin":
-			# extension = ".dmg"
-			# blender_file = path.split(url)[-1].replace(extension)
-
-			commands = []
-		
-		try:
-			for command in commands:
-				run(command.split(), check=True)
-		
-		except CalledProcessError:
-			print(f"Failed to install Blender {mayor}.{minor}")
+	def handleClick(self, version, url, installed, parent=None):
+		if not installed: installBlender(version, url, parent)
+		else: uninstallBlender(version, url, parent)
 
 class VersionItem(QWidget):
 	def __init__(self, width, data, name="version-item"):
 		super().__init__()
 		
-		loadStyle("src/qss/pages/installs/version.qss",self)
+		loadStyle("src/qss/pages/installs/version.qss", self)
 
 		# Width hardcoded adjust. Still don't know why 32.
 		width -= 32

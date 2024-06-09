@@ -48,6 +48,10 @@ QPushButton#primary-border-btn:hover {
 	background-color: #0084e6;
 	color: white;
 }
+QPushButton#primary-border-btn:disabled {
+	background-color: #1c2e3b;
+	color: #45637a;
+}
 
 /* COMBO BOX (DROPDOWNS) */
 QComboBox {

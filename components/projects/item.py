@@ -25,8 +25,6 @@ class Item(QWidget):
 	def __init__(self, data, index, remove_callback, open_callback, name="item"):
 		super().__init__()
 
-		print(data)
-		
 		# Gets the full path, last modified date and current version from data
 		path_name = data["file_name"]
 		self.project_date = data["date"]
