@@ -8,7 +8,7 @@ from globals import SCREEN_GEOMETRY
 
 '''
 TO-DO list:
- - 
+ - Launch "Accepted" when enter is pressed.
 '''
 
 class PasswordDialog(QDialog):

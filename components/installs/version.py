@@ -34,7 +34,7 @@ class SubVersionItem(Widget):
 
 	def handleClick(self, version, url, installed, parent=None):
 		if not installed: installBlender(version, url, parent)
-		else: uninstallBlender(version, url, parent)
+		else: uninstallBlender(version, versions.paths[version], parent)
 
 class VersionItem(QWidget):
 	def __init__(self, width, data, name="version-item"):
