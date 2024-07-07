@@ -63,7 +63,7 @@ class Sidebar(QWidget):
 		buttons_layout.setSpacing(0)
 		
 		# Check why this is not working properly
-		"""
+		
 		buttons_data = [
 			("Projects", "projects_btn", "folder.svg", "Projects"),
 			("Config File", "config_btn", "settings.svg", "Config"),
@@ -72,21 +72,8 @@ class Sidebar(QWidget):
 
 		for (label, name, icon, name_id) in buttons_data:
 			button = SideBarButton(label, name, icon)
-			button.onClick(lambda: changePage(name_id))
+			button.onClick(lambda _, name_id = name_id: changePage(name_id))
 			button.addToLayout(buttons_layout)
-		"""
-
-		button1 = SideBarButton("Projects", "projects_btn", "folder.svg")
-		button1.onClick(lambda: changePage("Projects"))
-		button1.addToLayout(buttons_layout)
-		
-		button2 = SideBarButton("Config File", "config_btn", "settings.svg")
-		button2.onClick(lambda: changePage("Config"))
-		button2.addToLayout(buttons_layout)
-		
-		button3 = SideBarButton("Installs", "installs_btn", "download.svg")
-		button3.onClick(lambda: changePage("Installs"))
-		button3.addToLayout(buttons_layout)
 
 		buttons.setLayout(buttons_layout)
 		sidebar_layout.addWidget(buttons)
