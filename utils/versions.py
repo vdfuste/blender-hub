@@ -49,11 +49,12 @@ class ConfigList():
 	'''
 	def __init__(self, config_path):
 		self.config_path = config_path
-		self.versions =[]
+		self.versions = []
 		self.check()
 
 	def check(self):
-		for version in listdir(self.config_path):
-			self.versions.append(version)
+		if path.isdir(self.config_path):
+			for version in listdir(self.config_path):
+				self.versions.append(version)
 
-		self.versions.sort()
+			self.versions.sort()
