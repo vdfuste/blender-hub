@@ -28,14 +28,14 @@ def calculateTimeAgo(date):
 		unit = "week" if value == 1 else "weeks"
 	else:
 		# For months and years, calculate more accurately
-		def months_between(date1, date2):
-			return (date1.year - date2.year) * 12 + date1.month - date2.month
+		def months_between(current, date):
+			return (current.year - date.year) * 12 + current.month - date.month
 
-		def years_between(date1, date2):
-			return date1.year - date2.year - ((date1.month, date1.day) < (date2.month, date2.day))
+		def years_between(current, date):
+			return current.year - date.year - ((current.month, current.day) < (date.month, date.day))
 
-		months = months_between(time1, time2)
-		years = years_between(time1, time2)
+		months = months_between(current, date)
+		years = years_between(current, date)
 
 		if years >= 1:
 			value = years
