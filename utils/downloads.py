@@ -8,6 +8,21 @@ class DownloadList():
 				"serie": "4",
 				"cards": [
 					{
+						"version": "4.2",
+						"image": "src/images/blender_4_1_splash.jpg",
+						"subversions": [
+							{
+								"subversion": "4.2.0",
+								"url":
+								"https://download.blender.org/release/Blender4.2/blender-4.2.0-linux-x64.tar.xz"
+							},
+							{
+								"subversion": "4.1.0",
+								"url": "https://download.blender.org/release/Blender4.1/blender-4.1.0-linux-x64.tar.xz"
+							}
+						]
+					},
+					{
 						"version": "4.1",
 						"image": "src/images/blender_4_1_splash.jpg",
 						"subversions": [
