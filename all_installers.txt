@@ -1,0 +1,2488 @@
+[
+	{
+		"version": "Blender4.2",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"4.2.0"
+				],
+				"urls": [
+					"blender-{xyz}-linux-x64.tar.xz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"4.2.0"
+				],
+				"urls": [
+					"blender-{xyz}-windows-x64.msix",
+					"blender-{xyz}-windows-x64.msi"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender4.1",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"4.1.1",
+					"4.1.0"
+				],
+				"urls": [
+					"blender-{xyz}-linux-x64.tar.xz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"4.1.1",
+					"4.1.0"
+				],
+				"urls": [
+					"blender-{xyz}-windows-x64.msix",
+					"blender-{xyz}-windows-x64.msi"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender4.0",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"4.0.2",
+					"4.0.1",
+					"4.0.0"
+				],
+				"urls": [
+					"blender-{xyz}-linux-x64.tar.xz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"4.0.2",
+					"4.0.1",
+					"4.0.0"
+				],
+				"urls": [
+					"blender-{xyz}-windows-x64.msix",
+					"blender-{xyz}-windows-x64.msi"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender3.6",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"3.6.9",
+					"3.6.8",
+					"3.6.7",
+					"3.6.5",
+					"3.6.4",
+					"3.6.3",
+					"3.6.2",
+					"3.6.14",
+					"3.6.13",
+					"3.6.12",
+					"3.6.11",
+					"3.6.10",
+					"3.6.1",
+					"3.6.0"
+				],
+				"urls": [
+					"blender-{xyz}-linux-x64.tar.xz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"3.6.9",
+					"3.6.8",
+					"3.6.7",
+					"3.6.5",
+					"3.6.4",
+					"3.6.3",
+					"3.6.2",
+					"3.6.14",
+					"3.6.13",
+					"3.6.12",
+					"3.6.11",
+					"3.6.10",
+					"3.6.1",
+					"3.6.0"
+				],
+				"urls": [
+					"blender-{xyz}-windows-x64.msix",
+					"blender-{xyz}-windows-x64.msi"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender3.5",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"3.5.1",
+					"3.5.0"
+				],
+				"urls": [
+					"blender-{xyz}-linux-x64.tar.xz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"3.5.1",
+					"3.5.0"
+				],
+				"urls": [
+					"blender-{xyz}-windows-x64.msix",
+					"blender-{xyz}-windows-x64.msi"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender3.4",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"3.4.1",
+					"3.4.0"
+				],
+				"urls": [
+					"blender-{xyz}-linux-x64.tar.xz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"3.4.1",
+					"3.4.0"
+				],
+				"urls": [
+					"blender-{xyz}-windows-x64.msix",
+					"blender-{xyz}-windows-x64.msi"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender3.3",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"3.3.9",
+					"3.3.8",
+					"3.3.7",
+					"3.3.6",
+					"3.3.5",
+					"3.3.4",
+					"3.3.3",
+					"3.3.21",
+					"3.3.20",
+					"3.3.2",
+					"3.3.19",
+					"3.3.18",
+					"3.3.17",
+					"3.3.16",
+					"3.3.15",
+					"3.3.14",
+					"3.3.12",
+					"3.3.11",
+					"3.3.10",
+					"3.3.1",
+					"3.3.0"
+				],
+				"urls": [
+					"blender-{xyz}-linux-x64.tar.xz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"3.3.9",
+					"3.3.8",
+					"3.3.7",
+					"3.3.6",
+					"3.3.5",
+					"3.3.4",
+					"3.3.3",
+					"3.3.21",
+					"3.3.20",
+					"3.3.2",
+					"3.3.19",
+					"3.3.18",
+					"3.3.17",
+					"3.3.16",
+					"3.3.15",
+					"3.3.14",
+					"3.3.12",
+					"3.3.11",
+					"3.3.10",
+					"3.3.1",
+					"3.3.0"
+				],
+				"urls": [
+					"blender-{xyz}-windows-x64.msix",
+					"blender-{xyz}-windows-x64.msi"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender3.2",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"3.2.2",
+					"3.2.1",
+					"3.2.0"
+				],
+				"urls": [
+					"blender-{xyz}-linux-x64.tar.xz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"3.2.2",
+					"3.2.1",
+					"3.2.0"
+				],
+				"urls": [
+					"blender-{xyz}-windows-x64.msix",
+					"blender-{xyz}-windows-x64.msi"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender3.1",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"3.1.2",
+					"3.1.1",
+					"3.1.0"
+				],
+				"urls": [
+					"blender-{xyz}-linux-x64.tar.xz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"3.1.2",
+					"3.1.1",
+					"3.1.0"
+				],
+				"urls": [
+					"blender-{xyz}-windows-x64.msix",
+					"blender-{xyz}-windows-x64.msi"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender3.0",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"3.0.1",
+					"3.0.0"
+				],
+				"urls": [
+					"blender-{xyz}-linux-x64.tar.xz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"3.0.1",
+					"3.0.0"
+				],
+				"urls": [
+					"blender-{xyz}-windows-x64.msix",
+					"blender-{xyz}-windows-x64.msi"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.93",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.93.9",
+					"2.93.8",
+					"2.93.7",
+					"2.93.6",
+					"2.93.5",
+					"2.93.4",
+					"2.93.3",
+					"2.93.2",
+					"2.93.18",
+					"2.93.17",
+					"2.93.16",
+					"2.93.15",
+					"2.93.14",
+					"2.93.13",
+					"2.93.12",
+					"2.93.11",
+					"2.93.10",
+					"2.93.1",
+					"2.93.0"
+				],
+				"urls": [
+					"blender-{xyz}-linux-x64.tar.xz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.93.9",
+					"2.93.8",
+					"2.93.7",
+					"2.93.6",
+					"2.93.5",
+					"2.93.4",
+					"2.93.3",
+					"2.93.2",
+					"2.93.18",
+					"2.93.17",
+					"2.93.16",
+					"2.93.15",
+					"2.93.14",
+					"2.93.13",
+					"2.93.12",
+					"2.93.11",
+					"2.93.10",
+					"2.93.1",
+					"2.93.0"
+				],
+				"urls": [
+					"blender-{xyz}-windows-x64.msix",
+					"blender-{xyz}-windows-x64.msi"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.92",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.92.0"
+				],
+				"urls": [
+					"blender-{xyz}-linux64.tar.xz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.92.0"
+				],
+				"urls": [
+					"blender-{xyz}-windows64.msi"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.91",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.91.2",
+					"2.91.0"
+				],
+				"urls": [
+					"blender-{xyz}-linux64.tar.xz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.91.2",
+					"2.91.0.0",
+					"2.91.0"
+				],
+				"urls": [
+					"blender-{xyz}-windows64.msix",
+					"blender-{xyz}-windows64.msi"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.90",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.90.1",
+					"2.90.0"
+				],
+				"urls": [
+					"blender-{xyz}-linux64.tar.xz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.90.1.0",
+					"2.90.1",
+					"2.90.0.0",
+					"2.90.0"
+				],
+				"urls": [
+					"blender-{xyz}-windows64.msix",
+					"blender-{xyz}-windows64.msi"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.83",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.83.9",
+					"2.83.8",
+					"2.83.7",
+					"2.83.6",
+					"2.83.5",
+					"2.83.4",
+					"2.83.3",
+					"2.83.20",
+					"2.83.2",
+					"2.83.19",
+					"2.83.18",
+					"2.83.17",
+					"2.83.16",
+					"2.83.15",
+					"2.83.14",
+					"2.83.13",
+					"2.83.12",
+					"2.83.10",
+					"2.83.1",
+					"2.83.0"
+				],
+				"urls": [
+					"blender-{xyz}-linux-x64.tar.xz",
+					"blender-{xyz}-linux64.tar.xz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.83.9.0",
+					"2.83.6.0",
+					"2.83.9",
+					"2.83.8",
+					"2.83.7",
+					"2.83.6",
+					"2.83.5.0",
+					"2.83.5",
+					"2.83.4.0",
+					"2.83.4",
+					"2.83.3.0",
+					"2.83.3",
+					"2.83.20",
+					"2.83.2",
+					"2.83.19",
+					"2.83.18",
+					"2.83.17",
+					"2.83.16",
+					"2.83.15",
+					"2.83.14",
+					"2.83.13",
+					"2.83.12",
+					"2.83.10",
+					"2.83.1",
+					"2.83.0"
+				],
+				"urls": [
+					"blenderlts-{xyz}-windows64.msix",
+					"blender-{xyz}-windows64.msix",
+					"blender-{xyz}-windows-x64.msix",
+					"blender-{xyz}-windows-x64.msi",
+					"blender-{xyz}-windows64.msi"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.82",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.82a",
+					"2.82"
+				],
+				"urls": [
+					"blender-{xyz}-linux64.tar.xz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.82a",
+					"2.82"
+				],
+				"urls": [
+					"blender-{xyz}-windows64.msi"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.81",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.81a",
+					"2.81"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc217-x86_64.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.81a",
+					"2.81"
+				],
+				"urls": [
+					"blender-{xyz}-windows64.msi"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.80",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.80rc3",
+					"2.80rc2",
+					"2.80rc1",
+					"2.80"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc224-i686.tar.bz2",
+					"blender-{xyz}-linux-glibc217-x86_64.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.80"
+				],
+				"urls": [
+					"blender-{xyz}-windows64.msi",
+					"blender-{xyz}-windows32.msi"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.79",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.79b",
+					"2.79a",
+					"2.79"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc219-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc219-i686.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.79b",
+					"2.79a",
+					"2.79"
+				],
+				"urls": [
+					"blender-{xyz}-windows64.msi",
+					"blender-{xyz}-windows32.msi"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.78",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.78c",
+					"2.78b",
+					"2.78a",
+					"2.78"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc219-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc219-i686.tar.bz2",
+					"blender-{xyz}-linux-glibc211-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc211-i686.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.78c",
+					"2.78b",
+					"2.78a",
+					"2.78"
+				],
+				"urls": [
+					"blender-{xyz}-windows64.msi",
+					"blender-{xyz}-windows32.msi"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.77",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.77a",
+					"2.77"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc211-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc211-i686.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.77a",
+					"2.77"
+				],
+				"urls": [
+					"blender-{xyz}-windows64.msi",
+					"blender-{xyz}-windows32.msi"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.76",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.76b",
+					"2.76a",
+					"2.76"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc211-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc211-i686.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.76b",
+					"2.76a",
+					"2.76"
+				],
+				"urls": [
+					"blender-{xyz}-windows64.msi",
+					"blender-{xyz}-windows32.msi"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.75",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.75a",
+					"2.75"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc211-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc211-i686.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.75a",
+					"2.75"
+				],
+				"urls": [
+					"blender-{xyz}-windows64.msi",
+					"blender-{xyz}-windows32.msi"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.74",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.74"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc211-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc211-i686.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.74"
+				],
+				"urls": [
+					"blender-{xyz}-windows64.exe",
+					"blender-{xyz}-windows32.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.73",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.73a",
+					"2.73"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc211-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc211-i686.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.73a",
+					"2.73"
+				],
+				"urls": [
+					"blender-{xyz}-windows64.exe",
+					"blender-{xyz}-windows32.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.72",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.72b",
+					"2.72a",
+					"2.72"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc211-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc211-i686.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.72b",
+					"2.72a",
+					"2.72"
+				],
+				"urls": [
+					"blender-{xyz}-windows64.exe",
+					"blender-{xyz}-windows32.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.71",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.71"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc211-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc211-i686.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.71"
+				],
+				"urls": [
+					"blender-{xyz}-windows64.exe",
+					"blender-{xyz}-windows32.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.70",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.70a",
+					"2.70"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc211-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc211-i686.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.70a",
+					"2.70"
+				],
+				"urls": [
+					"blender-{xyz}-windows64.exe",
+					"blender-{xyz}-windows64-vc2013_preview.exe",
+					"blender-{xyz}-windows32.exe",
+					"blender-{xyz}-windows32-vc2013_preview.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.69",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.69"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc211-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc211-i686.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.69"
+				],
+				"urls": [
+					"blender-{xyz}-windows64.exe",
+					"blender-{xyz}-windows32.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.68",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.68a",
+					"2.68"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc211-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc211-i686.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.68a",
+					"2.68"
+				],
+				"urls": [
+					"blender-{xyz}-windows64_vc11.exe",
+					"blender-{xyz}-windows64.exe",
+					"blender-{xyz}-windows32_vc11.exe",
+					"blender-{xyz}-windows32.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.67",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.67b",
+					"2.67a",
+					"2.67"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc211-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc211-i686.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.67b",
+					"2.67a",
+					"2.67"
+				],
+				"urls": [
+					"blender-{xyz}-windows64.exe",
+					"blender-{xyz}-windows32.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.66",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.66a",
+					"2.66"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc211-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc211-i686.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.66a",
+					"2.66"
+				],
+				"urls": [
+					"blender-{xyz}-windows64.exe",
+					"blender-{xyz}-windows32.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.65",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.65a",
+					"2.65"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc27-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc27-i686.tar.bz2",
+					"blender-{xyz}-linux-glibc211-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc211-i686.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.65a",
+					"2.65"
+				],
+				"urls": [
+					"blender-{xyz}-windows64.exe",
+					"blender-{xyz}-windows32.exe",
+					"blender-{xyz}-release-windows64.exe",
+					"blender-{xyz}-release-windows32.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.64",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.64a",
+					"2.64"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc27-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc27-i686.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.64a",
+					"2.64"
+				],
+				"urls": [
+					"blender-{xyz}-release-windows64.exe",
+					"blender-{xyz}-release-windows32.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.63",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.63a",
+					"2.63"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc27-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc27-i686.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.63a",
+					"2.63"
+				],
+				"urls": [
+					"blender-{xyz}-release-windows64.exe",
+					"blender-{xyz}-release-windows32.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.62",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.62"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc27-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc27-i686.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.62"
+				],
+				"urls": [
+					"blender-{xyz}-release-windows64.exe",
+					"blender-{xyz}-release-windows32.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.61",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.61"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc27-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc27-i686.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.61"
+				],
+				"urls": [
+					"blender-{xyz}-release-windows64.exe",
+					"blender-{xyz}-release-windows32.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.60",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.60a",
+					"2.60"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc27-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc27-i686.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.60a",
+					"2.60"
+				],
+				"urls": [
+					"blender-{xyz}-release-windows64.exe",
+					"blender-{xyz}-release-windows32.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.59",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.59"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc27-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc27-i686.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.59"
+				],
+				"urls": [
+					"blender-{xyz}-release-windows64.exe",
+					"blender-{xyz}-release-windows32.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.58",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.58a",
+					"2.58"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc27-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc27-i686.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.58a",
+					"2.58"
+				],
+				"urls": [
+					"blender-{xyz}-release-windows64.exe",
+					"blender-{xyz}-release-windows32.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.57",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.57b",
+					"2.57a",
+					"2.57"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc27-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc27-i686.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.57b",
+					"2.57a",
+					"2.57"
+				],
+				"urls": [
+					"blender-{xyz}-release-windows64.exe",
+					"blender-{xyz}-release-windows32.exe",
+					"blender-{xyz}-windows64.exe",
+					"blender-{xyz}-windows32.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.56beta",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.56"
+				],
+				"urls": [
+					"blender-{xyz}-beta-linux-glibc27-x86_64.tar.bz2",
+					"blender-{xyz}-beta-linux-glibc27-i686.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.56"
+				],
+				"urls": [
+					"blender-{xyz}-beta-windows64.exe",
+					"blender-{xyz}-beta-windows32.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.56abeta",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.56a"
+				],
+				"urls": [
+					"blender-{xyz}-beta-linux-glibc27-x86_64.tar.bz2",
+					"blender-{xyz}-beta-linux-glibc27-i686.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.56a"
+				],
+				"urls": [
+					"blender-{xyz}-beta-windows64.exe",
+					"blender-{xyz}-beta-windows32.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.55beta",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.55"
+				],
+				"urls": [
+					"blender-{xyz}-beta-linux-glibc27-x86_64.tar.bz2",
+					"blender-{xyz}-beta-linux-glibc27-i686.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.55"
+				],
+				"urls": [
+					"blender-{xyz}-beta-windows64.exe",
+					"blender-{xyz}-beta-windows32.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.54beta",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.54"
+				],
+				"urls": [
+					"blender-{xyz}-beta-linux-glibc27-x86_64.tar.bz2",
+					"blender-{xyz}-beta-linux-glibc27-i686.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.54"
+				],
+				"urls": [
+					"blender-{xyz}-beta-windows64.exe",
+					"blender-{xyz}-beta-windows32.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.53beta",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.53"
+				],
+				"urls": [
+					"blender-{xyz}-beta-linux-glibc27-x86_64.tar.bz2",
+					"blender-{xyz}-beta-linux-glibc27-i686.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.53"
+				],
+				"urls": [
+					"blender-{xyz}-beta-windows64.exe",
+					"blender-{xyz}-beta-windows32.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.50alpha",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.5"
+				],
+				"urls": [
+					"blender-{xyz}-alpha2-linux-glibc27-x86_64.tar.bz2",
+					"blender-{xyz}-alpha2-linux-glibc27-i686.tar.bz2",
+					"blender-{xyz}-alpha1-linux-glibc27-x86_64.tar.bz2",
+					"blender-{xyz}-alpha1-linux-glibc27-i686.tar.bz2",
+					"blender-{xyz}-alpha0-linux-glibc27-x86_64.tar.bz2",
+					"blender-{xyz}-alpha0-linux-glibc27-i686.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [],
+				"urls": []
+			}
+		}
+	},
+	{
+		"version": "Blender2.49b",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.49b"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc236-py26-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py26-i386.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py25-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py25-i386.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.49b"
+				],
+				"urls": [
+					"blender-{xyz}-windows.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.49a",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.49a"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc236-py26-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py26-i386.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py25-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py25-i386.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.49a"
+				],
+				"urls": [
+					"blender-{xyz}-windows.exe",
+					"blender-{xyz}-avifix-windows.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.49",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.49"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc236-py26-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py26-i386.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py25-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py25-i386.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.49"
+				],
+				"urls": [
+					"blender-{xyz}-windows-py25.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.48a",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.48a"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc236-py25-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py25-x86_64-static.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py25-i386.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py25-i386-static.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py24-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py24-x86_64-static.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py24-i386.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py24-i386-static.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.48a"
+				],
+				"urls": [
+					"blender-{xyz}-windows.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.48",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.48"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc236-py25-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py25-x86_64-static.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py25-i386.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py25-i386-static.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py24-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py24-x86_64-static.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py24-i386.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py24-i386-static.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.48"
+				],
+				"urls": [
+					"blender-{xyz}-windows.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.47",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.47"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc236-py25-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py25-x86_64-static.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py25-i386.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py25-i386-static.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py24-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py24-x86_64-static.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py24-i386.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py24-i386-static.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.47"
+				],
+				"urls": [
+					"blender-{xyz}-windows.exe",
+					"blender-{xyz}-windows-law.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.46",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.46"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc236-py25-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py25-x86_64-static.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py25-i386.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py25-i386-static.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py24-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py24-x86_64-static.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py24-i386.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py24-i386-static.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.46"
+				],
+				"urls": [
+					"blender-{xyz}-windows.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.45",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.45"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc236-py25-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py25-x86_64-static.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py25-i386.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py25-i386-static.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py24-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py24-x86_64-static.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py24-i386.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py24-i386-static.tar.bz2",
+					"blender-{xyz}-linux-glibc2.3.6-powerpc-py2.5.tar.bz2",
+					"blender-{xyz}-linux-glibc2.3.6-powerpc-py2.4.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.45"
+				],
+				"urls": [
+					"blender-{xyz}-windows.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.44",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.44"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc236-py25-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py25-x86_64-static.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py24-x86_64.tar.bz2",
+					"blender-{xyz}-linux-glibc236-py24-x86_64-static.tar.bz2",
+					"blender-{xyz}-linux-glibc232-py25-i386.tar.bz2",
+					"blender-{xyz}-linux-glibc232-py25-i386-static.tar.bz2",
+					"blender-{xyz}-linux-glibc232-py24-i386.tar.bz2",
+					"blender-{xyz}-linux-glibc232-py24-i386-static.tar.bz2",
+					"blender-{xyz}-linux-glibc2.3.6-py2.5-powerpc.tar.bz2",
+					"blender-{xyz}-linux-glibc2.3.6-py2.5-powerpc-static.tar.bz2",
+					"blender-{xyz}-linux-glibc2.3.6-py2.4-powerpc.tar.bz2",
+					"blender-{xyz}-linux-glibc2.3.6-py2.4-powerpc-static.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.44"
+				],
+				"urls": [
+					"blender-{xyz}-windows.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.43",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.43"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc232-py24-i386.tar.bz2",
+					"blender-{xyz}-linux-glibc2.3.2-powerpc.tar.bz2",
+					"blender-{xyz}-linux-glibc2.3.2-powerpc-static.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.43"
+				],
+				"urls": [
+					"blender-{xyz}-windows.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.42",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.42a",
+					"2.42"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc2.3.2-py24-powerpc.tar.bz2",
+					"blender-{xyz}-linux-glibc2.3.2-py24-powerpc-static.tar.bz2",
+					"blender-{xyz}-linux-glibc2.3.2-py23-powerpc.tar.bz2",
+					"blender-{xyz}-linux-glibc2.3.2-py23-powerpc-static.tar.bz2",
+					"blender-{xyz}-linux-glibc232-py24-i386.tar.bz2",
+					"blender-{xyz}-linux-glibc232-py24-i386-static.tar.bz2",
+					"blender-{xyz}-linux-glibc232-py23-i386.tar.bz2",
+					"blender-{xyz}-linux-glibc232-py23-i386-static.tar.bz2",
+					"blender-{xyz}-linux-glibc2.3.2-py2.4-powerpc.tar.gz",
+					"blender-{xyz}-linux-glibc2.3.2-py2.4-powerpc-static.tar.gz",
+					"blender-{xyz}-linux-glibc2.3.2-py2.3-powerpc.tar.gz",
+					"blender-{xyz}-linux-glibc2.3.2-py2.3-powerpc-static.tar.gz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.42a",
+					"2.42"
+				],
+				"urls": [
+					"blender-{xyz}-windows.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.41",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.41"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc232-py24-i386.tar.bz2",
+					"blender-{xyz}-linux-glibc232-py24-i386-static.tar.bz2",
+					"blender-{xyz}-linux-glibc232-py23-i386.tar.bz2",
+					"blender-{xyz}-linux-glibc232-py23-i386-static.tar.bz2",
+					"blender-{xyz}-linux-glibc2.3.2-x86_64-py24.tar.gz",
+					"blender-{xyz}-linux-glibc2.3.2-x86_64-py23.tar.gz",
+					"blender-{xyz}-linux-glibc2.3.2-powerpc.tar.gz",
+					"blender-{xyz}-linux-glibc2.3.2-powerpc-static.tar.gz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.41"
+				],
+				"urls": [
+					"blender-{xyz}-windows.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.40",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.40"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc232-py24-i386.tar.bz2",
+					"blender-{xyz}-linux-glibc232-py24-i386-static.tar.bz2",
+					"blender-{xyz}-linux-glibc232-py23-i386.tar.bz2",
+					"blender-{xyz}-linux-glibc232-py23-i386-static.tar.bz2",
+					"blender-{xyz}-linux-glibc2.3.2-x86_64-py24.tar.bz2",
+					"blender-{xyz}-linux-glibc2.3.2-x86_64-py24-static.tar.bz2",
+					"blender-{xyz}-linux-glibc2.3.2-x86_64-py23.tar.bz2",
+					"blender-{xyz}-linux-glibc2.3.2-x86_64-py23-static.tar.bz2",
+					"blender-{xyz}-linux-glibc2.3.2-py24-powerpc.tar.gz",
+					"blender-{xyz}-linux-glibc2.3.2-py24-powerpc-static.tar.gz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.40"
+				],
+				"urls": [
+					"blender-{xyz}-windows.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.39",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.40alpha2",
+					"2.40alpha1",
+					"2.40"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc232-py24-i386-static.tar.bz2",
+					"blender-{xyz}-linux-glibc232-py23-i386-static.tar.bz2",
+					"blender-{xyz}-linux-glibc232-py24-i386.tar.bz2",
+					"blender-{xyz}-linux-glibc232-py23-i386.tar.bz2",
+					"blender-{xyz}-alpha2-linux-glibc2.3.2-powerpc.tar.gz",
+					"blender-{xyz}-alpha1-linux-glibc2.3.5-powerpc.tar.gz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [],
+				"urls": []
+			}
+		}
+	},
+	{
+		"version": "Blender2.37a",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.37a"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc2.3.2-powerpc.tar.gz",
+					"blender-{xyz}-linux-glibc2.3.2-powerpc-static.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-i386.tar.bz2",
+					"blender-{xyz}-linux-glibc2.2.5-i386-static.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.37a"
+				],
+				"urls": [
+					"blender-{xyz}-windows.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.37",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.37"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc2.3.2-powerpc.tar.gz",
+					"blender-{xyz}-linux-glibc2.3.2-powerpc-static.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-i386.tar.bz2",
+					"blender-{xyz}-linux-glibc2.2.5-i386-static.tar.bz2"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.37"
+				],
+				"urls": [
+					"blender-{xyz}-windows.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.36",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.36"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc2.2.5-i386-static-1.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-i386-1.tar.gz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.36"
+				],
+				"urls": [
+					"blender-{xyz}-windows.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.35",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.35b",
+					"2.35a"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc2.2.5-i386.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-i386-static.tar.gz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.35a"
+				],
+				"urls": [
+					"blender-{xyz}-windows.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.34",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.34"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc2.3.2-powerpc.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-i386.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-i386-static.tar.gz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.34"
+				],
+				"urls": [
+					"blender-{xyz}-windows.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.33a",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.33a"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc2.2.5-powerpc.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-powerpc-static.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-i386.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-i386-static.tar.gz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.33a"
+				],
+				"urls": [
+					"blender-{xyz}-windows.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.33",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.33"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc2.3.2-powerpc.tar.gz",
+					"blender-{xyz}-linux-glibc2.3.2-powerpc-static.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-i386.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-i386-static.tar.gz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.33"
+				],
+				"urls": [
+					"blender-{xyz}-windows.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.32",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.32"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc2.2.5-powerpc.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-powerpc-static.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-i386.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-i386-static.tar.gz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.32"
+				],
+				"urls": [
+					"blender-{xyz}-windows.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.31a",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.31a"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc2.2.5-powerpc.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-powerpc-static.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-i386.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-i386-static.tar.gz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.31a"
+				],
+				"urls": [
+					"blender-{xyz}-windows.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.31",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.31"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc2.2.5-powerpc.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-powerpc-static.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-i386.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-i386-static.tar.gz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.31"
+				],
+				"urls": [
+					"blender-{xyz}-windows.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.30",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.30"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc2.2.5-powerpc.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-powerpc-static.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-i386.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-i386-static.tar.gz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.30"
+				],
+				"urls": [
+					"blender-{xyz}-windows.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.28c",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.28c"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc2.2.5-powerpc.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-powerpc-static.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-i386.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-i386-static.tar.gz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.28c"
+				],
+				"urls": [
+					"blender-{xyz}-windows.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.28a",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.28a"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc2.2.5-powerpc.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-powerpc-static.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-i386.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-i386-static.tar.gz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.28a"
+				],
+				"urls": [
+					"blender-{xyz}-windows.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.28",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.28"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc2.3.2-i386.tar.gz",
+					"blender-{xyz}-linux-glibc2.3.2-i386-static.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-powerpc.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-powerpc-static.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-i386.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-i386-static.tar.gz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.28"
+				],
+				"urls": [
+					"blender-{xyz}-windows.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.27-newpy",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.27.NewPy1"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc2.3.2-i386.tar.gz",
+					"blender-{xyz}-linux-glibc2.3.2-i386-static.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-powerpc.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-powerpc-static.tar.gz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [],
+				"urls": []
+			}
+		}
+	},
+	{
+		"version": "Blender2.27",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.27"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc2.3.1-powerpc.tar.gz",
+					"blender-{xyz}-linux-glibc2.3.1-powerpc-static.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-i386.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-i386-static.tar.gz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.27"
+				],
+				"urls": [
+					"blender-{xyz}-windows.exe"
+				]
+			}
+		}
+	},
+	{
+		"version": "Blender2.26",
+		"image": "url/to/image.jpg",
+		"platforms": {
+			"linux": {
+				"subversions": [
+					"2.26"
+				],
+				"urls": [
+					"blender-{xyz}-linux-glibc2.3.1-powerpc.tar.gz",
+					"blender-{xyz}-linux-glibc2.3.1-powerpc-static.tar.gz",
+					"blender-{xyz}-linux-glibc2.3.1-i386.tar.gz",
+					"blender-{xyz}-linux-glibc2.3.1-i386-static.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-powerpc.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-powerpc-static.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-i386.tar.gz",
+					"blender-{xyz}-linux-glibc2.2.5-i386-static.tar.gz"
+				]
+			},
+			"macos": {
+				"subversions": [],
+				"urls": []
+			},
+			"windows": {
+				"subversions": [
+					"2.26"
+				],
+				"urls": [
+					"blender-{xyz}-windows.exe"
+				]
+			}
+		}
+	}
+]
