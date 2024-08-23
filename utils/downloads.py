@@ -9,7 +9,7 @@ class DownloadList():
 				"cards": [
 					{
 						"version": "4.2",
-						"image": "src/images/blender_4_1_splash.jpg",
+						"image": "src/images/blender_4_2_splash.webp",
 						"subversions": [
 							{
 								"subversion": "4.2.0",
@@ -23,16 +23,7 @@ class DownloadList():
 						"subversions": [
 							{
 								"subversion": "4.1.1",
-								"url":
-								# Linux
-								"https://download.blender.org/release/Blender4.1/blender-4.1.1-linux-x64.tar.xz"
-								
-								# Windows
-								# "https://download.blender.org/release/Blender4.1/blender-4.1.1-windows-x64.msi"
-
-								# MacOS
-								# "https://download.blender.org/release/Blender4.1/blender-4.1.1-macos-x64.dmg"
-								# "https://download.blender.org/release/Blender4.1/blender-4.1.1-macos-arm64.dmg"
+								"url": "https://download.blender.org/release/Blender4.1/blender-4.1.1-linux-x64.tar.xz"
 							},
 							{
 								"subversion": "4.1.0",
