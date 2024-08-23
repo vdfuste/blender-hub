@@ -35,59 +35,60 @@ class ConfigPage(QWidget):
 		header_page = HeaderPage(title)
 		header_page.parent(page_layout)
 
-		# Content
-		content = Widget(QWidget, QHBoxLayout)
-		content.widget.setMaximumWidth(720)
-		content.widget.setContentsMargins(24, 24, 24, 24)
-		content.layout.setSpacing(24)
-		content.parent(page_layout)
-		
-		# Left section
-		left_section = Widget(QWidget, QVBoxLayout)
-		left_section.layout.setAlignment(Qt.AlignTop)
-		left_section.layout.setSpacing(12)
-		left_section.parent(content)
+		if path.isdir(CONFIG_USER_FOLDER):
+			# Content
+			content = Widget(QWidget, QHBoxLayout)
+			content.widget.setMaximumWidth(720)
+			content.widget.setContentsMargins(24, 24, 24, 24)
+			content.layout.setSpacing(24)
+			content.parent(page_layout)
+			
+			# Left section
+			left_section = Widget(QWidget, QVBoxLayout)
+			left_section.layout.setAlignment(Qt.AlignTop)
+			left_section.layout.setSpacing(12)
+			left_section.parent(content)
 
-		from_label = QLabel("Copy from:", objectName="copy-label")
-		left_section.addWidget(from_label)
-		
-		self.from_combo = QComboBox()
-		self.from_combo.addItems(config.versions)
-		self.from_combo.currentTextChanged.connect(lambda version: self.versionChanged(version))
-		left_section.addWidget(self.from_combo)
+			from_label = QLabel("Copy from:", objectName="copy-label")
+			left_section.addWidget(from_label)
+			
+			self.from_combo = QComboBox()
+			self.from_combo.addItems(config.versions)
+			self.from_combo.currentTextChanged.connect(lambda version: self.versionChanged(version))
+			left_section.addWidget(self.from_combo)
 
-		# All available config files
-		self.checkboxes_list = []
-		self.checkboxes = Widget(QWidget, QVBoxLayout)
-		self.checkboxes.parent(left_section)
-		self.checkboxes.layout.setSpacing(12)
-		
-		# Adding the current files
-		self.versionChanged(self.from_combo.currentText())
-		
-		# Center section
-		center_section = Widget(QWidget, QVBoxLayout)
-		center_section.layout.setAlignment(Qt.AlignTop)
-		center_section.layout.setSpacing(12)
-		center_section.parent(content)
+			# All available config files
+			self.checkboxes_list = []
+			self.checkboxes = Widget(QWidget, QVBoxLayout)
+			self.checkboxes.parent(left_section)
+			self.checkboxes.layout.setSpacing(12)
+			
+			# Adding the current files
+			self.versionChanged(self.from_combo.currentText())
+			
+			# Center section
+			center_section = Widget(QWidget, QVBoxLayout)
+			center_section.layout.setAlignment(Qt.AlignTop)
+			center_section.layout.setSpacing(12)
+			center_section.parent(content)
 
-		to_label = QLabel("Copy to:", objectName="copy-label")
-		center_section.addWidget(to_label)
-		
-		self.to_combo = QComboBox()
-		self.to_combo.addItems(config.versions)
-		center_section.addWidget(self.to_combo)
+			to_label = QLabel("Copy to:", objectName="copy-label")
+			center_section.addWidget(to_label)
+			
+			self.to_combo = QComboBox()
+			self.to_combo.addItems(config.versions)
+			center_section.addWidget(self.to_combo)
 
-		# Right section
-		right_section = Widget(QWidget, QVBoxLayout)
-		right_section.layout.setAlignment(Qt.AlignTop)
-		right_section.layout.setContentsMargins(0, 32, 0, 0)
-		right_section.parent(content)
-		
-		# Copy button
-		copy_btn = QPushButton("Copy config files", objectName="primary-border-btn")
-		copy_btn.clicked.connect(lambda: self.copyFiles())
-		right_section.addWidget(copy_btn)
+			# Right section
+			right_section = Widget(QWidget, QVBoxLayout)
+			right_section.layout.setAlignment(Qt.AlignTop)
+			right_section.layout.setContentsMargins(0, 32, 0, 0)
+			right_section.parent(content)
+			
+			# Copy button
+			copy_btn = QPushButton("Copy config files", objectName="primary-border-btn")
+			copy_btn.clicked.connect(lambda: self.copyFiles())
+			right_section.addWidget(copy_btn)
 		
 		self.setLayout(page_layout)
 
