@@ -28,7 +28,7 @@ QCheckBox::indicator {
 QCheckBox::indicator:checked {
 	border: 1px solid #0064f0;
 	background-color: #0064f0;
-	background-image: url("src/images/check.svg");
+	background-image: url("src/images/icons/check.svg");
 	background-repeat: no-repeat;
 	background-position: center center;
 }

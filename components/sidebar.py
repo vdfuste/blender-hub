@@ -7,7 +7,7 @@ class SideBarButton(QPushButton):
 		super().__init__(label)
 		self.setObjectName(name)
 		#self.setLayoutDirection(Qt.RightToLeft)
-		self.setIcon(QIcon("src/images/{0}".format(icon)))
+		self.setIcon(QIcon("src/images/icons/{0}".format(icon)))
 		self.setIconSize(QSize(20, 20))
 		self.setContentsMargins(0, 0, 0, 0)
 
@@ -41,7 +41,7 @@ class Sidebar(QWidget):
 		icon.setObjectName("icon")
 		icon.setContentsMargins(0, 0, 0, 0)
 		# icon.setAlignment(Qt.AlignRight)
-		icon.setPixmap(QPixmap("src/images/logo.svg"))
+		icon.setPixmap(QPixmap("src/images/icons/logo.svg"))
 		
 		title = QLabel("Blender Hub")
 		title.setContentsMargins(0, 0, 0, 0)

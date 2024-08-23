@@ -9,7 +9,7 @@ class DownloadList():
 				"cards": [
 					{
 						"version": "4.2",
-						"image": "src/images/blender_4_2_splash.webp",
+						"image": "src/images/splash/blender_4_2_splash.webp",
 						"subversions": [
 							{
 								"subversion": "4.2.0",
@@ -19,7 +19,7 @@ class DownloadList():
 					},
 					{
 						"version": "4.1",
-						"image": "src/images/blender_4_1_splash.jpg",
+						"image": "src/images/splash/blender_4_1_splash.jpg",
 						"subversions": [
 							{
 								"subversion": "4.1.1",
@@ -33,7 +33,7 @@ class DownloadList():
 					},
 					{
 						"version": "4.0",
-						"image": "src/images/blender_40_splash.jpg",
+						"image": "src/images/splash/blender_40_splash.jpg",
 						"subversions": [
 							{
 								"subversion": "4.0.2",
@@ -56,7 +56,7 @@ class DownloadList():
 				"cards": [
 					{
 						"version": "3.6 LTS",
-						"image": "src/images/blender_36_lts_splash.jpg",
+						"image": "src/images/splash/blender_36_lts_splash.jpg",
 						"subversions": [
 							{
 								"subversion": "3.6.9",

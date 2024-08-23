@@ -67,7 +67,7 @@ QComboBox:drop-down {
 	background-color: #121212;
 }
 QComboBox::down-arrow {
-	image: url("src/images/caret-down.svg");
+	image: url("src/images/icons/caret-down.svg");
 }
 /* GLOBAL STYLES END */
 
