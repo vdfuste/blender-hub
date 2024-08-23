@@ -35,10 +35,17 @@ def installOnLinux(version, url, parent):
 			# sudo is used to insert the password before the download.
 			# run(["sudo", "-S", "mkdir", "-p", "temp"], input=password.encode(), check=True)
 			run("sudo -S mkdir -p temp".split(), input=password.encode(), check=True)
+
+			# Create Blender directory for the first time
+			if not path.isdir("/opt/blender"):
+				run("sudo mkdir /opt/blender".split(), check=True)
 			
 			# Download installation file if not exists
 			if not path.isfile(f"temp/{blender_file}"):
-				run(f"sudo curl -o temp/{blender_file} {url}".split(), check=True)
+				try:
+					run(f"sudo curl -o temp/{blender_file} {url}".split(), check=True)
+				except Exception as e:
+					print(f"Error downloading .tar file: {e}")
 			
 			# Extract file content
 			run(f"tar -xf temp/{blender_file}".split(), check=True)
