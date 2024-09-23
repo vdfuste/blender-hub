@@ -1,4 +1,5 @@
 virt/
+vmisc/
 **/__pycache__/
 */**.pyc
 installs.json
