@@ -6,8 +6,7 @@ class SideBarButton(QPushButton):
 	def __init__(self, label, name, icon):
 		super().__init__(label)
 		self.setObjectName(name)
-		#self.setLayoutDirection(Qt.RightToLeft)
-		self.setIcon(QIcon("src/images/icons/{0}".format(icon)))
+		self.setIcon(QIcon(f"src/images/icons/{icon}"))
 		self.setIconSize(QSize(20, 20))
 		self.setContentsMargins(0, 0, 0, 0)
 
@@ -17,10 +16,11 @@ class SideBarButton(QPushButton):
 	def onClick(self, callback):
 		self.clicked.connect(callback)
 
-
 class Sidebar(QWidget):
 	def __init__(self, changePage):
 		super().__init__()
+
+		self.loadStyle("components/sidebar")
 
 		layout = QVBoxLayout()
 		layout.setContentsMargins(0, 0, 0, 0)
@@ -62,18 +62,11 @@ class Sidebar(QWidget):
 		buttons_layout.setContentsMargins(0, 0, 0, 0)
 		buttons_layout.setSpacing(0)
 		
-		# Check why this is not working properly
-		
-		buttons_data = [
+		for data in [
 			("Projects", "projects_btn", "folder.svg", "Projects"),
 			("Config File", "config_btn", "settings.svg", "Config"),
 			("Installs", "installs_btn", "download.svg", "Installs"),
-		]
-
-		for (label, name, icon, name_id) in buttons_data:
-			button = SideBarButton(label, name, icon)
-			button.onClick(lambda _, name_id = name_id: changePage(name_id))
-			button.addToLayout(buttons_layout)
+		]: self.addButton(data, buttons_layout)
 
 		buttons.setLayout(buttons_layout)
 		sidebar_layout.addWidget(buttons)
@@ -85,3 +78,15 @@ class Sidebar(QWidget):
 		layout.addWidget(sidebar)
 		
 		self.setLayout(layout)
+
+	def loadStyle(self, path):
+		with open(f"{path}/style.qss") as style:
+			self.setStyleSheet(style.read())
+
+	def addButton(self, data, layout):
+		label, name, icon, name_id = data
+		
+		button = SideBarButton(label, name, icon)
+		button.onClick(lambda _, name_id = name_id: changePage(name_id))
+		
+		layout.addWidget(button)

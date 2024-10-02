@@ -1,0 +1,37 @@
+#sidebar {
+	background-color: #242424;
+}
+
+/* Header */
+#sidebar #header QLabel {
+	font-size: 11pt;
+	color: #a9a9a9;
+}
+#sidebar #header #icon {
+	max-width: 20px;
+	margin-left: 42px;
+}
+
+/* Buttons */
+#sidebar #buttons QPushButton {
+	margin: 8px;
+	margin-top: 0;
+	padding: 16px;
+	padding-right: 120px;
+	font-family: "Inter-Medium";
+	font-size: 11pt;
+	text-align: left;
+	border-radius: 8px;
+	color: #a9a9a9;
+}
+#sidebar #buttons QPushButton::icon {
+	background-color: red;
+}
+#sidebar #buttons QPushButton:checked {
+	background-color: #fff;
+	color: #e5e5e5;
+}
+#sidebar #buttons QPushButton:hover {
+	background-color: #323232;
+	color: #e5e5e5;
+}
