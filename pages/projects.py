@@ -18,12 +18,16 @@ from utils.blender.run import new_project
 from globals import versions, PROJECTS_FILE_PATH
 
 class ProjectsPage(QWidget):
-	def __init__(self, title, parent=None, name="projects_page"):
+	def __init__(self, title, name="projects_page"):
 		super().__init__()
 
 		self.projects_data = ProjectsList(PROJECTS_FILE_PATH)
 
-		# Init UI
+		self.initUI(title, name)
+
+	def initUI(self, title, name):
+		self.loadStyle("components/projects")
+
 		layout = QVBoxLayout()
 		layout.setContentsMargins(0, 0, 0, 0)
 
@@ -50,12 +54,17 @@ class ProjectsPage(QWidget):
 		layout.addWidget(page)
 		
 		self.setLayout(layout)
+
+	def loadStyle(self, path):
+		with open(f"{path}/style.qss") as style:
+			self.setStyleSheet(style.read())
 	
 	def newItem(self, data, index):
-		remove_project = lambda _index, delete: self.removeProject(_index, delete)
-		_open_project = lambda _file_name, _index, _version: self.openProject(_file_name, _index, _version)
+		item = Item(data, index)
+		item.projectOpened.connect(lambda file, ind, ver: self.openProject(file, ind, ver))
+		item.projectRemoved.connect(lambda file, delete: self.removeProject(index, file))
 		
-		return Item(data, index, remove_project, _open_project)
+		return item
 	
 	def populate(self):
 		self.list.populate(
@@ -100,7 +109,6 @@ class ProjectsPage(QWidget):
 				# Add project if is not on the list
 				data, index = self.projects_data.addProject(file_name, check_path=check_path)
 
-				# item = Item(data, index, lambda _index, delete: self.removeProject(_index, delete))
 				self.list.addItem(self.newItem(data, index))
 
 				print(f"Project imported: {file_name}")

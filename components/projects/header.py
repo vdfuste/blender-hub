@@ -2,7 +2,7 @@ from PyQt5.QtWidgets import QWidget, QHBoxLayout, QPushButton, QSizePolicy
 
 class Header(QWidget):
 	def __init__(self):
-		super(QWidget, self).__init__()
+		super().__init__()
 
 		layout = QHBoxLayout()
 		layout.setContentsMargins(0, 0, 0, 0)
@@ -24,11 +24,13 @@ class Header(QWidget):
 		header_layout.addWidget(name_btn)
 	
 		modified_btn = QPushButton("MODIFIED")
+		modified_btn.setFixedWidth(150)
 		modified_btn.clicked.connect(lambda: self.sortBy("modified"))
 		header_layout.addWidget(modified_btn)
 	
 		version_btn = QPushButton("VERSION")
 		version_btn.setObjectName("last")
+		version_btn.setFixedWidth(150)
 		version_btn.clicked.connect(lambda: self.sortBy("version"))
 		header_layout.addWidget(version_btn)
 		

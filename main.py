@@ -31,7 +31,7 @@ class MainWindow(QMainWindow):
 		layout.setSpacing(0)
 		
 		# Widgets
-		pages = Pages(self)
+		pages = Pages()
 		sidebar = Sidebar(pages.changePage)
 		
 		layout.addWidget(sidebar)

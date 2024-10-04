@@ -25,8 +25,7 @@ QPushButton#primary-btn:hover {
 
 /* BORDER BUTTON */
 QPushButton#border-btn {
-	padding: 16px 20px;
-	padding-top: 18px;
+	padding: 12px 18px;
 	text-decoration: none;
 	border: 1px solid #242424;
 	border-radius: 12px;
@@ -37,8 +36,7 @@ QPushButton#border-btn:hover {
 	color: #a9a9a9;
 }
 QPushButton#primary-border-btn {
-	padding: 16px 20px;
-	padding-top: 18px;
+	padding: 12px 18px;
 	text-decoration: none;
 	background-color: #0062c0;
 	border-radius: 12px;
@@ -52,109 +50,3 @@ QPushButton#primary-border-btn:disabled {
 	background-color: #1c2e3b;
 	color: #45637a;
 }
-
-/* COMBO BOX (DROPDOWNS) */
-QComboBox {
-	padding: 8px 12px;
-	background-color: #121212;
-	border: none;
-	border-radius: 8px;
-	color: #686868;
-}
-QComboBox:drop-down {
-	border: none;
-	border-radius: 8px;
-	background-color: #121212;
-}
-QComboBox::down-arrow {
-	image: url("src/images/icons/caret-down.svg");
-}
-/* GLOBAL STYLES END */
-
-
-/* PAGES */
-/* List Header */
-#pages #stack #projects_page #list-header {
-	/* border-top: 1px solid #242424; */
-	border-bottom: 1px solid #242424;
-}
-#pages #stack #projects_page #list-header QPushButton {
-	min-width: 96px;
-	padding: 24px;
-	font-size: 9pt;
-	border: none;
-	border-left: 1px solid #242424;
-	color: #323232;
-	text-align: left;
-}
-#pages #stack #projects_page #list-header QPushButton#last {
-	border-right: 1px solid #242424;
-}
-
-/* List */
-#pages #stack #projects_page #list {
-	background-color: transparent;
-	border: none;
-}
-#pages #stack #projects_page #list #list-items {
-	background-color: transparent;
-	border: none;
-}
-
-/* Item */
-
-#pages #stack #projects_page #list #item {
-	/* min-height: 96px;
-	max-height: 96px; */
-	margin-top: 1px;
-	background-color: #181818;
-	border: none;
-}
-#pages #stack #projects_page #list #item:hover {
-	background-color: #1d1d1d;
-}
-
-#pages #stack #projects_page #list #item QScrollArea,
-#pages #stack #projects_page #list #item QScrollArea QWidget {
-	background-color: transparent;
-}
-
-#pages #stack #projects_page #list #item #item_center,
-#pages #stack #projects_page #list #item #item_right {
-	/* min-width: 104px;
-	max-width: 104px; */
-	padding: 24px;
-	border: none;
-}
-#pages #stack #projects_page #list #item QLabel {
-	/* padding: 0 24px; */
-	border: none;
-	color: #686868;
-}
-#pages #stack #projects_page #list #item #file_name {
-	font-size: 14pt;
-}
-#pages #stack #projects_page #list #item #file_path {
-	font-size: 10pt;
-	font-style: italic;
-	color: #323232;
-}
-
-#pages #stack #projects_page #list #item #options {
-	min-width: 24px;
-	max-width: 24px;
-	height: 24px;
-	border-radius: 10px;
-	border: none;
-	color: #646464;
-}
-
-#pages #stack #projects_page #list #item #options:hover {
-	background-color: #323232;
-	color: #646464;
-}
-#pages #stack #projects_page #list #item #options:menu-indicator {
-	width: 0px;
-}
-
-/* PAGES END */

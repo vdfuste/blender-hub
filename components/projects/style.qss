@@ -1,0 +1,79 @@
+/* List Header */
+#projects_page #list-header {
+	/* border-top: 1px solid #242424; */
+	border-bottom: 1px solid #242424;
+}
+#projects_page #list-header QPushButton {
+	padding: 24px;
+	font-size: 9pt;
+	border: none;
+	border-left: 1px solid #242424;
+	color: #323232;
+	text-align: left;
+}
+#projects_page #list-header QPushButton#last {
+	border-right: 1px solid #242424;
+}
+
+/* List */
+#projects_page #list {
+	background-color: transparent;
+	border: none;
+}
+#projects_page #list #list-items {
+	background-color: transparent;
+	border: none;
+}
+
+/* Item */
+#projects_page #list #item {
+	margin-top: 1px;
+	background-color: #181818;
+	border: none;
+}
+#projects_page #list #item:hover {
+	background-color: #1d1d1d;
+}
+
+#projects_page #list #item QScrollArea,
+#projects_page #list #item QScrollArea QWidget {
+	background-color: transparent;
+}
+
+
+
+#projects_page #list #item #item-left {
+	padding-top: 20px;
+	padding-left: 24px;
+}
+
+
+#projects_page #list #item QLabel {
+	border: none;
+	color: #686868;
+}
+#projects_page #list #item #file_name {
+	font-size: 14pt;
+}
+#projects_page #list #item #file_path {
+	font-size: 10pt;
+	font-style: italic;
+	color: #323232;
+}
+
+#projects_page #list #item #options {
+	min-width: 24px;
+	max-width: 24px;
+	height: 24px;
+	border-radius: 10px;
+	border: none;
+	color: #646464;
+}
+
+#projects_page #list #item #options:hover {
+	background-color: #323232;
+	color: #646464;
+}
+#projects_page #list #item #options:menu-indicator {
+	width: 0px;
+}
