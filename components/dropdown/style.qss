@@ -4,6 +4,11 @@
 	border-radius: 12px;
 }
 
+#dropdown QLabel,
+#menu #menu-item QLabel {
+	color: #686868;
+}
+
 #menu #menu-title,
 #menu #menu-item QLabel {
 	min-width: 128px;
@@ -19,9 +24,6 @@
 	color: #323232;
 }
 
-#menu #menu-item QLabel {
-	color: #686868;
-}
 #menu #menu-item QLabel:hover {
 	background-color: #1a1a1a;
 }

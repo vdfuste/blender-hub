@@ -1,0 +1,8 @@
+#version-item {
+	background-color: #181818;
+}
+
+#version-item #title {
+	font-size: 14pt;
+	color: #a9a9a9;
+}

@@ -30,8 +30,11 @@ class InstallsPage(QWidget):
 		page_layout.setSpacing(0)
 		
 		# Header Page
+		buttons_header = VersionButtonsHeader(downloads.series)
+		buttons_header.versionSelected.connect(lambda index: self.setSerie(index))
+
 		header_page = HeaderPage(title)
-		header_page.addWidget(VersionButtonsHeader(downloads.series, self.setSerie))
+		header_page.addWidget(buttons_header)
 		header_page.parent(page_layout)
 
 		#Scroll List

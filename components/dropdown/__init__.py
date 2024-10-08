@@ -39,7 +39,7 @@ class MenuItem(QWidget):
 		self.clicked.emit()
 
 class Menu(QWidget):
-	optionChanged = pyqtSignal(str)
+	optionSelected = pyqtSignal(str)
 	
 	def __init__(self):
 		super().__init__()
@@ -94,16 +94,17 @@ class Menu(QWidget):
 		self.show()
 
 	def clickItem(self, label):
-		self.optionChanged.emit(label)
+		self.optionSelected.emit(label)
 		self.hide()
 
 class Dropdown(QWidget):
+	optionSelected = pyqtSignal(str)
+	
 	def __init__(self, name="dropdown"):
 		super().__init__()
 
-		self.options = []
 		self.menu = Menu()
-		self.menu.optionChanged.connect(lambda label : self.setOption(label))
+		self.menu.optionSelected.connect(lambda option : self.optionChanged(option))
 
 		self.initUI(name)
 
@@ -151,7 +152,7 @@ class Dropdown(QWidget):
 		else:
 			offset = QPoint(-self.menu.width() + 12, -self.height() - 10)
 
-		self.menu.popup(global_pos + offset)
+		self.menu.popup(global_pos)
 	
 	def getOption(self):
 		return self.label.text()
@@ -160,17 +161,27 @@ class Dropdown(QWidget):
 		self.label.setText(label)
 	
 	def setOptions(self, options):
-		self.options = options
-
 		# Write first item to label.
 		# First option is selected by default.
-		self.setOption(self.options[0]["items"][0])
+		default_written = False
 
 		# Adding items to menu
-		for option in self.options:
-			self.menu.addTitle(option["title"])
+		for option in options:
+			if len(option["items"]) == 0:
+				continue
+
+			if "title" in option and option["title"] != "":
+				self.menu.addTitle(option["title"])
 
 			for item in option["items"]:
+				if not default_written:
+					self.setOption(item)
+					default_written = True
+
 				self.menu.addItem(item)
 
 		self.menu.adjustSize()
+
+	def optionChanged(self, option):
+		self.setOption(option)
+		self.optionSelected.emit(option)

@@ -1,59 +1,53 @@
-from PyQt5.QtCore import Qt, QSize
-from PyQt5.QtWidgets import QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QWidget
-from PyQt5.QtGui import QIcon, QPixmap
+from os import path
 
-class SideBarButton(QPushButton):
-	def __init__(self, label, name, icon):
-		super().__init__(label)
-		self.setObjectName(name)
-		self.setIcon(QIcon(f"src/images/icons/{icon}"))
-		self.setIconSize(QSize(20, 20))
-		self.setContentsMargins(0, 0, 0, 0)
+from PyQt5.QtCore import Qt, QSize, pyqtSignal
+from PyQt5.QtWidgets import QFrame, QWidget, QHBoxLayout, QVBoxLayout, QLabel
+from PyQt5.QtGui import QPixmap
 
-	def addToLayout(self, parent_layout):
-		parent_layout.addWidget(self)
+from components.button import Button
+from components.pages import pages_data
 
-	def onClick(self, callback):
-		self.clicked.connect(callback)
+class Sidebar(QFrame):
+	pageChanged = pyqtSignal(str)
 
-class Sidebar(QWidget):
-	def __init__(self, changePage):
+	def __init__(self):
 		super().__init__()
+		self.initUI()
 
-		self.loadStyle("components/sidebar")
+	def initUI(self):
+		self.loadStyle()
+
+		self.setObjectName("sidebar")
+		self.setFixedWidth(220)
 
 		layout = QVBoxLayout()
 		layout.setContentsMargins(0, 0, 0, 0)
-
-		sidebar = QWidget()
-		sidebar.setObjectName("sidebar")
-		sidebar_layout = QVBoxLayout()
-		sidebar_layout.setContentsMargins(0, 0, 0, 0)
-		sidebar_layout.setSpacing(0)
+		layout.setSpacing(0)
 
 		# Header
 		header = QWidget()
 		header.setObjectName("header")
 		header_layout = QHBoxLayout()
-		header_layout.setContentsMargins(24, 24, 0, 24)
+		header_layout.setContentsMargins(0, 24, 0, 0)
+
+		header_layout.addStretch()
 
 		icon = QLabel()
 		icon.setObjectName("icon")
-		icon.setContentsMargins(0, 0, 0, 0)
-		# icon.setAlignment(Qt.AlignRight)
+		icon.setFixedWidth(20)
 		icon.setPixmap(QPixmap("src/images/icons/logo.svg"))
+		header_layout.addWidget(icon)
 		
 		title = QLabel("Blender Hub")
-		title.setContentsMargins(0, 0, 0, 0)
-		
-		header_layout.addWidget(icon)
+		title.setObjectName("title")
 		header_layout.addWidget(title)
 		
+		header_layout.addStretch()
+
 		header.setLayout(header_layout)
-		sidebar_layout.addWidget(header)
+		layout.addWidget(header)
 		
-		# Vertical space
-		sidebar_layout.addStretch(1)
+		layout.addStretch()
 		
 		# Buttons
 		buttons = QWidget()
@@ -62,31 +56,27 @@ class Sidebar(QWidget):
 		buttons_layout.setContentsMargins(0, 0, 0, 0)
 		buttons_layout.setSpacing(0)
 		
-		for data in [
-			("Projects", "projects_btn", "folder.svg", "Projects"),
-			("Config File", "config_btn", "settings.svg", "Config"),
-			("Installs", "installs_btn", "download.svg", "Installs"),
-		]: self.addButton(data, buttons_layout)
+		for data in pages_data:
+			self.addButton(data, buttons_layout)
 
 		buttons.setLayout(buttons_layout)
-		sidebar_layout.addWidget(buttons)
+		layout.addWidget(buttons)
 
-		# Vertical space
-		sidebar_layout.addStretch(1)
-
-		sidebar.setLayout(sidebar_layout)
-		layout.addWidget(sidebar)
+		layout.addStretch()
 		
 		self.setLayout(layout)
 
-	def loadStyle(self, path):
-		with open(f"{path}/style.qss") as style:
+	def loadStyle(self):
+		_path = path.dirname(path.abspath(__file__))
+
+		with open(f"{_path}/style.qss") as style:
 			self.setStyleSheet(style.read())
 
 	def addButton(self, data, layout):
-		label, name, icon, name_id = data
+		label = data["title"]
+		icon = data["icon"]
 		
-		button = SideBarButton(label, name, icon)
-		button.onClick(lambda _, name_id = name_id: changePage(name_id))
+		button = Button(label, f"src/images/icons/{icon}", "sidebar-button", Qt.AlignRight)
+		button.clicked.connect(lambda id=label: self.pageChanged.emit(id))
 		
 		layout.addWidget(button)

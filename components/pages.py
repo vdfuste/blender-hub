@@ -1,51 +1,55 @@
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QLabel, QHBoxLayout, QVBoxLayout, QStackedWidget, QWidget
+from PyQt5.QtWidgets import QFrame, QWidget, QLabel, QHBoxLayout, QVBoxLayout, QStackedWidget
 
 from pages.config import ConfigPage
 from pages.projects import ProjectsPage
 from pages.installs import InstallsPage
 
-class Pages(QWidget):
+pages_data = [
+	{
+		"title": "My Projects",
+		"icon": "folder.svg",
+		"page": ProjectsPage
+	},
+	{
+		"title": "Installs",
+		"icon": "download.svg",
+		"page": InstallsPage
+	},
+	{
+		"title": "Config Files",
+		"icon": "settings.svg",
+		"page": ConfigPage
+	}
+]
+
+class Pages(QFrame):
 	def __init__(self):
 		super().__init__()
 
-		layout = QVBoxLayout()
-		layout.setContentsMargins(0, 0, 0, 0)
+		self.initUI()
+		self.changePage("Projects")
 
-		self.pagesIndex = {}
-		
-		pages = QWidget()
-		pages.setObjectName("pages")
-		pages_layout = QVBoxLayout()
-		pages_layout.setContentsMargins(0, 0, 0, 0)
-		pages_layout.setAlignment(Qt.AlignTop)
+	def initUI(self):
+		self.setObjectName("pages")
+
+		layout = QVBoxLayout()
+		layout.setAlignment(Qt.AlignTop)
+		layout.setContentsMargins(0, 0, 0, 0)
 		
 		# Pages stack
 		self.stack = QStackedWidget()
 		self.stack.setObjectName("stack")
 		
-		self.addPage("Projects", "My Projects", ProjectsPage("My Projects"))
-		self.addPage("Config", "Configuration File", ConfigPage("Configuration File"))
-		self.addPage("Installs", "Installs", InstallsPage("Installs"))
+		for data in pages_data:
+			self.stack.addWidget(data["page"](data["title"]))
 		
-		pages_layout.addWidget(self.stack)
-
-		pages.setLayout(pages_layout)
-		layout.addWidget(pages)
-
-		self.changePage("Projects")
-		# self.changePage("Installs")
-
+		layout.addWidget(self.stack)
 		self.setLayout(layout)
-
-	def addPage(self, name_id, title, page):
-		self.pagesIndex[name_id] = {
-			"index": len(self.pagesIndex),
-			"title": title
-		}
-		self.stack.addWidget(page)
 	
-	def changePage(self, name_id):
-		self.stack.setCurrentIndex(self.pagesIndex[name_id]["index"])
-		#self.title.setText(self.pagesIndex[name_id]["title"])
+	def changePage(self, title):
+		for index, page in enumerate(pages_data):
+			if title == page["title"]:
+				self.stack.setCurrentIndex(index)
+				break
 		

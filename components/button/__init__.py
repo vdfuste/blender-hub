@@ -1,16 +1,16 @@
-from PyQt5.QtCore import pyqtSignal
-from PyQt5.QtWidgets import QFrame, QHBoxLayout, QLabel
+from PyQt5.QtCore import Qt, pyqtSignal
+from PyQt5.QtWidgets import QFrame, QHBoxLayout, QLabel, QSizePolicy
 from PyQt5.QtGui import QPixmap
 
 class Button(QFrame):
 	clicked = pyqtSignal()
 	
-	def __init__(self, label="", icon=None, name="button"):
+	def __init__(self, label="", icon="", name="button", align=Qt.AlignCenter):
 		super().__init__()
 		
-		self.initUI(label, icon, name)
+		self.initUI(label, icon, name, align)
 
-	def initUI(self, label, icon, name):
+	def initUI(self, label, icon, name, align):
 		self.loadStyle("components/button")
 
 		self.setObjectName(name)
@@ -19,9 +19,10 @@ class Button(QFrame):
 		layout = QHBoxLayout()
 		layout.setContentsMargins(0, 0, 0, 0)
 
-		label = QLabel(label)
-		label.setObjectName("label")
-		layout.addWidget(label)
+		self.label = QLabel(label)
+		self.label.setObjectName("label")
+		self.label.setAlignment(align)
+		layout.addWidget(self.label)
 
 		#layout.addStretch()
 
@@ -29,7 +30,7 @@ class Button(QFrame):
 		self.icon.setObjectName("icon")
 		self.icon.hide()
 		
-		if icon is not None:
+		if icon != "":
 			self.icon.setPixmap(QPixmap(icon))
 			self.icon.show()
 		
@@ -43,3 +44,6 @@ class Button(QFrame):
 
 	def mousePressEvent(self, event):
 		self.clicked.emit()
+	
+	def setLabel(self, label):
+		self.label.setText(label)

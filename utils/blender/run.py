@@ -40,3 +40,12 @@ def open_project(file_name, blender_path):
 	
 	except CalledProcessError:
 		print("BLENDER HUB: Error opening the project.")
+
+def open(blender_path):
+	try:
+		blender_path = path.join(blender_path, "blender")
+
+		Popen(blender_path)
+	
+	except CalledProcessError:
+		print("BLENDER HUB: Error opening blender.")

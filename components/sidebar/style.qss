@@ -3,35 +3,23 @@
 }
 
 /* Header */
-#sidebar #header QLabel {
+#sidebar #header #title {
 	font-size: 11pt;
 	color: #a9a9a9;
-}
-#sidebar #header #icon {
-	max-width: 20px;
-	margin-left: 42px;
 }
 
 /* Buttons */
-#sidebar #buttons QPushButton {
+#sidebar-button {
 	margin: 8px;
-	margin-top: 0;
-	padding: 16px;
-	padding-right: 120px;
-	font-family: "Inter-Medium";
-	font-size: 11pt;
-	text-align: left;
-	border-radius: 8px;
-	color: #a9a9a9;
+	padding: 12px;
+	border: none;
+	border-radius: 12px;
 }
-#sidebar #buttons QPushButton::icon {
-	background-color: red;
-}
-#sidebar #buttons QPushButton:checked {
-	background-color: #fff;
-	color: #e5e5e5;
-}
-#sidebar #buttons QPushButton:hover {
+#sidebar-button:hover {
 	background-color: #323232;
-	color: #e5e5e5;
+}
+#sidebar-button #label {
+	min-width: 150px;
+	margin-top: 2px;
+	color: #a9a9a9; /*e5e5e5*/
 }
