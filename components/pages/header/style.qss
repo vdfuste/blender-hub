@@ -1,0 +1,10 @@
+#header-page {
+	/* background-color: lightskyblue; */
+	border: none;
+	border-bottom: 1px solid #242424;
+}
+
+#title {
+	font-size: 24pt;
+	color: #646464;
+}

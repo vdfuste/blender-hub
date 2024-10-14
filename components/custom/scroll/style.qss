@@ -1,0 +1,7 @@
+QScrollArea {
+	background-color: transparent;
+}
+
+#scroll-area-items {
+	background-color: transparent;
+}

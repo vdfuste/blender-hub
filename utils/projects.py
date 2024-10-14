@@ -11,7 +11,7 @@ TO-DO list:
   - Check if projects are still available
 '''
 
-class ProjectsList():
+class ProjectsData():
 	'''
 	Reads an external .txt file and creates a list,
 	if the file doesn't exists it will be created.

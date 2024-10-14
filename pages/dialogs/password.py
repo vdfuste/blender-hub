@@ -2,7 +2,6 @@ from os import path
 
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QDialog, QWidget, QHBoxLayout, QVBoxLayout, QLabel, QPushButton, QLineEdit
-from utils.read import loadStyle
 
 from globals import SCREEN_GEOMETRY
 
@@ -19,8 +18,6 @@ class PasswordDialog(QDialog):
 		height = 100
 		pos_x = int(SCREEN_GEOMETRY.width()/2 - width/2)
 		pos_y = int(SCREEN_GEOMETRY.height()/2 - height/2)
-		
-		loadStyle("src/qss/pages/dialogs/new_project.qss", self)
 
 		# Init UI
 		self.setParent(parent)
@@ -46,11 +43,11 @@ class PasswordDialog(QDialog):
 		buttons_layout.setContentsMargins(0, 10, 0, 0)
 		buttons_layout.addSpacing(0)
 		
-		cancel_btn = QPushButton("Cancel", objectName="border-btn")
+		cancel_btn = QPushButton("Cancel", objectName="border-button")
 		cancel_btn.clicked.connect(lambda: self.hide())
 		buttons_layout.addWidget(cancel_btn)
 		
-		accept_btn = QPushButton(f"Install {version}", objectName="primary-border-btn")
+		accept_btn = QPushButton(f"Install {version}", objectName="primary-border-button")
 		accept_btn.setDisabled(True)
 		accept_btn.clicked.connect(self.accept)
 		buttons_layout.addWidget(accept_btn)

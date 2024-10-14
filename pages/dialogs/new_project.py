@@ -3,7 +3,6 @@ from subprocess import Popen, CalledProcessError
 
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QDialog, QWidget, QHBoxLayout, QVBoxLayout, QLabel, QPushButton, QLineEdit, QComboBox
-from utils.read import loadStyle
 
 from components.file_dialog import FileDialog
 
@@ -23,7 +22,6 @@ class NewProject(QDialog):
 		pos_x = int(SCREEN_GEOMETRY.width()/2 - width/2)
 		pos_y = int(SCREEN_GEOMETRY.height()/2 - height/2)
 		
-		loadStyle("src/qss/pages/dialogs/new_project.qss", self)
 
 		# Init UI
 		self.setParent(parent)
@@ -57,7 +55,7 @@ class NewProject(QDialog):
 		self.project_path = QLineEdit(DOCUMENTS_FOLDER, objectName="input-text")
 		path_layout.addWidget(self.project_path)
 		
-		project_path_btn = QPushButton("...", objectName="border-btn")
+		project_path_btn = QPushButton("...", objectName="border-button")
 		project_path_btn.clicked.connect(self.changePath)
 		path_layout.addWidget(project_path_btn)
 		
@@ -78,11 +76,11 @@ class NewProject(QDialog):
 		buttons_layout.setContentsMargins(0, 10, 0, 0)
 		buttons_layout.addSpacing(0)
 		
-		close_btn = QPushButton("Cancel", objectName="border-btn")
+		close_btn = QPushButton("Cancel", objectName="border-button")
 		close_btn.clicked.connect(lambda: self.hide())
 		buttons_layout.addWidget(close_btn)
 		
-		self.create_btn = QPushButton("Create new project", objectName="primary-border-btn")
+		self.create_btn = QPushButton("Create new project", objectName="primary-border-button")
 		self.create_btn.setDisabled(True)
 		# self.create_btn.clicked.connect(self.createNewProject)
 		self.create_btn.clicked.connect(self.accept)

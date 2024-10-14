@@ -3,7 +3,8 @@
 }
 
 /* Header */
-#sidebar #header #title {
+#sidebar #header * {
+	margin-top: 24px;
 	font-size: 11pt;
 	color: #a9a9a9;
 }
