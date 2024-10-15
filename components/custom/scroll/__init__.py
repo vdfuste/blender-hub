@@ -11,6 +11,8 @@ class ScrollArea(Frame):
 
 		self.loadStyle(__file__)
 
+		self.items = []
+		
 		self.content = Frame(f"{name}-items", layout)
 		self.content.layout.setAlignment(Qt.AlignTop)
 
@@ -30,20 +32,10 @@ class ScrollArea(Frame):
 		self.content.setSpacing(spacing)
 
 	def addItem(self, item):
-		self.content.addWidget(item)
+		self.items.append(item)
+		self.content.addWidget(self.items[-1])
 
-	'''def clear(self):
-		pass
-
-	def populate(self, items):
-		pass
-		self.clear()
-
-		for item in items:
-			self.addWidget(item)
-
-		self.update()
-
-	def update(self):
-		pass
-		#self.content.update()'''
+	def clear(self):
+		for item in self.items:
+			item.deleteLater()
+		self.items.clear()
