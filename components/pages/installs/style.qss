@@ -2,6 +2,10 @@
 	background-color: #181818;
 }
 
+#version-item #content {
+	padding: 12px;
+}
+
 #version-item #title {
 	font-size: 14pt;
 	color: #a9a9a9;

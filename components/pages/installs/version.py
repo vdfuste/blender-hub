@@ -24,11 +24,11 @@ class VersionItem(Frame):
 
 	def initUI(self, width):
 		self.loadStyle(__file__)
-		self.setFixedHeight(int(width * 0.35))
+		self.setFixedHeight(int(width * 0.33))
 
 		# Image
 		pixmap = QPixmap(self.data["image"])
-		pixmap = pixmap.scaledToWidth(int(width * 0.7), mode=Qt.SmoothTransformation)
+		pixmap = pixmap.scaledToWidth(int(width * 0.67), mode=Qt.SmoothTransformation)
 
 		image = QLabel()
 		image.setPixmap(pixmap)
@@ -36,7 +36,6 @@ class VersionItem(Frame):
 
 		# Version content
 		content = Frame("content", QVBoxLayout)
-		content.setContentsMargins(12, 12, 12, 12)
 		content.layout.setSpacing(12)
 		self.addWidget(content)
 
@@ -78,7 +77,8 @@ class VersionItem(Frame):
 		self.action_button.setLabel(f"{action_label} Blender {version}")
 
 	def actionButtonClicked(self):
-		if self.is_installed: open(versions.paths[self.selected_version])
+		if self.is_installed:
+			open(versions.paths[self.selected_version])
 		else:
 			for data in self.data["subversions"]:
 				if self.selected_version != data["subversion"]: continue

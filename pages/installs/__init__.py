@@ -14,7 +14,6 @@ class InstallsPage(Frame):
 		super().__init__(name, QVBoxLayout)
 		
 		self.selected_serie = 0
-
 		self.initUI(title)
 		
 	def initUI(self, title):
@@ -35,14 +34,11 @@ class InstallsPage(Frame):
 		self.versions_list.setSpacing(24)
 		self.addWidget(self.versions_list)
 
-		#self.setSerie(0)
-
 	def setSerie(self, serie):
 		self.selected_serie = serie
+		self.versions_list.clear()
 
 		for data in downloads.versions[serie]["cards"]:
-			#print(data)
-
 			card = VersionItem(self.width(), data)
 			self.versions_list.addItem(card)
 
