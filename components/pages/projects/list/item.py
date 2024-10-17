@@ -2,7 +2,7 @@ from os import path
 from time import ctime
 
 from PyQt5.QtCore import Qt, pyqtSignal
-from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QLabel, QPushButton, QScrollArea, QMenu, QComboBox, QMessageBox, QSizePolicy
+from PyQt5.QtWidgets import QLabel, QPushButton, QMenu, QMessageBox
 
 from components.custom.frame import Frame
 from components.custom.dropdown import Dropdown
@@ -38,14 +38,13 @@ class Item(Frame):
 		self.project_date = data["date"]
 		self.project_version = data["version"]
 
-		self.initUI(name)
+		self.initUI()
 
-	def initUI(self, name):
+	def initUI(self):
 		self.setFixedHeight(96)
-		self.layout.setContentsMargins(24, 0, 32, 0)
 		
 		# LEFT CONTENT
-		left_section = ScrollArea(f"{name}-left")
+		left_section = ScrollArea("left-section")
 		left_section.hideHorizontalScroll()
 		left_section.hideVerticalScroll()
 
@@ -58,20 +57,18 @@ class Item(Frame):
 		)
 		file_name_label.setObjectName("file_name")
 		file_name_label.setFixedHeight(32)
-		left_section.addWidget(file_name_label)
+		left_section.addItem(file_name_label)
 
 		file_path_label = QLabel(self.project_path)
 		file_path_label.setObjectName("file_path")
-		left_section.addWidget(file_path_label)
+		left_section.addItem(file_path_label)
 
 		self.addWidget(left_section)
 
 
 		# CENTER CONTENT
-		center_section = Frame()
-		center_section.setObjectName(f"{name}-center")
-		center_section.setFixedWidth(156)
-		center_section.layout.setContentsMargins(24, 0, 0, 0)
+		center_section = Frame("center-section")
+		center_section.setFixedWidth(150)
 
 		# Last modification date
 		file_last = QLabel(calculateTimeAgo(self.project_date))
@@ -81,10 +78,8 @@ class Item(Frame):
 
 
 		# RIGHT CONTENT
-		right_section = Frame()
-		right_section.setObjectName(f"{name}-right")
+		right_section = Frame("right-section")
 		right_section.setFixedWidth(150)
-		right_section.layout.setContentsMargins(8, 0, 0, 0)
 
 		# Versions Dropdown		
 		self.dropdown = Dropdown()

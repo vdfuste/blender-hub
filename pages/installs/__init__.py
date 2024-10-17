@@ -46,5 +46,4 @@ class InstallsPage(Frame):
 	
 	def resizeEvent(self, event):
 		super().resizeEvent(event)
-
 		self.setSerie(self.selected_serie)

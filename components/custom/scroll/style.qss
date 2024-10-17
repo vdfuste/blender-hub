@@ -1,7 +1,8 @@
 QScrollArea {
 	background-color: transparent;
+	border: none;
 }
 
-#scroll-area-items {
+#items {
 	background-color: transparent;
 }

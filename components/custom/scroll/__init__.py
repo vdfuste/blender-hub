@@ -1,19 +1,19 @@
 from os import path
 
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QWidget, QScrollArea, QVBoxLayout
+from PyQt5.QtWidgets import QWidget, QScrollArea, QVBoxLayout, QSizePolicy
 
 from components.custom.frame import Frame
 
 class ScrollArea(Frame):
 	def __init__(self, name="scroll-area", layout=QVBoxLayout):
-		super().__init__(name)
+		super().__init__(name, QVBoxLayout)
 
 		self.loadStyle(__file__)
 
 		self.items = []
 		
-		self.content = Frame(f"{name}-items", layout)
+		self.content = Frame(f"items", layout)
 		self.content.layout.setAlignment(Qt.AlignTop)
 
 		self.scroll = QScrollArea()

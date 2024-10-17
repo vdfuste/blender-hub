@@ -17,36 +17,44 @@
 }
 
 /* Item */
-#projects-page #list #item {
+#projects-page #projects-list #item {
 	margin-top: 1px;
+	padding-left: 24px;
+	padding-right: 32px;
 	background-color: #181818;
 	border: none;
 }
-#projects-page #list #item:hover {
+#projects-page #projects-list #item:hover {
 	background-color: #1d1d1d;
 }
 
-
-#projects-page #list #item #item-left {
+#projects-page #projects-list #item #left-section {
 	padding-top: 20px;
 	padding-left: 24px;
 }
 
+#projects-page #projects-list #item #center-section {
+	padding-left: 24px;
+}
 
-#projects-page #list #item QLabel {
-	border: none;
+#projects-page #projects-list #item #right-section {
+	padding-left: 8px;
+}
+
+
+#projects-page #projects-list #item QLabel {
 	color: #686868;
 }
-#projects-page #list #item #file_name {
+#projects-page #projects-list #item #file_name {
 	font-size: 14pt;
 }
-#projects-page #list #item #file_path {
+#projects-page #projects-list #item #file_path {
 	font-size: 10pt;
 	font-style: italic;
 	color: #323232;
 }
 
-#projects-page #list #item #options {
+#projects-page #projects-list #item #options {
 	min-width: 24px;
 	max-width: 24px;
 	height: 24px;
@@ -55,10 +63,10 @@
 	color: #646464;
 }
 
-#projects-page #list #item #options:hover {
+#projects-page #projects-list #item #options:hover {
 	background-color: #323232;
 	color: #646464;
 }
-#projects-page #list #item #options:menu-indicator {
+#projects-page #projects-list #item #options:menu-indicator {
 	width: 0px;
 }
