@@ -13,10 +13,8 @@ TO-DO list:
 
 class ProjectsData():
 	'''
-	Reads an external .txt file and creates a list,
-	if the file doesn't exists it will be created.
-	Any change updates both the external file and
-	the list keeping them synchonized.
+	Reads an external .txt file and creates a list, if the file doesn't exists it will be created.
+	Any change updates both the external file and the list keeping them synchonized.
 
 	Args:
 	
@@ -71,7 +69,7 @@ class ProjectsData():
 	def addProject(self, file_name, date="", version="", index=None, check_path=""):
 		# Generate some data
 		date = date if date != "" else ctime(path.getmtime(file_name))
-		version = version if version != "" else get_project_version(file_name, check_path)
+		version = version if version != "" else get_project_version(file_name)
 
 		# When the version has "?" means the subversion is not defined
 		# so the higher subversion will be assignated.

@@ -7,7 +7,7 @@ from components.custom.dropdown import Dropdown
 from components.custom.frame import Frame
 
 from utils.install import installBlender, uninstallBlender
-from utils.blender.run import open
+from utils.blender.run import open_blender
 
 from globals import versions
 
@@ -78,7 +78,7 @@ class VersionItem(Frame):
 
 	def actionButtonClicked(self):
 		if self.is_installed:
-			open(versions.paths[self.selected_version])
+			open_blender(versions.paths[self.selected_version])
 		else:
 			for data in self.data["subversions"]:
 				if self.selected_version != data["subversion"]: continue
