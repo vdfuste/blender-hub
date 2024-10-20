@@ -2,7 +2,7 @@ from requests import get
 from bs4 import BeautifulSoup
 from json import dump
 
-from globals import BLENDER_RELEASES_URL, BLENDER_ALL_VERSIONS_URL
+from app.globals import BLENDER_RELEASES_URL, BLENDER_ALL_VERSIONS_URL
 
 def getAllInstallers():
 	installs = {
