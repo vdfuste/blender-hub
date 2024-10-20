@@ -42,7 +42,7 @@ class InstalledVersionsList():
 			self.paths = _paths
 		
 		except Exception as e:
-			print(f"Error checking installed versions: {e}")
+			print(f"[Blender Hub] Error checking installed versions: {e}")
 
 class ConfigList():
 	'''

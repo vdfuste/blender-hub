@@ -20,8 +20,6 @@ class ProjectsList(Frame):
 		self.projects_data = ProjectsData(PROJECTS_FILE_PATH)
 		self.initUI()
 
-		print(self.projects_data.items)
-
 	def initUI(self):
 		header = HeaderList()
 		self.addWidget(header)
@@ -57,7 +55,7 @@ class ProjectsList(Frame):
 
 				for project in self.projects_data.items:
 					if project["file_name"] == file_name:
-						print("The project already exists.")
+						print("[Blender Hub] The project already exists.")
 						is_on_list = True
 						break
 
@@ -66,7 +64,7 @@ class ProjectsList(Frame):
 				data, index = self.projects_data.addProject(file_name, check_path=check_path)
 				self.addItem(data, index)
 
-				print(f"Project imported: {file_name}")
+				print(f"[Blender Hub] Project imported: {file_name}")
 	
 	def openProject(self, file_name, index, selected_version):
 		# When a project is opened it's also moved to first place.

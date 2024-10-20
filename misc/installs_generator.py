@@ -53,7 +53,7 @@ def getAllInstallers():
 			return data
 
 		except Exception as e:
-			print(f"Error getting all the cards from {url}. Error: {e}")
+			print(f"[Blender Hub] Error getting all the cards from {url}. Error: {e}")
 			return []
 	
 	def getLinks(url):
@@ -70,7 +70,7 @@ def getAllInstallers():
 			return links
 
 		except Exception as e:
-			print(f"Error getting links from {url}. Error: {e}")
+			print(f"[Blender Hub] Error getting links from {url}. Error: {e}")
 			return []
 	
 	# Getting all the directories
@@ -137,7 +137,7 @@ def getAllInstallers():
 		dump(installs, file)
 
 	# Print some data
-	print("All data versions saved!")
-	print(f"There's {len(installs["versions"])} versions.")
+	print("[Blender Hub] All data versions saved!")
+	print(f"[Blender Hub] There's {len(installs["versions"])} versions.")
 
 getAllInstallers()

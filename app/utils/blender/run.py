@@ -9,7 +9,7 @@ def get_version(blender_path):
 		return output.split('\n')[0].replace("Blender ", "")
 	
 	except CalledProcessError:
-		print("BLENDER HUB: Error checking Blender version.")
+		print("[Blender Hub] Error checking Blender version.")
 
 def get_project_version(file_name):
 	try:
@@ -22,7 +22,7 @@ def get_project_version(file_name):
 		return f"{mayor}.{minor}.?"
 	
 	except CalledProcessError:
-		print("BLENDER HUB: Error reading the project.")
+		print("[Blender Hub] Error reading the project.")
 
 def new_project(file_name, blender_path):
 	try:
@@ -30,7 +30,7 @@ def new_project(file_name, blender_path):
 		Popen([blender_path, "-P", "utils/blender/scripts/new.py", file_name])
 	
 	except CalledProcessError:
-		print("BLENDER HUB: Error creating a new project.")
+		print("[Blender Hub] Error creating a new project.")
 
 def open_project(file_name, blender_path):
 	try:
@@ -38,7 +38,7 @@ def open_project(file_name, blender_path):
 		Popen([blender_path, file_name])
 	
 	except CalledProcessError:
-		print("BLENDER HUB: Error opening the project.")
+		print("[Blender Hub] Error opening the project.")
 
 def open_blender(blender_path):
 	try:
@@ -46,4 +46,4 @@ def open_blender(blender_path):
 		Popen(blender_path)
 	
 	except CalledProcessError:
-		print("BLENDER HUB: Error opening blender.")
+		print("[Blender Hub] Error opening blender.")

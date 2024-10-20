@@ -17,7 +17,7 @@ def installBlender(version, url, parent):
 	if platform == "linux" or platform == "linux2": installOnLinux(version, url, parent)
 	elif platform == "win32": installOnWindow(version, url, parent)
 	elif platform == "darwin": installOnMac(version, url, parent)
-	else: print("Apparently your OS is not supported. Please contact me and let's see what I can do to fix that.")
+	else: print("[Blender Hub] Apparently your OS is not supported. Please contact me and let's see what I can do to fix that.")
 
 def installOnLinux(version, url, parent):
 	password_dialog = PasswordDialog(version, parent)
@@ -45,7 +45,7 @@ def installOnLinux(version, url, parent):
 				try:
 					run(f"sudo curl -o temp/{blender_file} {url}".split(), check=True)
 				except Exception as e:
-					print(f"Error downloading .tar file: {e}")
+					print(f"[Blender Hub] Error downloading .tar file: {e}")
 			
 			# Extract file content
 			run(f"tar -xf temp/{blender_file}".split(), check=True)
@@ -62,13 +62,13 @@ def installOnLinux(version, url, parent):
 			run(f"sudo rm -rf temp".split(), check=True)
 
 			# Feedback message
-			print(f"\nBlender {version} successfully installed.")
+			print(f"\n[Blender Hub] Blender {version} successfully installed.")
 		
 		except CalledProcessError as e:
-			print(f"Failed to install Blender: {e}")
+			print(f"[Blender Hub] Failed to install Blender: {e}")
 
 		except Exception as e:
-			print(f"Failed to install Blender: {e}")
+			print(f"[Blender Hub] Failed to install Blender: {e}")
 
 def installOnWindow(version, url, parent):
 	# extension = ".msi"
@@ -87,12 +87,12 @@ def uninstallBlender(version, blender_path, parent):
 	if platform == "linux" or platform == "linux2": uninstallOnLinux(version, blender_path, parent)
 	elif platform == "win32": uninstallOnWindow(version, blender_path, parent)
 	elif platform == "darwin": uninstallOnMac(version, blender_path, parent)
-	else: print("Apparently your OS is not supported. Please contact me and let's see what I can do to fix that.")
+	else: print("[Blender Hub] Apparently your OS is not supported. Please contact me and let's see what I can do to fix that.")
 
 def uninstallOnLinux(version, blender_path, parent):
 	password_dialog = PasswordDialog(version, parent)
 
-	print(blender_path)
+	#print(blender_path)
 	
 	if password_dialog.exec_() == QDialog.Accepted:
 		password = password_dialog.getPassword()
@@ -108,12 +108,12 @@ def uninstallOnLinux(version, blender_path, parent):
 				run(f"sudo rm -rf {config_folder}".split(), check=True)
 
 			# Feedback message
-			print(f"\nBlender {version} successfully uninstalled.")
+			print(f"\n[Blender Hub] Blender {version} successfully uninstalled.")
 
 		except Exception as e:
-			print(f"Error uninstalling Blender: {e}")
+			print(f"[Blender Hub] Error uninstalling Blender: {e}")
 
-	else: print("Cancelled")
+	else: print("[Blender Hub] Cancelled")
 
 def uninstallOnWindow(version, blender_path, parent):
 	pass

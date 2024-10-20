@@ -36,11 +36,11 @@ def getAvailableVersions():
 			
 			versions.append(version)
 
-			print(version)
+			#print(version)
 
 		return versions
 	
 	except Exception as e:
-		print(f"Error checking new available versions. {e}")
+		print(f"[Blender Hub] Error checking new available versions. {e}")
 		
 		return []

@@ -1,6 +1,8 @@
 from PyQt5.QtWidgets import QMainWindow, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QWidget, QStackedWidget, QDialog
 from PyQt5.QtGui import QFont, QFontDatabase
 
+from app.components.custom.frame import Frame
+
 from app.components.sidebar import Sidebar
 from app.pages import Pages
 
@@ -10,7 +12,6 @@ class MainWindow(QMainWindow):
 	def __init__(self):
 		super().__init__()
 
-		# Window config
 		width = 1024
 		height = 720
 		pos_x = int(SCREEN_GEOMETRY.width()/2 - width/2)
@@ -22,19 +23,14 @@ class MainWindow(QMainWindow):
 		self.setWindowTitle("Blender Hub v0.1.0")
 		self.setGeometry(pos_x, pos_y, width, height)
 		
-		layout = QHBoxLayout()
-		layout.setContentsMargins(0, 0, 0, 0)
-		layout.setSpacing(0)
+		central_widget = Frame()
 		
 		pages = Pages()
 		sidebar = Sidebar()
 		sidebar.pageChanged.connect(lambda page: pages.changePage(page))
 		
-		layout.addWidget(sidebar)
-		layout.addWidget(pages)
-
-		central_widget = QWidget()
-		central_widget.setLayout(layout)
+		central_widget.addWidget(sidebar)
+		central_widget.addWidget(pages)
 
 		self.setCentralWidget(central_widget)
 		self.show()

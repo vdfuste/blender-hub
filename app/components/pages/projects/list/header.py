@@ -30,4 +30,4 @@ class HeaderList(Frame):
 		self.addWidget(version_button)
 		
 	def sortBy(self, label):
-		print(f"{label} button pressed!")
+		print(f"[Blender Hub] {label} button pressed!")

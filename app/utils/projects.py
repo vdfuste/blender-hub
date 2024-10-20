@@ -64,7 +64,7 @@ class ProjectsData():
 					file.write(self.parseToText(item) + '\n')
 
 		except IOError as error:
-			print(f"An error ocurred writing the file: {error}")
+			print(f"[Blender Hub] An error ocurred writing the file: {error}")
 	
 	def addProject(self, file_name, date="", version="", index=None, check_path=""):
 		# Generate some data
