@@ -29,8 +29,10 @@ class Pages(Frame):
 	def __init__(self):
 		super().__init__("pages", QVBoxLayout)
 
+		self.pages = {}
+		
 		self.initUI()
-		self.changePage("Projects")
+		self.changePage(0)
 
 	def initUI(self):
 		self.layout.setAlignment(Qt.AlignTop)
@@ -42,13 +44,18 @@ class Pages(Frame):
 			page = data["page"]
 			title = data["title"]
 
-			self.stack.addWidget(page(title))
+			self.pages[title] = {
+				"index": len(self.pages),
+				"page": page(title)
+			}
+
+			self.stack.addWidget(self.pages[title]["page"])
 		
 		self.addWidget(self.stack)
-	
-	def changePage(self, title):
-		for index, page in enumerate(pages_data):
-			if title == page["title"]:
-				self.stack.setCurrentIndex(index)
-				break
+
+	def changePage(self, index):
+		if type(index) is str:
+			index = self.pages[index]["index"]
+
+		self.stack.setCurrentIndex(index)
 		

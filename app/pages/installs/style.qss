@@ -1,3 +1,7 @@
+#loading-label {
+	color: #424242;
+}
+
 #scroll-area {
 	padding: 24px;
 	padding-right: 32px;
