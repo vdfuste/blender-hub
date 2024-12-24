@@ -1,5 +1,6 @@
-virt/
-vmisc/
 **/__pycache__/
 */**.pyc
-installs.json
+build/
+dist/
+virt/
+main.spec

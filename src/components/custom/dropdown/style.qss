@@ -1,0 +1,8 @@
+#dropdown {
+	background-color: #121212;
+	border-radius: 12px;
+}
+
+#dropdown QLabel {
+	color: #686868;
+}
