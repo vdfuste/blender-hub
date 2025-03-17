@@ -4,12 +4,6 @@ from sys import platform
 from PyQt5.QtWidgets import QApplication
 from utils.external_files import ConfigList, DownloadList, InstallsDataList, InstalledVersionsList
 
-'''
-TO-DO List:
- - Find the proper path to save "url_downloads.txt".
- - 
-'''
-
 # Constant Variables
 application = QApplication(sys.argv)
 SCREEN_GEOMETRY = application.desktop().screenGeometry()

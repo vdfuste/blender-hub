@@ -1,7 +1,7 @@
-from os import mkdir, path
+from os import path
 from shutil import rmtree
 from sys import platform
-from subprocess import call, run, Popen, CalledProcessError
+from subprocess import run, CalledProcessError
 from PyQt5.QtWidgets import QDialog
 
 from pages.dialogs.password import PasswordDialog

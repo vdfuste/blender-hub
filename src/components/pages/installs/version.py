@@ -6,7 +6,10 @@ from components.custom.button import Button, OptionsButton
 from components.custom.dropdown import Dropdown
 from components.custom.frame import Frame
 
-from utils.install import installBlender, uninstallBlender
+from pages.dialogs.install import InstallDialog
+from pages.dialogs.uninstall import UninstallDialog
+
+from utils.install import uninstallBlender
 from utils.blender.run import open_blender
 
 from globals import versions
@@ -97,9 +100,12 @@ class VersionItem(Frame):
 			open_blender(versions.paths[self.selected_version])
 		else:
 			for data in self.data["subversions"]:
-				if self.selected_version != data["subversion"]: continue
-				installBlender(self.selected_version, data["url"], self)
+				if self.selected_version != data["subversion"]:
+					continue
 				
+				install = InstallDialog(self.selected_version, data["url"], parent=self)
+				install.exec_()
+
 				self.splitSubversions()
 				self.updateState(self.selected_version)
 				
@@ -107,7 +113,8 @@ class VersionItem(Frame):
 
 	def deleteSelectedVersion(self):
 		if self.is_installed:
-			uninstallBlender(self.selected_version, self)
-			
+			uninstall = UninstallDialog(self.selected_version, parent=self)
+			uninstall.exec_()
+
 			self.splitSubversions()
 			self.updateState(self.selected_version)

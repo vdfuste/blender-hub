@@ -3,37 +3,6 @@
 	background-color: #121212;
 }
 
-#title {
-	padding: 12px 0px 4px 4px;
-	font-size: 14pt;
-	color: #323232;
-}
-
-#label {
-	padding: 8px 0px 0px 8px;
-	font-size: 11pt;
-	color: #424242;
-}
-
-#input-text {
-	/* padding: 16px 24px 12px 24px; */
-	padding: 16px 16px 12px 16px;
-	font-size: 10pt;
-	background-color: #121212;
-	border: 1px solid #242424;
-	border-radius: 12px;
-	color: #565656;
-}
-#input-text:hover {
-	border: 1px solid #323232;
-	color: #a9a9a9;
-}
-#input-text:focus {
-	background-color: #181f24;
-	border: 1px solid #0062c0;
-	color: #a9a9a9;
-}
-
 QComboBox {
 	border: 1px solid #242424;
 }
