@@ -23,5 +23,11 @@ class Frame(QFrame):
 		#self.layout.insertWidget(index, widget)
 		self.layout.addWidget(widget)
 
+	def setMargins(self, left, top=None, right=None, bottom=None):
+		top = top or left
+		right = right or left
+		bottom = bottom or top
+		self.layout.setContentsMargins(left, top, right, bottom)
+	
 	def setSpacing(self, spacing):
 		self.layout.setSpacing(spacing)
