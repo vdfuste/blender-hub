@@ -1,0 +1,36 @@
+{
+	"linux": { // default ext: ".tar.bz2"
+		"293_LATEST": "linux-x64.tar.xz",
+		"292_282": "linux64.tar.xz",
+		"281": "linux-glibc217-x86_64.tar.bz2",
+		"280": {
+			"arch": ["-glibc217-x86_64", "-glibc224-i686"]
+		},
+		"279_278": {
+			"arch": ["-glibc219-x86_64", "-glibc219-i686"]
+		},
+		"277_265": {
+			"arch": ["-glibc211-x86_64", "-glibc211-i686"]
+		}
+	},
+	"macos": { // default ext: ".dmg"
+		"293_LATEST": {
+			"arch": ["-arm64", "-x64"]
+		},
+		"292_280": "macOS.dmg"
+	},
+	"windows": { // default ext: ".msi"
+		"43_LATEST": {
+			"arch": ["-arm64", "-x64"]
+		},
+		"42_293": "windows-x64.msi",
+		"292_281": "windows64.msi",
+		"280_275": {
+			"arch": ["32", "64"]
+		},
+		"274_265": {
+			"arch": ["32", "64"],
+			"ext": ".exe"
+		}
+	}
+}

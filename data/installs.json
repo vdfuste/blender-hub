@@ -1,10 +1,6 @@
 {
 	"tabs": [
 		{
-			"title": "LTS",
-			"indexes": [19, 16, 13, 9, 5]
-		},
-		{
 			"title": "4.x",
 			"indexes": [19, 17]
 		},
@@ -15,6 +11,10 @@
 		{
 			"title": "2.x",
 			"indexes": [9, 0]
+		},
+		{
+			"title": "LTS",
+			"indexes": [19, 16, 13, 9, 5]
 		}
 	],
 	"versions": [		
@@ -286,7 +286,7 @@
 		},
 		{
 			"title": "Blender4.2",
-			"subversions": ["4.2.1", "4.2.0"],
+			"subversions": ["4.2.7", "4.2.6", "4.2.5", "4.2.4", "4.2.3", "4.2.2", "4.2.1", "4.2.0"],
 			"urls": [
 				"windows-x64.msi",
 				"macos-x64.dmg",

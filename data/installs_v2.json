@@ -1,0 +1,300 @@
+{
+	"url_base": {
+		"download": "https://download.blender.org/release/",
+		"image": "https://www.blender.org/wp-content/uploads/"
+	},
+	"file_names_base": {
+		"43_LATEST": {
+			"platform": {
+				"linux": "linux-x64.tar.xz",
+				"macos": {
+					"arch": ["-arm64", "-x64"],
+					"ext": ".dmg"
+				},
+				"windows": {
+					"arch": ["-arm64", "-x64"],
+					"ext": ".msi"
+				}
+			}
+		},
+		"293_42": {
+			"platform": {
+				"linux": "linux-x64.tar.xz",
+				"macos": {
+					"arch": ["-arm64", "-x64"],
+					"ext": ".dmg"
+				},
+				"windows": "windows-x64.msi"
+			}
+		},
+		"292_282": {
+			"platform": {
+				"linux": "linux64.tar.xz",
+				"macos ": "macOS.dmg",
+				"windows": "windows64.msi"
+			}
+		},
+		"277_275": {
+			"linux": {
+				"arch": ["-glibc211-x86_64", "-glibc211-i686"],
+				"ext": ".tar.bz2"
+			},
+			"windows": {
+				"arch": ["32", "64"],
+				"ext": ".msi"
+			}
+		},
+		"274_266": {
+			"linux": {
+				"arch": ["-glibc211-x86_64", "-glibc211-i686"],
+				"ext": ".tar.bz2"
+			},
+			"windows": {
+				"arch": ["32", "64"],
+				"ext": ".exe"
+			}
+		}
+	},
+	"series": [
+		{
+			"title": "4 Series",
+			"versions": [
+				{
+					"version": 4.3,
+					"latest": 2,
+					"url_image": "url/to/image.webp"
+				},
+				{
+					"version": 4.2,
+					"latest": 7,
+					"url_image": "2024/07/splash.webp"
+				},
+				{
+					"version": 4.1,
+					"latest": 1,
+					"LTS": true,
+					"url_image": "2024/03/blender_4_1_splash.jpg"
+				},
+				{
+					"version": 4.0,
+					"latest": 2,
+					"url_image": "2023/10/blender_40_splash.jpg"
+				}
+			]
+		},
+		{
+			"title": "3 Series",
+			"versions": [
+				{
+					"version": 3.6,
+					"latest": 21,
+					"LTS":true,
+					"url_image": "2023/05/blender_36_lts_splash.jpg"
+				},
+				{
+					"version": 3.5,
+					"latest": 1,
+					"url_image": "2023/03/blender_35_splash_nicole_morena.jpg"
+				},
+				{
+					"version": 3.4,
+					"latest": 1,
+					"url_image": "2022/11/splash_34.jpg"
+				},
+				{
+					"version": 3.3,
+					"latest": 21,
+					"exclude": 13,
+					"LTS": true,
+					"url_image": "2022/08/splash_blender_33_lts.jpg"
+				},
+				{
+					"version": 3.2,
+					"latest": 2,
+					"url_image": "2022/05/blender_32_splash_s.jpg"
+				},
+				{
+					"version": 3.1,
+					"latest": 2,
+					"url_image": "2022/03/splash.jpg"
+				},
+				{
+					"version": 3.0,
+					"latest": 1,
+					"url_image": "2021/11/splash_300.jpg"
+				}
+			]
+		},
+		{
+			"title": "2.x Series",
+			"versions": [
+				// 2.9x
+				{
+					"version": 2.93,
+					"latest": 18,
+					"LTS": true,
+					"url_image": "2021/06/blender_293_splash.jpg"
+				},
+				{
+					"version": 2.92,
+					"latest": 0,
+					"url_image": "2021/02/blender_2-92_splash-screen.png",
+					"file_names_base": "292_282"
+				},
+				{
+					"version": 2.91,
+					"latest": 2,
+					"exclude": 1,
+					"url_image": "2020/11/splash.png",
+					"file_names_base": "292_282"
+				},
+				{
+					"version": 2.90,
+					"latest": 1,
+					"url_image": "2020/12/splash_290.jpg",
+					"file_names_base": "292_282"
+				},
+				// 2.8x
+				{
+					"version": 2.83,
+					"LTS": true,
+					"url_image": "2020/06/Blender-2.83-splash.jpg",
+					"file_names": [
+						{
+							"range": {
+								"start": 0,
+								"end": 13
+							},
+							"file_names_base": "292_282"
+						},
+						{
+							"range": {
+								"start": 14,
+								"end": 20
+							},
+							"file_names_base": "293_42"
+						}
+					]
+				},
+				{
+					"version": 2.82,
+					"latest": "a",
+					"url_image": "2020/02/blender-2.82-splash.jpg",
+					"file_names_base": "292_282"
+				},
+				{
+					"version": 2.81,
+					"latest": "a",
+					"url_image": "2019/11/splash_2x.png",
+					"file_names": {
+						"platform": {
+							"linux": "linux-glibc217-x86_64.tar.bz2",
+							"macos ": "macOS.dmg",
+							"windows": "windows64.msi"
+						}
+					}
+				},
+				{
+					"version": 2.80,
+					"url_image": "2019/11/splash_2x-1.png",
+					"file_names": {
+						"range": ["", "rc1", "rc2", "rc3"],
+						"platform": {
+							"linux": {
+								"arch": ["-glibc217-x86_64", "-glibc224-i686"],
+								"ext": ".tar.bz2"
+							},
+							"macos ": "macOS.dmg",
+							"windows": {
+								"arch": ["32", "64"],
+								"ext": ".msi"
+							}
+						}
+					}
+				},
+				// 2.7x
+				{
+					"version": 2.79,
+					"latest": "b",
+					"url_image": "2017/08/splash_2x.png",
+					"file_names": {
+						"platform": {
+							"linux": {
+								"arch": ["-glibc219-x86_64", "-glibc219-i686"],
+								"ext": ".tar.bz2"
+							},
+							"windows": {
+								"arch": ["32", "64"],
+								"ext": ".msi"
+							}
+						}
+					}
+				},
+				{
+					// TO-DO: Check linux archs
+					"version": 2.78,
+					"latest": "c",
+					"url_image": "2016/09/splash_2x.png",
+					"file_names": {
+						"platform": {
+							"linux": {
+								"arch": ["-glibc219-x86_64", "-glibc219-i686", "-glibc211-x86_64", "-glibc211-i686"],
+								"ext": ".tar.bz2"
+							},
+							"windows": {
+								"arch": ["32", "64"],
+								"ext": ".msi"
+							}
+						}
+					}
+				},
+				{
+					"version": 2.77,
+					"latest": "a",
+					"url_image": "2016/03/splash_277.png",
+					"file_names_base": "277_275"
+				},
+				{
+					"version": 2.76,
+					"latest": "b",
+					"url_image": "2015/09/splash_276.png",
+					"file_names_base": "277_275"
+				},
+				{
+					"version": 2.75,
+					"latest": "a",
+					"url_image": "2015/07/splash_template275s.png",
+					"file_names_base": "277_275"
+				},
+				{
+					"version": 2.74,
+					"url_image": "2015/03/splash_274.png",
+					"file_names_base": "274_266"
+				},
+				{
+					"version": 2.73,
+					"latest": "a",
+					"url_image": "2014/12/splash_273.png",
+					"file_names_base": "274_266"
+				},
+				{
+					"version": 2.72,
+					"latest": "b",
+					"url_image": "2015/02/splash_272.png",
+					"file_names_base": "274_266"
+				},
+				{
+					"version": 2.71,
+					"url_image": "2014/06/splash_271.png",
+					"file_names_base": "274_266"
+				},
+				{
+					"version": 2.70,
+					"latest": "a",
+					"url_image": "2014/03/splash_270.png",
+					"file_names_base": "274_266"
+				}
+			]
+		}
+	]
+}
